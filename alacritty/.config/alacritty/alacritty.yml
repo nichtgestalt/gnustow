@@ -1,0 +1,418 @@
+#   _   _                 _ _   _         
+#  /_\ | | __ _  ___ _ __(_) |_| |_ _   _ 
+# //_\\| |/ _` |/ __| '__| | __| __| | | |
+#/  _  \ | (_| | (__| |  | | |_| |_| |_| |
+#\_/ \_/_|\__,_|\___|_|  |_|\__|\__|\__, |
+#              ~by nichtgestalt     |___/ 
+
+window:
+  dimensions:
+    columns: 100
+    lines: 27
+
+  padding:
+    x: 8
+    y: 8
+  opacity: 1.00
+  title: Alacritty
+  #dynamic_title: true
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+  # Override the variant of the GTK theme. Commonly supported values are `dark`
+  # and `light`. Set this to `None` to use the default theme variant.
+  #gtk_theme_variant: None
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: Jetbrains Mono Nerd Font
+    style: Regular
+  bold:
+    family: Jetbrains Mono Nerd Font
+    style: Bold
+  italic:
+    family: Jetbrains Mono Nerd Font
+    style: Italic
+  bold_italic:
+    family: Jetbrains Mono Nerd Font
+    style: Bold Italic
+  size: 15.0
+  
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+schemes:
+  nord-dark: &nord-dark
+    primary:
+      background: '#1d1f21'
+      foreground: '#c5c8c6'  
+    normal:
+      black:   '#1d1f21'
+      red:     '#cc6666'
+      green:   '#b5bd68'
+      yellow:  '#f0c674'
+      blue:    '#81a2be'
+      magenta: '#b294bb'
+      cyan:    '#8abeb7'
+      white:   '#c5c8c6'
+    bright:
+      black:   '#666666'
+      red:     '#d54e53'
+      green:   '#b9ca4a'
+      yellow:  '#e7c547'
+      blue:    '#7aa6da'
+      magenta: '#c397d8'
+      cyan:    '#70c0b1'
+      white:   '#eaeaea'
+    dim:
+      black:   '#131415'
+      red:     '#864343'
+      green:   '#777c44'
+      yellow:  '#9e824c'
+      blue:    '#556a7d'
+      magenta: '#75617b'
+      cyan:    '#5b7d78'
+      white:   '#828482'
+      
+  breeze: &breeze
+    primary:
+      background:        '0x232627'
+      foreground:        '0xfcfcfc'
+      dim_foreground:    '0xeff0f1'
+      bright_foreground: '0xffffff'
+      dim_background:    '0x31363b'
+      bright_background: '0x000000'
+    normal:
+      black:             '0x232627'
+      red:               '0xed1515'
+      green:             '0x11d116'
+      yellow:            '0xf67400'
+      blue:              '0x1d99f3'
+      magenta:           '0x9b59b6'
+      cyan:              '0x1abc9c'
+      white:             '0xfcfcfc'
+    bright:
+      black:             '0x7f8c8d'
+      red:               '0xc0392b'
+      green:             '0x1cdc9a'
+      yellow:            '0xfdbc4b'
+      blue:              '0x3daee9'
+      magenta:           '0x8e44ad'
+      cyan:              '0x16a085'
+      white:             '0xffffff'
+    dim:
+      black:             '0x31363b'
+      red:               '0x783228'
+      green:             '0x17a262'
+      yellow:            '0xb65619'
+      blue:              '0x1b668f'
+      magenta:           '0x614a73'
+      cyan:              '0x186c60'
+      white:             '0x63686d'
+      
+  tango: &tango
+    primary:
+      background: '0x2e3436'
+      foreground: '0xd3d7cf'    
+    normal:
+      black: '0x2e3436'
+      red: '0xcc0000'
+      green: '0x4e9a06'
+      yellow: '0xc4a000'
+      blue: '0x3465a4'
+      magenta: '0x75507b'
+      cyan: '0x06989a'
+      white: '0xd3d7cf'
+    bright:
+      black: '0x555753'
+      red: '0xef2929'
+      green: '0x8ae234'
+      yellow: '0xfce94f'
+      blue: '0x729fcf'
+      magenta: '0xad7fa8'
+      cyan: '0x34e2e2'
+      white: '0xeeeeec'
+      
+  google-dark: &google-dark
+    primary:
+      background: '0x1d1f21'
+      foreground: '0xc5c8c6'
+    normal:
+      black:   '0x1d1f21'
+      red:     '0xcc342b'
+      green:   '0x198844'
+      yellow:  '0xfba922'
+      blue:    '0x3971ed'
+      magenta: '0xa36ac7'
+      cyan:    '0x3971ed'
+      white:   '0xc5c8c6'
+    bright:
+      black:   '0x969896'
+      red:     '0xcc342b'
+      green:   '0x198844'
+      yellow:  '0xfba922'
+      blue:    '0x3971ed'
+      magenta: '0xa36ac7'
+      cyan:    '0x3971ed'
+      white:   '0xffffff'
+      
+  codeschool-dark: &codeschool-dark
+    primary:
+      background: '0x232c31'
+      foreground: '0x9ea7a6'
+    normal:
+      black:   '0x232c31'
+      red:     '0x2a5491'
+      green:   '0x237986'
+      yellow:  '0xa03b1e'
+      blue:    '0x484d79'
+      magenta: '0xc59820'
+      cyan:    '0xb02f30'
+      white:   '0x9ea7a6'
+    bright:
+      black:   '0x3f4944'
+      red:     '0x2a5491'
+      green:   '0x237986'
+      yellow:  '0xa03b1e'
+      blue:    '0x484d79'
+      magenta: '0xc59820'
+      cyan:    '0xb02f30'
+      white:   '0xb5d8f6'
+  
+  kasugano: &kasugano
+    primary:
+      background: '0x1b1b1b'
+      foreground: '0xffffff'
+    normal:
+      black:   '0x3d3d3d'
+      red:     '0x6673bf'
+      green:   '0x3ea290'
+      yellow:  '0xb0ead9'
+      blue:    '0x31658c'
+      magenta: '0x596196'
+      cyan:    '0x8292b2'
+      white:   '0xc8cacc'
+    bright:
+      black:   '0x4d4d4d'
+      red:     '0x899aff'
+      green:   '0x52ad91'
+      yellow:  '0x98c9bb'
+      blue:    '0x477ab3'
+      magenta: '0x7882bf'
+      cyan:    '0x95a7cc'
+      white:   '0xedeff2'
+  
+  doomicide: &doomicide
+    primary:
+      background: '0x000000'
+      foreground: '0xffffff'
+    normal:
+      black:   '0x000000'
+      red:     '0x571dc2'
+      green:   '0x14db49'
+      yellow:  '0x403d70'
+      blue:    '0x385a70'
+      magenta: '0x384894'
+      cyan:    '0x4f3a5e'
+      white:   '0x999999'
+    bright:
+      black:   '0x38372c'
+      red:     '0x7c54b0'
+      green:   '0xa2e655'
+      yellow:  '0x9c6f59'
+      blue:    '0x323f5c'
+      magenta: '0x5e6c99'
+      cyan:    '0x667d77'
+      white:   '0xffffff'
+
+  gslob-nature-suede: &gslob-nature-suede
+    primary:
+      background: '0x170f0d'
+      foreground: '0x746c48'
+    normal:
+      black:   '0x392925'
+      red:     '0x98724c'
+      green:   '0x908f32'
+      yellow:  '0xaa964c'
+      blue:    '0x7b854e'
+      magenta: '0x6b5644'
+      cyan:    '0x5c5142'
+      white:   '0xc8b55b'
+    bright:
+      black:   '0x544b2e'
+      red:     '0xaf652f'
+      green:   '0xc3c13d'
+      yellow:  '0xc8b55b'
+      blue:    '0x70a16c'
+      magenta: '0x98724c'
+      cyan:    '0x778725'
+      white:   '0xe4dc8c'
+  
+  muse: &muse
+    primary:
+      background: '0x000000'
+      foreground: '0xffffff'
+    normal:
+      black:   '0x2e3436'
+      red:     '0xa31604'
+      green:   '0x447241'
+      yellow:  '0xc1951a'
+      blue:    '0x425387'
+      magenta: '0x965d98'
+      cyan:    '0x06989a'
+      white:   '0xd3d7cf'
+    bright:
+      black:   '0x555753'
+      red:     '0xc60001'
+      green:   '0x27a343'
+      yellow:  '0xd5a30e'
+      blue:    '0x4a5a8d'
+      magenta: '0x893c8c'
+      cyan:    '0x12bccb'
+      white:   '0xeeeeec'
+  
+  jwl-dark: &jwl-dark
+    primary:
+      background: '0x000000'
+      foreground: '0xffffff'
+    normal:
+      black:   '0x333333'
+      red:     '0x8c4665'
+      green:   '0x287373'
+      yellow:  '0x7c7c99'
+      blue:    '0x395573'
+      magenta: '0x5e468c'
+      cyan:    '0x31658c'
+      white:   '0x899ca1'
+    bright:
+      black:   '0x3d3d3d'
+      red:     '0xbf4d80'
+      green:   '0x53a6a6'
+      yellow:  '0x9e9ecb'
+      blue:    '0x477ab3'
+      magenta: '0x7e62b3'
+      cyan:    '0x6096bf'
+      white:   '0xc0c0c0'
+      
+  nudge: &nudge
+    primary:
+      background: '0x000000'
+      foreground: '0xffffff'
+    normal:
+      black:   '0x658280'
+      red:     '0x822f5d'
+      green:   '0x184a31'
+      yellow:  '0x9d4500'
+      blue:    '0x304465'
+      magenta: '0x330801'
+      cyan:    '0x175552'
+      white:   '0x110005'
+    bright:
+      black:   '0x8ca8a6'
+      red:     '0xa24b76'
+      green:   '0x28634d'
+      yellow:  '0x9d5823'
+      blue:    '0x415c77'
+      magenta: '0x532706'
+      cyan:    '0x3a6868'
+      white:   '0x330801'
+
+  dracula: &dracula
+    primary:
+      background: '0x282a36'
+      foreground: '0xf8f8f2'
+    normal:
+      black:   '0x000000'
+      red:     '0xff5555'
+      green:   '0x50fa7b'
+      yellow:  '0xf1fa8c'
+      blue:    '0xbd93f9'
+      magenta: '0xff79c6'
+      cyan:    '0x8be9fd'
+      white:   '0xbbbbbb'
+    bright:
+      black:   '0x555555'
+      red:     '0xff5555'
+      green:   '0x50fa7b'
+      yellow:  '0xf1fa8c'
+      blue:    '0xcaa9fa'
+      magenta: '0xff79c6'
+      cyan:    '0x8be9fd'
+      white:   '0xffffff'
+ 
+  cyperpunk: &cyberpunk
+    primary:
+      background: "0x000b1e"
+      foreground: "0x0abdc6"
+    normal:
+      black:   "0x123e7c"
+      red:     "0xff0000"
+      green:   "0xd300c4"
+      yellow:  "0xf57800"
+      blue:    "0x123e7c"
+      magenta: "0x711c91"
+      cyan:    "0x0abdc6"
+      white:   "0xd7d7d5"
+    bright:
+      black:   "0x1c61c2"
+      red:     "0xff0000"
+      green:   "0xd300c4"
+      yellow:  "0xf57800"
+      blue:    "0x00ff00"
+      magenta: "0x711c91"
+      cyan:    "0x0abdc6"
+      white:   "0xd7d7d5"
+
+  solarized-dark: &solarized-dark
+    primary:
+      background: '0x002b36'
+      foreground: '0x839496'
+    normal:
+      black:   '0x073642'
+      red:     '0xdc322f'
+      green:   '0x859900'
+      yellow:  '0xb58900'
+      blue:    '0x268bd2'
+      magenta: '0xd33682'
+      cyan:    '0x2aa198'
+      white:   '0xeee8d5'
+    bright:
+      black:   '0x002b36'
+      red:     '0xcb4b16'
+      green:   '0x586e75'
+      yellow:  '0x657b83'
+      blue:    '0x839496'
+      magenta: '0x6c71c4'
+      cyan:    '0x93a1a1'
+      white:   '0xfdf6e3'
+# Following color schmemes are currently available:
+# nord-dark           breeze            tango         google-dark
+# codeschool-dark     kasugano          doomicide     gslob-nature-suede
+# muse                jwl-dark          nudge		dracula
+# cyberpunk           solarized-dark
+colors: *solarized-dark
+
+cursor:
+  style:
+    # Values for `shape`: ▇ Block; _ Underline; | Beam
+    shape: Underline
+    # Values for `blinking`:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: Always
+
+live_config_reload: true
