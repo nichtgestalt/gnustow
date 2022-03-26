@@ -49,7 +49,8 @@ bspc rule -a Toolkit state=floating
 
 # Autostart
 setxkbmap de &
-nitrogen --restore &
+#nitrogen --restore &
+nitrogen --set-zoom $HOME/.config/bspwm/wallpaper1.jpg
 xsetroot -cursor_name left_ptr &
 picom -fc &
 ibus exit &
