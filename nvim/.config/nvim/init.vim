@@ -8,6 +8,7 @@
 " Plugins
 call plug#begin()
 Plug 'overcache/NeoSolarized'
+Plug 'romgrk/doom-one.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/vim-pencil'
 Plug 'vimwiki/vimwiki'
@@ -19,7 +20,7 @@ let mapleader = " "
 syntax on
 set mouse=a
 set termguicolors
-"highlight Comment gui=italic
+set guifont=Jetbrains\ Mono\ Nerd\ Font:h15
 
 " Keyboard Shortcuts
 map <leader>g :Goyo<CR>
@@ -35,8 +36,10 @@ set statusline+=\ %c:%l/%L
 set statusline+=\ [%p%%]
 
 " Colorscheme Settings
-colorscheme NeoSolarized
+"colorscheme NeoSolarized
+colorscheme doom-one
 set background=dark
+let g:doom_one_terminal_colors = v:true
 let g:neosolarized_contrast = "normal"
 let g:neosolarized_visibility = "normal"
 let g:neosolarized_vertSplitBgTrans = 1
@@ -44,7 +47,7 @@ let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
 let g:neosolarized_italic = 1
 
-" Vimwiki
+" Vimwiki /comfy/
 let g:vimwiki_list = [{'path':'$HOME/docs/vimwiki',
  \ 'syntax': 'markdown', 'ext': '.md'}]
 autocmd BufRead,BufNewFile *.md :Goyo 80

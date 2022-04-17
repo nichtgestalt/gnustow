@@ -5,13 +5,12 @@
 # Für eine Zwischenlinie wird eine Zeile frei gelassen
 
 xmenu <<EOF | sh &
-Alacritty	alacritty
+Alacritty	bspc rule -a Alacritty -o state=floating && alacritty
 Firefox 	firefox
-Files   	pcmanfm
+Files   	bspc rule -a Pcmanfm -o state=floating && pcmanfm
 
 Erschaffe
 	Gimp	gimp
-	Olive	olive-editor
 	NeoVim	alacritty -e nvim
 	Geany	geany
 	Office
@@ -28,7 +27,7 @@ Set up
 	Alacritty	alacritty -e nvim ~/.config/alacritty/alacritty.yml
 	OBS-Studio	flatpak run com.obsproject.Studio
 Hilfe
-	Debian	zathura ~/docs/readme/Debian.pdf
+	Gentoo	zathura ~/docs/readme/Gentoo.pdf
 	Groff 	zathura ~/docs/readme/Groff.pdf
 	Solarized	zathura ~/docs/readme/Solarized.pdf
 

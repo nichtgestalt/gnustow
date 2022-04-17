@@ -18,34 +18,11 @@
 ;==========================================================
 
 [colors]
-background 		= #bf181818
-background-alt 		= #555
-
-foreground		= #1d261e
-foreground-alt 	=	 #00FFFFFF
-padding			= 3
-
-; Solarized
-base03	= #002b36
-base02	= #073642
-base01	= #586e75
-base00	= #657b83
-base0	= #839496
-base1	= #93a1a1
-base2	= #eee8d5
-base3	= #fdf6e3
-yellow	= #b58900
-orange	= #cb4b16
-red	= #dc322f
-magenta	= #d33682
-violet	= #6c71c4
-blue	= #268bd2
-cyan	= #2aa198
-green	= #859900
-
+include-file = ~/.config/polybar/doom-one.ini
+padding = 3
 
 [bar/bspwm]
-monitor = DP-2
+monitor = HDMI-A-0
 width = 100%
 height = 23
 offset-x = 0%
@@ -107,7 +84,7 @@ label-empty-foreground = ${colors.base1}
 label-empty-background = ${colors.base03}
 label-empty-padding = ${colors.padding}
 label-active = %name%
-label-active-foreground = ${colors.green}
+label-active-foreground = ${colors.blue}
 label-active-background = ${colors.base03}
 label-active-padding = ${colors.padding}
 label-occupied = %name%
