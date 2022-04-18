@@ -4,6 +4,8 @@
 # [IMG:/Pfad/zu/image.png (optional)] - [Name des Eitrages im Menü] - [Befehl]
 # Für eine Zwischenlinie wird eine Zeile frei gelassen
 
+#NeoVim	bspc rule -a Alacritty -o state=floating && alacritty -e nvim
+
 xmenu <<EOF | sh &
 Alacritty	bspc rule -a Alacritty -o state=floating && alacritty
 Firefox 	firefox
@@ -11,8 +13,8 @@ Files   	bspc rule -a Pcmanfm -o state=floating && pcmanfm
 
 Erschaffe
 	Gimp	gimp
-	NeoVim	bspc rule -a Alacritty -o state=floating && alacritty -e nvim
-	VimWiki	bspc rule -a Alacritty -o state=floating && alacritty -e nvim ~/docs/vimwiki/index.md
+	NeoVide	bspc rule -a neovide -o state=floating && ~/.config/neovide/target/release/neovide
+	VimWiki	bspc rule -a neovide -o state=floating && ~/.config/neovide/target/release/neovide ~/docs/vimwiki/index.md
 	Geany	geany
 	Office
 		Writer	lowriter

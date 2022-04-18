@@ -1,4 +1,4 @@
-"     __                _           
+"     __                _
 "  /\ \ \___  _____   _(_)_ __ ___  
 " /  \/ / _ \/ _ \ \ / / | '_ ` _ \ 
 "/ /\  /  __/ (_) \ V /| | | | | | |
@@ -13,6 +13,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'preservim/vim-pencil'
 Plug 'vimwiki/vimwiki'
 Plug 'ap/vim-css-color'
+Plug 'glepnir/dashboard-nvim'
+Plug 'liuchengxu/vim-clap'
 call plug#end()
 
 " General Settings
@@ -23,10 +25,12 @@ set termguicolors
 set guifont=JetBrainsMono\ Nerd\ Font:h15
 
 " Keyboard Shortcuts
-map <leader>g :Goyo<CR>
-map <leader>f :SoftPencil<CR>
 map <C-p> "+P
 vnoremap <C-c> "+y
+nnoremap <leader>ws :edit ~/docs/vimwiki/System.md<CR>
+nnoremap <leader>wm :edit ~/.config/bspwm/bspwmrc<CR>
+nnoremap <leader>vi :edit ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ba :edit ~/.bashrc<CR>
 
 " Status Line
 set statusline=
@@ -47,8 +51,39 @@ let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
 let g:neosolarized_italic = 1
 
+"                                               ### Dashboard ###
+let g:dashboard_default_executiv ='clap'
+let g:dashboard_custom_header=[
+			\'',
+			\'',
+			\'',
+			\'',
+			\'',
+			\'',
+			\'███╗   ██╗███████╗ ██████╗ ██╗    ██╗██████╗ ██╗████████╗███████╗',
+			\'████╗  ██║██╔════╝██╔═══██╗██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝',
+			\'██╔██╗ ██║█████╗  ██║   ██║██║ █╗ ██║██████╔╝██║   ██║   █████╗  ',
+			\'██║╚██╗██║██╔══╝  ██║   ██║██║███╗██║██╔══██╗██║   ██║   ██╔══╝  ',
+			\'██║ ╚████║███████╗╚██████╔╝╚███╔███╔╝██║  ██║██║   ██║   ███████╗',
+			\'╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝',
+			\'',
+			\'                                           by nichtgestalt        ',
+			\]
+let g:dashboard_custom_section={
+\ 'a': { 'description': [' VimWiki                        SPC w w'], 'command': 'edit ~/docs/vimwiki/index.md' },
+\ 'b': { 'description': [' System                         SPC w s'], 'command': 'edit ~/docs/vimwiki/System.md' },
+\ 'c': { 'description': [' Desktop                        SPC f r'], 'command': 'edit ~/.config/bspwm/bspwmrc' },
+\ 'd': { 'description': [' Configure                      SPC v i'], 'command': 'edit ~/.config/nvim/init.vim' },
+\ 'e': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
+\ }
+
+let g:dashboard_custom_footer=['"Your mind is for having ideas, not for storing them."',]
+
 " Vimwiki /comfy/
+map <leader>g :Goyo<CR>
+map <leader>f :SoftPencil<CR>
 let g:vimwiki_list = [{'path':'$HOME/docs/vimwiki',
  \ 'syntax': 'markdown', 'ext': '.md'}]
 autocmd BufRead,BufNewFile *.md :Goyo 80
 autocmd BufRead,BufNewFile *.md :SoftPencil
+                                                                            
