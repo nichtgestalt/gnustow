@@ -20,7 +20,7 @@ let mapleader = " "
 syntax on
 set mouse=a
 set termguicolors
-set guifont=Jetbrains\ Mono\ Nerd\ Font:h15
+set guifont=JetBrainsMono\ Nerd\ Font:h15
 
 " Keyboard Shortcuts
 map <leader>g :Goyo<CR>

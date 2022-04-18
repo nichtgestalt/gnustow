@@ -5,10 +5,13 @@
 #|_.__/ \__,_|___/_| |_|_|  \___|
 
 
-# Prompt
-#PS1='\[\e[0m\]{ \[\e[0;33m\]\w \[\e[0m\]} \[\e[0;91m\]\[\e[0m\] '
-PS1='\[\e[0m\]{\[\e[0;95m\] \w \[\e[0m\]} \[\e[0m\]\[\e[0m\]  '
+# Prompts
+PS1='\[\e[0m\]{\[\e[0;94m\] \W \[\e[0m\]} \[\e[0m\]﯑\[\e[0m\] '      # General
+#PS1='\[\e[0m\]{ \[\e[0;32m\]\W \[\e[0m\]} \[\e[0;92m\] \[\e[0m\] ' # Void
+#PS1='\[\e[0m\]{ \[\e[0;33m\]\w \[\e[0m\]} \[\e[0;91m\]\[\e[0m\] '  # Debian
+#PS1='\[\e[0m\]{\[\e[0;95m\] \w \[\e[0m\]} \[\e[0m\]\[\e[0m\]  '    # Gentoo
 #PS1='[\u@\h \W]$ '
+
 
 # Alias
 alias bashrc='nvim $HOME/.bashrc'
@@ -25,6 +28,7 @@ alias vi='nvim'
 alias ls='ls --color=always'
 #alias bsinstall='sudo xbps-install -S'
 #alias bssearch='xbps-query -R'
+
 
 # vi mode
 set -o vi

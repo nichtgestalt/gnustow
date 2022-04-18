@@ -48,9 +48,9 @@ XF86AudioLowerVolume
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
 super + F7
-	pactl set-sink-volume 1 +10%
-super + F8
 	pactl set-sink-volume 1 -10%
+super + F8
+	pactl set-sink-volume 1 +10%
 
 # Launch Filemanager
 super + shift + f
@@ -69,7 +69,7 @@ super + shift + r
 	bspc wm -r
 
 # close window
-super + shift + q
+super + q
 	bspc node -c
 
 # kill window

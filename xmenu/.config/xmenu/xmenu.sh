@@ -11,14 +11,15 @@ Files   	bspc rule -a Pcmanfm -o state=floating && pcmanfm
 
 Erschaffe
 	Gimp	gimp
-	NeoVim	alacritty -e nvim
+	NeoVim	bspc rule -a Alacritty -o state=floating && alacritty -e nvim
+	VimWiki	bspc rule -a Alacritty -o state=floating && alacritty -e nvim ~/docs/vimwiki/index.md
 	Geany	geany
 	Office
 		Writer	lowriter
 		Calc	localc
 Erscheinungsbild
 	Themes	lxappearance
-	Wallpaper	nitrogen
+	Wallpaper	nitrogen,
 	Polybar 	alacritty -e nvim ~/.config/polybar/config
 	Xmenu   	alacritty -e nvim ~/.config/xmenu/xmenu.sh
 	Random wlpr	nitrogen --set-zoom-fill --random ~/pics/
