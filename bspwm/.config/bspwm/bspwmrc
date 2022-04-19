@@ -51,7 +51,7 @@ bspc rule -a Ristretto state=floating
 # Autostart
 setxkbmap de &
 nitrogen --restore &
-nitrogen --set-zoom-fill $HOME/.config/bspwm/wallpaper.jpg &
+nitrogen --set-zoom-fill $HOME/.config/bspwm/wallpaper1.jpg &
 xsetroot -cursor_name left_ptr &
 picom -fc --experimental-backends &
 ibus exit &
