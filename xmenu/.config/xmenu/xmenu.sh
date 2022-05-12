@@ -8,22 +8,21 @@
 
 xmenu <<EOF | sh &
 Alacritty	bspc rule -a Alacritty -o state=floating && alacritty
-Firefox 	firefox
-Files   	bspc rule -a Pcmanfm -o state=floating && pcmanfm
+Browser 	$BROWSER
+Files   	bspc rule -a Thunar -o state=floating && thunar
 
 Erschaffe
 	Gimp	gimp
-	NeoVide	bspc rule -a neovide -o state=floating && ~/.config/neovide/target/release/neovide
-	VimWiki	bspc rule -a neovide -o state=floating && ~/.config/neovide/target/release/neovide ~/docs/vimwiki/index.md
+	NeoVide	bspc rule -a neovide -o state=floating && neovide
 	Geany	geany
 	Office
 		Writer	lowriter
 		Calc	localc
 Erscheinungsbild
 	Themes	lxappearance
-	Wallpaper	nitrogen,
-	Polybar 	alacritty -e nvim ~/.config/polybar/config
-	Xmenu   	alacritty -e nvim ~/.config/xmenu/xmenu.sh
+	Wallpaper	nitrogen
+	Polybar 	bspc rule -a neovide -o state=floating && neovide ~/.config/polybar/config
+	Xmenu 	 	bspc rule -a neovide -o state=floating && neovide ~/.config/xmenu/xmenu.sh
 	Random wlpr	nitrogen --set-zoom-fill --random ~/pics/
 Set up
 	Pulsemixer	alacritty -e pulsemixer
@@ -33,6 +32,7 @@ Hilfe
 	Gentoo	zathura ~/docs/readme/Gentoo.pdf
 	Groff 	zathura ~/docs/readme/Groff.pdf
 	Solarized	zathura ~/docs/readme/Solarized.pdf
+	Neo 2 L1	ristretto ~/docs/readme/neo2-layer1.png
 
 Reload	bspc wm -r
 Exit	bspc quit

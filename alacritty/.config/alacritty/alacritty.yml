@@ -43,7 +43,7 @@ font:
   bold_italic:
     family: Jetbrains Mono Nerd Font
     style: Bold Italic
-  size: 15.0
+  size: 14.0
   
   offset:
     x: 0
@@ -402,8 +402,8 @@ schemes:
   gruvbox: &gruvbox
     primary:
       # hard contrast: background = '0x1d2021'
-      background: '0x282828'
       # soft contrast: background = '0x32302f'
+      background: '0x282828'
       foreground: '0xebdbb2'
     normal:
       black:   '0x282828'
@@ -452,6 +452,30 @@ schemes:
       magenta: '#a9a1e1'
       cyan:    '#46d9ff'
       white:   '#dfdfdf'
+      
+  base16: &base16
+
+    primary:
+      background: '0x2b303b'
+      foreground: '0xc0c5ce'
+    normal:
+      black:   '0x2b303b'
+      red:     '0xbf616a'
+      green:   '0xa3be8c'
+      yellow:  '0xebcb8b'
+      blue:    '0x8fa1b3'
+      magenta: '0xb48ead'
+      cyan:    '0x96b5b4'
+      white:   '0xc0c5ce'
+    bright:
+      black:   '0x65737e'
+      red:     '0xd08770'
+      green:   '0x343d46'
+      yellow:  '0x4f5b66'
+      blue:    '0xa7adba'
+      magenta: '0xdfe1e8'
+      cyan:    '0xab7967'
+      white:   '0xeff1f5'
 
 colors:
   # Default colors
@@ -475,6 +499,7 @@ colors:
 # codeschool-dark     kasugano          doomicide	gslob-nature-suede
 # muse                jwl-dark          nudge		dracula
 # cyberpunk           solarized-dark	gruvbox		DoomOne
+# base16
 colors: *DoomOne
 
 cursor:

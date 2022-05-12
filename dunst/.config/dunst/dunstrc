@@ -13,8 +13,9 @@
     ### Geometry ###
     width = 250
     height = 300
-    origin = top-right
-    offset = 5x5
+    origin = top-center
+    #origin = top-right
+    offset = 0x5
     scale = 0
     notification_limit = 0
     ### Progress bar ###

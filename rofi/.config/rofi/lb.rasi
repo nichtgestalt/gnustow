@@ -17,7 +17,7 @@
     normal-foreground:           @foreground;
     background:                  #3f444a;
     alternate-normal-background: @background;
-    selected-normal-background:  @cyan;
+    selected-normal-background:  @blue;
     separatorcolor:              @selected-normal-background;
     border-color:                @foreground;
     bordercolor:                 @red;

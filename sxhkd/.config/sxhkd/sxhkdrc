@@ -1,81 +1,100 @@
-#          _     _       _ 
-# _____  _| |__ | | ____| |
-#/ __\ \/ / '_ \| |/ / _` |
-#\__ \>  <| | | |   < (_| |
-#|___/_/\_\_| |_|_|\_\__,_|
-#            ~by nichtgestalt
+###           _     _       _ 
+###  _____  _| |__ | | ____| |
+### / __\ \/ / '_ \| |/ / _` |
+### \__ \>  <| | | |   < (_| |
+### |___/_/\_\_| |_|_|\_\__,_|
+###              ~by nichtgestalt
 
-# terminal emulator
-super + Return
-	alacritty
-
+## Basic navigations:
+# this help
+super + F1
+	bspc rule -a Alacritty -o state=floating && alacritty -e kcheat
 # program launcher
 super + d
 	rofi -show drun
+
+# close window
+super + q
+	bspc node -c
+
+# launch terminal
+super + Return
+	alacritty
+
+# launch Browser
+super + shift + b
+	$BROWSER
+
+# kill window
+alt + shift + q
+	bspc node -k
 
 # reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# Launch Xmenu
+# reload wm
+super + shift + r
+	bspc wm -r
+
+# quit wm
+alt + F4
+	bspc quit
+
+## Other applications: 
+# take a screenshot
+super + F9
+	flameshot gui
+
+# random wallpaper
+super + e
+	nitrogen --set-zoom-fill --random ~/pics/wallpapers &
+
+## Mouse buttons:
+# launch xmenu
+ctrl + button3
+	$HOME/.config/xmenu/xmenu.sh
+
 button8
 	$HOME/.config/xmenu/xmenu.sh
 
-super + alt + button3
-	$HOME/.config/xmenu/xmenu.sh
+# new empty workspace
+super + button2  
+    bspc desktop any.!occupied -f
+
+# scroll with mouse wheel
+super + button{5,4}
+	bspc desktop {next,prev}.occupied -f  
 
 # toggle floating mode
 button9
 	bspc node -t floating	
 
-# scrolle with mouse wheel
-super + button{5,4}
-	bspc desktop {next,prev}.occupied -f  
-
-# new empty workspace
-super + button2
-    bspc desktop any.!occupied -f
-
-# Showing the time and date using Dunst
+## Dunst notifications:
+# time and date
 ctrl + shift + a
 	notify-send "$(date '+%H:%M Uhr - %d.%m.%Y')"
 
-# volume controll
+## Sound controll:
+# decrease volume
+super + F7
+	pactl set-sink-volume 0 -10%
+# increase volume
+super + F8
+	pactl set-sink-volume 0 +10%
+# mute volume
+super + F6
+	pactl set-sink-mute 0 toggle
+
+# using action keys
 XF86AudioRaiseVolume
 	pactl set-sink-volume 0 +10%
 XF86AudioLowerVolume
 	pactl set-sink-volume 0 -10%
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
-super + F7
-	pactl set-sink-volume 1 -10%
-super + F8
-	pactl set-sink-volume 1 +10%
 
-# Launch Filemanager
-super + shift + f
-	pcmanfm
-
-# Launch Firefox
-super + shift + b
-	firefox
-
-# quit wm
-super + shift + e
-	bspc quit
-
-# reload wm
-super + shift + r
-	bspc wm -r
-
-# close window
-super + q
-	bspc node -c
-
-# kill window
-alt + shift + q
-	bspc node -k
-
+## Window management:
 # alternate tiled and monocle layout
 super + m
 	bspc desktop -l next
@@ -92,15 +111,15 @@ super + g
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
+# set the node flags (marked, locked, sticky, private)
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-# focus the node in the given direction
+# focus the node in the given direction (left, down, up, right)
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
+# focus the node for the given path jump (parent, brother, first, second)
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
@@ -108,19 +127,9 @@ super + {p,b,comma,period}
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
 # focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
@@ -130,17 +139,9 @@ super + {_,shift + }{1-9,0}
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
 # cancel the preselection for the focused node
 super + ctrl + space
 	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}

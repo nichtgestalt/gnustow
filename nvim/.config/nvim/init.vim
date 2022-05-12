@@ -24,14 +24,6 @@ set mouse=a
 set termguicolors
 set guifont=JetBrainsMono\ Nerd\ Font:h15
 
-" Keyboard Shortcuts
-map <C-p> "+P
-vnoremap <C-c> "+y
-nnoremap <leader>ws :edit ~/docs/vimwiki/System.md<CR>
-nnoremap <leader>wm :edit ~/.config/bspwm/bspwmrc<CR>
-nnoremap <leader>vi :edit ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ba :edit ~/.bashrc<CR>
-
 " Status Line
 set statusline=
 set statusline+=\ %F
@@ -67,15 +59,24 @@ let g:dashboard_custom_header=[
 			\'██║ ╚████║███████╗╚██████╔╝╚███╔███╔╝██║  ██║██║   ██║   ███████╗',
 			\'╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝',
 			\'',
-			\'                                           by nichtgestalt        ',
+			\'                                           ~by nichtgestalt       ',
 			\]
 let g:dashboard_custom_section={
 \ 'a': { 'description': [' VimWiki                        SPC w w'], 'command': 'edit ~/docs/vimwiki/index.md' },
-\ 'b': { 'description': [' System                         SPC w s'], 'command': 'edit ~/docs/vimwiki/System.md' },
-\ 'c': { 'description': [' Desktop                        SPC f r'], 'command': 'edit ~/.config/bspwm/bspwmrc' },
+\ 'b': { 'description': [' Desktop                        SPC f r'], 'command': 'edit ~/.config/bspwm/bspwmrc' },
+\ 'c': { 'description': [' Key Strokes                    SPC s x'], 'command': 'edit ~/.config/sxhkd/sxhkdrc' },
 \ 'd': { 'description': [' Configure                      SPC v i'], 'command': 'edit ~/.config/nvim/init.vim' },
 \ 'e': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
 \ }
+
+" Keyboard Shortcuts
+map <C-p> "+P
+vnoremap <C-c> "+y
+nnoremap <leader>ws :edit ~/docs/vimwiki/System.md<CR>
+nnoremap <leader>wm :edit ~/.config/bspwm/bspwmrc<CR>
+nnoremap <leader>sx :edit ~/.config/sxhkd/sxhkdrc<CR>
+nnoremap <leader>vi :edit ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ba :edit ~/.bashrc<CR>
 
 let g:dashboard_custom_footer=['"Your mind is for having ideas, not for storing them."',]
 
@@ -86,4 +87,3 @@ let g:vimwiki_list = [{'path':'$HOME/docs/vimwiki',
  \ 'syntax': 'markdown', 'ext': '.md'}]
 autocmd BufRead,BufNewFile *.md :Goyo 80
 autocmd BufRead,BufNewFile *.md :SoftPencil
-                                                                            

@@ -33,6 +33,14 @@ Meine Tastatur wird lanfristisch die MNT Reform Tastatur. Da sie komplett Open S
 
 Alternativ kommen ergonomische Tastaturen in Frage. Modelle, wie beispielsweise die Ergo Dox EZ.
 
+Derzeit ziehe ich es in Erwägung, ein alternatives Tastaturenlayout zu benutzen. 
+Nicht nur, dass dadurch die Ergonomie meines Arbeitsplatzes verbessert wird, auch wird dadurch die Uneindeutigkeit meines Systems weiter unterstrichen.
+Die Wahl ist hierbei auf Neo2 gefallen, da es zum Schreiben in der deutschen Sprache optimiert ist.
+
+Update (25. April): Meinen Fokus auf Ergonomie gelegt, habe ich ein Auge auf die Dactyl Manuform geworfen. Sie wird nahezu komplett from Scratch gebaut: Das Gehäuse wird via 3D-Druck gefertigt, die mechanischen Switches werden nicht in ein PCB gelötet, sondern aufgrund der Form verdrahtet und direkt an den MikroCotroller angeschlossen. Selbst die Firmware wird manuell geflasht und bearbeitet. 
+Es ist ein absolutes Statement im Bereich der Custom Keyboards und in meinen Augen von nichts übertroffen. Die Drucke sind Opensource und können nach Belieben angepasst werden. Weitere Komponenten können dem Gehäuse weiteren Charakter geben, wie Beispielsweise Filler für eine ebene und gleichmäßige Oberfläche und/oder entsprechnder Lack, um dem Gehäse den letzten Schliff zu verpassen.
+Damit die Tastatur nicht wegrutscht kann der Boden mit einer formpassenden Metalplatte beschwert werden.
+
 
 ## Software
 
@@ -54,6 +62,11 @@ Derzeit nutze ich wieder BSPWM. Mit dem Doom-One Color Scheme wird das Ganze wie
 Ursprünglich war die Nutzung von __Polybar__ vorgesehen, jedoch gehe ich derzeit zu einen komplett Bar-freien Desktop über; hauptsächlich für ein eleganteren Look und mehr Sicherheit.
 
 Der Terminalemulator der Wahr ist __Alacritty__. Er ist schnell und lässt sich leicht konfigurieren. 
+
+Für das Aufrufen von Programmen nutze ich __Rofi__ und __Xmenu__.
+Letzteres werde ich auch zur Navigation durch den Desktop nutzen. Mit Hilfe von Shell-Scripten und If-Statements sollte ich das Menü dynamisch anpassen können.
+Alternativen, wie __Alttab__ oder __Rofi__ haben mich leider nicht zufrieden stellen können.
+Des Weiteren möchte ich irgendwie __Skippy-XD__ einbinden. Es ist elegand und modern, funktioriert allerdings nur bedingt mit den Workflow von BSPWM...
 
 Als Filemanager nutze ich __Pcmanfm__. Minimalistisch, aber hoch funktionell fügt er sich hervorragend in mein System ein.
 

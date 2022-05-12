@@ -6,10 +6,11 @@
 
 
 # Prompts
-#PS1='\[\e[0m\]{\[\e[0;94m\] \w \[\e[0m\]} \[\e[0m\]﯑\[\e[0m\]  '     # General
+#PS1='\[\e[0m\]{\[\e[0;95m\] \w \[\e[0m\]} \[\e[0m\]﯑\[\e[0m\]  '     # General
 #PS1='\[\e[0m\]{ \[\e[0;32m\]\w \[\e[0m\]} \[\e[0;92m\] \[\e[0m\] ' # Void
 #PS1='\[\e[0m\]{ \[\e[0;33m\]\w \[\e[0m\]} \[\e[0;91m\]\[\e[0m\] '  # Debian
-PS1='\[\e[0m\]{\[\e[0;95m\] \w \[\e[0m\]} \[\e[0m\]\[\e[0m\]  '    # Gentoo
+#PS1='\[\e[0m\]{\[\e[0;95m\] \w \[\e[0m\]} \[\e[0m\]\[\e[0m\]  '    # Gentoo
+PS1='\[\e[0;38;5;248m\][ \[\e[0;36m\]\w \[\e[0;38;5;248m\]] \[\e[0;97m\]$\[\e[0m\] '
 #PS1='[\u@\h \W]$ '
 
 
@@ -26,6 +27,8 @@ alias suck='sudo cp config.def.h config.h && sudo make clean install'
 alias pic='nvim $HOME/.config/picom/picom.conf'
 alias vi='nvim'
 alias ls='ls --color=always'
+alias neo='setxkbmap de neo -option'
+alias dd='setxkbmap de'
 #alias bsinstall='sudo xbps-install -S'
 #alias bssearch='xbps-query -R'
 
@@ -37,5 +40,5 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # add Neovide
 PATH=$PATH:~/.config/neovide/target/release/
-
-# pokemon-colorscripts -n gastly
+PATH=$PATH:~/.local/share/scripts
+#colorscript -e bars

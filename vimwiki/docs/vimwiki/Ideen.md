@@ -10,3 +10,8 @@
 ## Desktop
 
 + Mit Hilfe eines Crondaemons wird mein Desktop abgedunkelt und gesperrt. Mit 'Betterlockscreen' kann ich leicht meinen Desktop sichern, falls das überhaupt nötig ist; so sind die blanken Tasten auf meiner Tastatur und das kaum vorhandene UI meines Desktops schon mehrdeutig genug, um die Eingabe von Uneingeweihten zu vermeiden.
+
+
+## Gentoo ASMR
+
+Unaufgeräumter Schreibtisch, Überall liegt Computerkram herum. Ich muss erst Platz schaffen, damit mein uraltes Thinkpad mitsamt der Dockinstation darauf passen. Dieser wird sich grob mit dem Herunterschmeißen der Gegensände verschafft.
