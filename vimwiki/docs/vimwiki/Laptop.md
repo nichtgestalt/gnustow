@@ -48,6 +48,23 @@ Um den Desktop auf deutsch um zu stellen, schreibe folgendes in .xprofile
 export LANG="de_DE.UTF-8"
 
 
+#### Bash als Standart Shell
+
+sudo chsh -s /usr/local/bin/bash <username>
+
+
+#### Touchpad tap-click configuration
+
+In /usr/local/etc/X11/xorg.conf.d/90-touchpad.conf
+
+Section "InputClass"
+	Identifier "touchpad"
+	MatchIsTouchpad "on"
+	Driver "libinput"
+	Option "Tapping" "on"
+EndSection
+
+
 #### Power management (nicht getestet)
 
 

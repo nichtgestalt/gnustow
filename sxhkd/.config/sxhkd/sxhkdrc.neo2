@@ -1,28 +1,23 @@
-###           _     _       _ 
-###  _____  _| |__ | | ____| |
-### / __\ \/ / '_ \| |/ / _` |
-### \__ \>  <| | | |   < (_| |
-### |___/_/\_\_| |_|_|\_\__,_|
-###              ~by nichtgestalt
+###            _     _       _                   ___    ###
+###           | |   | |     | |                 |__ \   ###
+###   _____  _| |__ | | ____| |  _ __   ___  ___   ) |  ###
+###  / __\ \/ / '_ \| |/ / _` | | '_ \ / _ \/ _ \ / /   ###
+###  \__ \>  <| | | |   < (_| | | | | |  __/ (_) / /_   ###
+###  |___/_/\_\_| |_|_|\_\__,_| |_| |_|\___|\___/____|  ###
+###                                ~by nichtgestalt     ###
 
-super + v ; v
-	alacritty
 ## Basic navigations:
-# this help
-super + F1
-	bspc rule -a Alacritty -o state=floating && alacritty -e kcheat
 # program launcher
-super + d
+super + a
 	rofi -show drun -m -1 # -m -1 displays Rofi on current desktop
 
 # close window
-super + q
+super + x
 	bspc node -c
 
-# toggle Polybar
-F2
-	{polybar-msg cmd toggle; bspc config top_padding +0 ,\
-	 polybar-msg cmd toggle; bspc config top_padding 27 }
+# kill window
+alt + shift + x
+	bspc node -k
 
 # launch terminal
 super + Return
@@ -32,16 +27,12 @@ super + Return
 super + shift + b
 	$BROWSER
 
-# kill window
-alt + shift + q
-	bspc node -k
-
 # reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
 
 # reload wm
-super + shift + r
+super + shift + c
 	bspc wm -r
 
 # quit wm
@@ -102,7 +93,7 @@ XF86AudioMute
 	pactl set-sink-mute 0 toggle
 
 ## Window management:
-# alternate tiled and monocle layout
+# toggle monocle layout
 super + m
 	bspc desktop -l next
 
@@ -110,12 +101,8 @@ super + m
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
-
 # set the window state
-super + {t,shift + t,s,f}
+super + {h,shift + h,g,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags (marked, locked, sticky, private)
@@ -123,7 +110,7 @@ super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
 # focus the node in the given direction (left, down, up, right)
-super + {_,shift + }{h,j,k,l}
+super + {_,shift + }{n,r,t,d}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump (parent, brother, first, second)

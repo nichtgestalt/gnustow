@@ -54,7 +54,8 @@ Somit fällt meine Wahl auf EndevourOS; es basiert auf Arch, was mir sämtliche 
 
 ### Desktopumgebung
 
-Derzeit nutze ich wieder BSPWM. Mit dem Doom-One Color Scheme wird das Ganze wieder angenehm aufgefrischt und bietet eine nette Abwechslung zu Solarized dark.
+Derzeit nutze ich BSPWM. Mit dem Doom-One Color Scheme wird das Ganze wieder angenehm aufgefrischt und bietet eine nette Abwechslung zu Solarized dark.
+Da es mit einem simplen Bash-Script konfiguriert wird, sind die Möglichkeiten zur Automatisierung schier unbegrenzt.
 
 
 #### Komponenten
@@ -66,7 +67,9 @@ Der Terminalemulator der Wahr ist __Alacritty__. Er ist schnell und lässt sich 
 Für das Aufrufen von Programmen nutze ich __Rofi__ und __Xmenu__.
 Letzteres werde ich auch zur Navigation durch den Desktop nutzen. Mit Hilfe von Shell-Scripten und If-Statements sollte ich das Menü dynamisch anpassen können.
 Alternativen, wie __Alttab__ oder __Rofi__ haben mich leider nicht zufrieden stellen können.
+
 Des Weiteren möchte ich irgendwie __Skippy-XD__ einbinden. Es ist elegand und modern, funktioriert allerdings nur bedingt mit den Workflow von BSPWM...
+Alternativ steht noch __Alttab__ zur Auswahl. Es ermöglicht mir das schnelle Umschalten von Workspaces mit wenigen Tastendruchs.
 
 Als Filemanager nutze ich __Pcmanfm__. Minimalistisch, aber hoch funktionell fügt er sich hervorragend in mein System ein.
 
@@ -74,7 +77,7 @@ Zum Anzeigen von Bilddateien kommt __Ristreto__ zum Einsatz. Dieses Programm kom
 
 __Firefox__ ist mein Browser. Er ist frei und quelloffen und auch wenn er den meisten Alternativen unterlegen ist, stellt er das Gegenstück zu proprietärer Software dar. Für das, was ich machen will reicht Firefox komplett aus und ich bin sehr zufrieden mit ihn.
 
-Mein Texteditor ist __Neovim__. Einer der besten, wenn nicht _der_ beste Texteditor überhaupt.
+Mein Texteditor ist __Neovim__. Einer der besten, wenn nicht _der_ beste Texteditor überhaupt für mich.
 Ich habe ihn vollständig nach meinen Vorstellungen konfigurieren können ich nutze Neovim für meine Systemadministration, aber Hauptsächlich für das Schreiben von Notizen, Ideen und Konzepten. Neovim ist ein zentrales Programm in meinem System und hat meinen Umgang mit Computern stark beeinflusst. 
 
 Ergänzend dazu nutze ich Neovide als Frontend zu Neovim wo immer es mir möglich ist. Leider befindet es sich noch in Entwicklung, aber das, was bisher läuft, funktioniert einwandfrei.
@@ -88,7 +91,7 @@ __Xmenu__ ist ein Rechtsklickmenü, welches ich unabhängig von meinem WM/DE nut
 
 __Rofi__ ist ein weiteres Programm für das Aufrufen von Programmen. Es kann via CSS nach Belieben angepasst werden und findet in diversten Scripten Anwendung.
 
-__BSPC__ ist das Programm, welches BSPWM als solches verwaltet. Hier werden Regeln für das Aufrufen von Fenstern geregelt oder die Farben und Stärke der Fensterrahmen.
+__BSPC__ ist das Programm, welches BSPWM als solches verwaltet. Hier werden Regeln für das Aufrufen von Fenstern festgelegt oder die Farben und Stärke der Fensterrahmen.
 
 
 ## Workflow
@@ -103,4 +106,5 @@ Des Weiteren spiele ich mit dem Gedanken, meinen Desktop komplett ohne Panel zu 
 _Fazit nach 2 Tagen:_
 Ich habe Polybar bis auf alles Weitere aus meinem System entfernt. Noch ist alles in der Testphase, aber bisher gefällt mir der Workflow wirklich sehr gut. Meine Hände können entweder beide auf der Tastatur ruhen, oder ich wechsle auf die Maus mit der linken. Der einzige Wermutstropfen ist, dass ich immer beide Hände benötige. Aber vielleicht ist hier das Wechseln der [[Perspektive]] notwendig.
 
-
+_Ergänzung:_
+Der beste Kompromis wird mit einer Toggle Funktion für Polybar sein. Nach erster Recherche bin ich zuversichtlich, dass dies umsetzbar ist.

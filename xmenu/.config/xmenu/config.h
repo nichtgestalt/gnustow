@@ -3,16 +3,16 @@ static struct Config config = {
 	.font = "Clear Sans Medium:size=13,DejaVuSansMono:size=9",
 
 	/* colors */
-	.background_color = "#3f444a",
-	.foreground_color = "#dfdfdf",
-	.selbackground_color = "#4db5bd",
+	.background_color = "#282c34",
+	.foreground_color = "#bbc2cf",
+	.selbackground_color = "#51afef",
 	.selforeground_color = "#202328",
-	.separator_color = "#dfdfdf",
-	.border_color = "#dfdfdf",
+	.separator_color = "#bbc2cf",
+	.border_color = "#222222",
 
 	/* sizes in pixels */
-	.width_pixels = 130,        /* minimum width of a menu */
-	.height_pixels = 25,        /* height of a single menu item */
+	.width_pixels = 140,        /* minimum width of a menu */
+	.height_pixels = 26,        /* height of a single menu item */
 	.border_pixels = 1,         /* menu border */
 	.separator_pixels = 3,      /* space around separator */
 	.gap_pixels = 0,            /* gap between menus */

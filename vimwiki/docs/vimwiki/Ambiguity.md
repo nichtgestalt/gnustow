@@ -7,7 +7,7 @@ Hier zeige ich meine Konfiguration meines BSPWM Setups. Ziel war es, eine Deskto
 
 Folgende Programme sollten installiert werden:
 
-- BSPWM, SXHKD
+- BSPWM, SXHKD, Polybar
 - Alacritty
 - Rofi, Xmenu
 - Nitrogen
@@ -21,6 +21,11 @@ Folgende Programme sollten installiert werden:
 
 ## Scripte
 
-- Window Navigation:
-	1. print 1st line of all workspaces && echo "Workspace 1" usw.
-	2. 
+[ ] Dunst: Systemmonitoring (CPU Temperadur, Auslastung; RAM; ...)
+[x] Toggle Polybar
+[ ] Attab
+[ ] Polybar rice:
+	- System-monitoring
+	- Window Titles
+	- Xmenu Button with custom script
+	- Log in/out Menu

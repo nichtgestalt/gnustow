@@ -15,6 +15,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'ap/vim-css-color'
 Plug 'glepnir/dashboard-nvim'
 Plug 'liuchengxu/vim-clap'
+Plug 'baskerville/vim-sxhkdrc'
 call plug#end()
 
 " General Settings
@@ -50,8 +51,6 @@ let g:dashboard_custom_header=[
 			\'',
 			\'',
 			\'',
-			\'',
-			\'',
 			\'███╗   ██╗███████╗ ██████╗ ██╗    ██╗██████╗ ██╗████████╗███████╗',
 			\'████╗  ██║██╔════╝██╔═══██╗██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝',
 			\'██╔██╗ ██║█████╗  ██║   ██║██║ █╗ ██║██████╔╝██║   ██║   █████╗  ',
@@ -66,7 +65,8 @@ let g:dashboard_custom_section={
 \ 'b': { 'description': [' Desktop                        SPC f r'], 'command': 'edit ~/.config/bspwm/bspwmrc' },
 \ 'c': { 'description': [' Key Strokes                    SPC s x'], 'command': 'edit ~/.config/sxhkd/sxhkdrc' },
 \ 'd': { 'description': [' Configure                      SPC v i'], 'command': 'edit ~/.config/nvim/init.vim' },
-\ 'e': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
+\ 'e': { 'description': [' Polybar                        SPC p b'], 'command': 'edit ~/.config/polybar/config'},
+\ 'f': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
 \ }
 
 " Keyboard Shortcuts
@@ -76,6 +76,7 @@ nnoremap <leader>ws :edit ~/docs/vimwiki/System.md<CR>
 nnoremap <leader>wm :edit ~/.config/bspwm/bspwmrc<CR>
 nnoremap <leader>sx :edit ~/.config/sxhkd/sxhkdrc<CR>
 nnoremap <leader>vi :edit ~/.config/nvim/init.vim<CR>
+nnoremap <leader>pb :edit ~/.config/polybar/config<CR>
 nnoremap <leader>ba :edit ~/.bashrc<CR>
 
 let g:dashboard_custom_footer=['"Your mind is for having ideas, not for storing them."',]

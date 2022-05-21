@@ -40,5 +40,7 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # add Neovide
 PATH=$PATH:~/.config/neovide/target/release/
-PATH=$PATH:~/.local/share/scripts
+PATH=$PATH:~/.cargo/bin/
+PATH=$PATH:~/.local/share/scripts/
 #colorscript -e bars
+setxkbmap de neo
