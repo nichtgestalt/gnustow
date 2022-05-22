@@ -16,6 +16,7 @@ Plug 'ap/vim-css-color'
 Plug 'glepnir/dashboard-nvim'
 Plug 'liuchengxu/vim-clap'
 Plug 'baskerville/vim-sxhkdrc'
+Plug 'xiyaowong/nvim-transparent'
 call plug#end()
 
 " General Settings
@@ -33,40 +34,36 @@ set statusline+=\ %c:%l/%L
 set statusline+=\ [%p%%]
 
 " Colorscheme Settings
-"colorscheme NeoSolarized
 colorscheme doom-one
 set background=dark
 let g:doom_one_terminal_colors = v:true
-let g:neosolarized_contrast = "normal"
-let g:neosolarized_visibility = "normal"
-let g:neosolarized_vertSplitBgTrans = 1
-let g:neosolarized_bold = 1
-let g:neosolarized_underline = 1
-let g:neosolarized_italic = 1
+let g:transparent_enabled = v:true
 
-"                                               ### Dashboard ###
+" Dashboard
 let g:dashboard_default_executiv ='clap'
 let g:dashboard_custom_header=[
 			\'',
 			\'',
 			\'',
+			\'                                                           ▄▌                  ',
+			\'                 █▀▀▌               █▀    ╓          ▀     ▀  ▀█ ▄   █▀        ',
+			\'                █▀  █  J▓▓ ▄▄▄ ,▄  ██,    ▀`  ,╓   ,▄  ▄   ▓   ▐█▌█ ██         ',
+			\'               ██▓µ-█M, ██▀ ██╙▐█M ██ ▀█ ▐█ ╓█▀ █▌ ██  █▌ ▐█ ▄▀██▐█ █▌         ',
+			\'               █▌█▌██▄▀ █▌ ▐█U ██ ▐█  █▌ ██ ██ ▄█▀ █▌ ▓█  ██ ▀ █▌▐███          ',
+			\'              ▄█ █▄█▌   █´ ▐█  ▀▀  ▀▀▀`  ▀  `▀▀██  ▀▀╙▀█▀└██m  █   █▀          ',
+			\'             ,█╜ █ █▌  ▄µ                ▀     █▀              █▄ █▀           ',
+			\'            ▄█▀                               ▀▀                 ╙▀            ',
 			\'',
-			\'███╗   ██╗███████╗ ██████╗ ██╗    ██╗██████╗ ██╗████████╗███████╗',
-			\'████╗  ██║██╔════╝██╔═══██╗██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝',
-			\'██╔██╗ ██║█████╗  ██║   ██║██║ █╗ ██║██████╔╝██║   ██║   █████╗  ',
-			\'██║╚██╗██║██╔══╝  ██║   ██║██║███╗██║██╔══██╗██║   ██║   ██╔══╝  ',
-			\'██║ ╚████║███████╗╚██████╔╝╚███╔███╔╝██║  ██║██║   ██║   ███████╗',
-			\'╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝',
-			\'',
-			\'                                           ~by nichtgestalt       ',
+			\'                                                ~by nichtgestalt               ',
 			\]
 let g:dashboard_custom_section={
 \ 'a': { 'description': [' VimWiki                        SPC w w'], 'command': 'edit ~/docs/vimwiki/index.md' },
 \ 'b': { 'description': [' Desktop                        SPC f r'], 'command': 'edit ~/.config/bspwm/bspwmrc' },
-\ 'c': { 'description': [' Key Strokes                    SPC s x'], 'command': 'edit ~/.config/sxhkd/sxhkdrc' },
+\ 'c': { 'description': [' Key Bindings                   SPC s x'], 'command': 'edit ~/.config/sxhkd/sxhkdrc' },
 \ 'd': { 'description': [' Configure                      SPC v i'], 'command': 'edit ~/.config/nvim/init.vim' },
 \ 'e': { 'description': [' Polybar                        SPC p b'], 'command': 'edit ~/.config/polybar/config'},
-\ 'f': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
+\ 'f': { 'description': [' Picom                          SPC p i'], 'command': 'edit ~/.config/picom/picom.conf'},
+\ 'z': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
 \ }
 
 " Keyboard Shortcuts

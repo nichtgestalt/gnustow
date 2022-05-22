@@ -23,6 +23,7 @@ bspc monitor HDMI-A-0 -d "" "" "" "" "" "" ""
 bspc config border_width           2
 bspc config focused_border_color   "#51AFEF"
 bspc config normal_border_color    "#222222"
+bspc config presel_feedback_color  "#3071db"
 
 bspc config window_gap             12
 bspc config split_ratio            0.52
@@ -43,10 +44,10 @@ setxkbmap de &
 nitrogen --restore &
 #nitrogen --set-zoom-fill $HOME/.config/bspwm/wallpaper1.jpg &
 xsetroot -cursor_name left_ptr &
-picom -fc &
+picom --experimental-backends &
 dunst &
 unclutter -idle 3 -root &
-xset r rate 200 50 &
+xset r rate 250 30 &
 #bspc desktop -f '^4' &
 sleep 0.05
 #polybar-msg cmd hide; bspc config top_padding +0
