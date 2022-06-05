@@ -42,7 +42,7 @@ font-2 = UbuntuNerdFont:pixelsize=15;4
 
 modules-left   = xmenu xworkspaces title
 modules-center = 
-modules-right  = pulseaudio xkeyboard date
+modules-right  = menu-apps pulseaudio xkeyboard date
 
 tray-position   = right
 tray-padding    = 10

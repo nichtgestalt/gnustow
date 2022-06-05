@@ -7,7 +7,7 @@
 #NeoVim	bspc rule -a Alacritty -o state=floating && alacritty -e nvim
 
 xmenu <<EOF | sh &
-Alacritty	bspc rule -a Alacritty -o state=floating && alacritty
+Alacritty	bspc rule -a Alacritty -o state=floating && alacritty -e bash
 Browser 	$BROWSER
 Files   	bspc rule -a Thunar -o state=floating && thunar
 

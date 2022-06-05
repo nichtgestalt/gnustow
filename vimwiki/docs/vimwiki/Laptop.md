@@ -1,4 +1,4 @@
-# Laptop
+## Laptop
 
 ## Einleitung
 
