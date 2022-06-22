@@ -1,20 +1,13 @@
 # Ideen & Konzepte
 
-## Tastatur
+## Projekt: Desktop in the Box
 
-+ Die Tasten oberhalb der Pfeiltasten werden neu eingestellt, sodass sie beim Gedrückthalten eines Modifierkeys einen Ziffernblock bilden. 
-  
-+ Die Tasten F1 bis F12 werden durch das Gedrückthalten eines Modifiers zu Mulimediatasten. So kann ich beispielsweise die Lautstärke einstellen oder bestimmte Files öffnen lassen.
-
-
-## Xdo
-
-Xdo ist ein Programm, welches mir beim Management von Fenstern bzw. meines Desktops helfen kann. Vielleicht ermöglicht es mir das Minimieren von Fenstern in BSPWM, was mir wiederum das Nutzen von Skippy-XD ermöglicht.
+Die Computer, die ich aufbereitet und gereinigt habe, plane ich in 'echte' Möbel zu verstecken. Hängeschränke oder eine Kommode kommen dabei in die Engere Auswahl. Die Monitore können in einem tiefen Bilderrahmen getarnt werden. Via Wake on Lan kann ich diese bequem ein- und per SSH ausschalten. Ich bevorzuge hierbei sorgfältig geführtes Kabelmanagement.
 
 
 ## SSH
 
-Mit der Zeit haben sich einige Rechner angesammelt. Damit ich auf diese einfach zugreifen kann, will ich diese mit Wake on Lan und SSH verwalten. Wichtig: Prompt MUSS entsprechend der Maschine angepasst sein, damit ich jederzeit sehe, mit welchen Rechner ich verbunden bin. 
+Mit der Zeit haben sich einige Rechner angesammelt. Diese möchte ich via SSH kontrollieren und absichern - Das bedeutet: Zugriff nur mit entsprechendem Key, nicht mit Passwort.
 
 
 ## Desktop

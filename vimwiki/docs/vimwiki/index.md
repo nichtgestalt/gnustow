@@ -16,11 +16,24 @@
 
 
 
+## Werkzeug					Material
+
+* (Schlag-)Bohrmaschine, Bohrer			* Isolierband
+* Lötstation					* 
+* Maler- und Spachtelwerkzeug			*
+* Schraubendreher Set (Bits)			*
+* Säge, Stemmeisen, Hobel
+* Werkbank
+* Gerät zum Entfernen von Isolierung
+* Multimeter
+* Zangen
+* Tapezierwerkzeug
+* Heißluftföhn
+
+
 ## Agenda
 
 + Bewerbungen verschicken
-+ Jobcenter/Agentur anrufen
 
 
-+ Ratenzahlungvereinbarung: 60€ pro Monat 
 + Github: Gesonderte Repo für Neowrite

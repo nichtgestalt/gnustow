@@ -20,40 +20,80 @@ Als Basis für dieses Konzept kann grundsätzlich jede Hardware genutzt werden. 
 Obwohl es schon einige Jahre auf dem Buckel hat, ist es mit den meisten alternativen Betriebssystemen kompatibel. Ein ungemeiner Vorteil für mein eher progressives Projekt.
 
 
-## Software
-
-### Betriebssystem - FreeBSD
+## Betriebssystem - FreeBSD
 
 FreeBSD gibt mir die Möglichkeit, mich mehr mit alternativen Betriebsystemen vertraut zu machen und meinen Laptop modern und elegand zu gestalten.
 
-#### Basic Setup
+
+### Basic Setup
 
 Nach der Installation der Basis werden die Vorbereitungen für den Bau der graphischen Umgebung getroffen. So werden die Pakete __Xorg__ mitsamt der Desktopumgebung installiert.
 
-__Wichtig!__ Für Intel CPUs muss der entsprechende Treiber installiert werden: drm-kmod
-In der Datei /etc/rc.conf wird Folgendes ergänzt: 
+
+#### Grundlegende Programme
+
+Es wird empfohlen, folgende Programme zu installieren um grundlegende Funktionen zu gewährleisten. Die entprechende Funktionen wird durch das Editieren der Konfigurationsdateien im Folgenden beschrieben.
+
+- drm-kmod
+- automount
+- sudo
+- vim/nvim/nano
+
+
+#### /etc/rc.conf
 
 kld_list=i915kms
-
-Außerdem:
-
 allscreens_kbdflags="-b quiet.off"
 lightdm_enable="YES"
 dconf_enable="YES"
 dbus_enable="YES"
 hald_enable="YES"
+firewall_enable="YES"
+firewall_quiet="YES"
+firewall_type="workstation"
+firewall_myservices="22 80 443 3128"
+firewall_allowservices="any"
+firewall_logdeny="YES"
 
-__Wichtig!__
-Um den Desktop auf deutsch um zu stellen, schreibe folgendes in .xprofile
+
+#### /boot/loader.conf
+
+autoboot_delay=3
+coretemp_load="YES"
+tmpfs_load="YES"
+aio_load="YES"
+
+
+#### /etc/sysctl.conf
+
+vfs.usermount=1			-> Automount USB sticks
+kern.sched.preempt_thresh=224	-> PerformanceBoost
+hw.syscond.bell=0		-> Piepen ausschalten
+kern.ipc.shm_allow_removed=1	-> Chromium PerformanceBoost
+
+
+#### /usr/local/etc/automount.conf
+
+USERMOUNT=YES
+ATIME=NO
+FM="pcmanfm"
+USER=ghost
+ENCODING=de_DE.UTF-8
+
+
+#### Desktop auf deutsch umstellen
+
+Um den Desktop auf deutsch umzustellen, schreibe Folgendes in ~/.xprofile:
+
 export LANG="de_DE.UTF-8"
 
 
-#### Bash als Standart Shell
+### Bash als Standart Shell
 
 sudo chsh -s /usr/local/bin/bash <username>
 
 
-#### Touchpad tap-click configuration
+### Touchpad tap-click configuration
 
 In /usr/local/etc/X11/xorg.conf.d/90-touchpad.conf
 
@@ -65,12 +105,12 @@ Section "InputClass"
 EndSection
 
 
-#### Power management (nicht getestet)
+### Power management (nicht getestet)
 
 
 
 
-### Void Linux
+## Betriebssystem - Void Linux
 
 Void Linux ist schnell und minimalistisch. Es verbindet das Beste aus der Linux- und BSD-Welt.
 

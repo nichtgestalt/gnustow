@@ -17,6 +17,7 @@ Plug 'glepnir/dashboard-nvim'
 Plug 'liuchengxu/vim-clap'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'xiyaowong/nvim-transparent'
+Plug 'Fymyte/rasi.vim'
 call plug#end()
 
 " General Settings
@@ -35,9 +36,18 @@ set statusline+=\ [%p%%]
 
 " Colorscheme Settings
 colorscheme doom-one
+"colorscheme NeoSolarized
 set background=dark
 let g:doom_one_terminal_colors = v:true
 let g:transparent_enabled = v:true
+
+" Clap
+let g:clap_provider_quick_open = {
+			\'source': ['~/.config/nvim/init.vim', '~/.bashrc'],
+			\'sink': 'e',
+			\'desciption': 'Limonade Brawl',
+			\ }
+
 
 " Dashboard
 let g:dashboard_default_executiv ='clap'
@@ -61,7 +71,7 @@ let g:dashboard_custom_section={
 \ 'b': { 'description': [' Desktop                        SPC f r'], 'command': 'edit ~/.config/bspwm/bspwmrc' },
 \ 'c': { 'description': [' Key Bindings                   SPC s x'], 'command': 'edit ~/.config/sxhkd/sxhkdrc' },
 \ 'd': { 'description': [' Configure                      SPC v i'], 'command': 'edit ~/.config/nvim/init.vim' },
-\ 'e': { 'description': [' Polybar                        SPC p b'], 'command': 'edit ~/.config/polybar/config'},
+\ 'e': { 'description': [' Polybar                        SPC p b'], 'command': 'edit ~/.config/polybar/config.ini'},
 \ 'f': { 'description': [' Picom                          SPC p i'], 'command': 'edit ~/.config/picom/picom.conf'},
 \ 'z': { 'description': [' Bashrc                         SPC b a'], 'command': 'edit ~/.bashrc' }
 \ }
@@ -83,5 +93,5 @@ map <leader>g :Goyo<CR>
 map <leader>f :SoftPencil<CR>
 let g:vimwiki_list = [{'path':'$HOME/docs/vimwiki',
  \ 'syntax': 'markdown', 'ext': '.md'}]
-autocmd BufRead,BufNewFile *.md :Goyo 80
+autocmd BufRead,BufNewFile *.md :Goyo 90
 autocmd BufRead,BufNewFile *.md :SoftPencil

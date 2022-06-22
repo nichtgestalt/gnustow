@@ -10,6 +10,6 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 sleep 1 &
 SHELL=$(which sh) polybar bspwm &
 
-if [[ $(xrandr -q | grep 'DP-1 connected') ]]; then
+if [[ $(xrandr -q | grep 'DisplayPort-0 connected') ]]; then
 	polybar external &
 fi

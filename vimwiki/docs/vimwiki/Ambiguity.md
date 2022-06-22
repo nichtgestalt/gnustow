@@ -26,11 +26,11 @@ Folgende Programme sollten installiert werden:
 [ ] Dunst: Systemmonitoring (CPU Temperadur, Auslastung; RAM; ...)
 [x] Toggle Polybar
 [ ] Alttab
-[x] Polybar rice:
+[ ] Polybar rice:
 	- System-monitoring
 	- [x] Window Titles
 	- [x] Xmenu Button with custom script
-	- [x]Log in/out Menu
+	- Log in/out Menu
 
 
 ## Workflow

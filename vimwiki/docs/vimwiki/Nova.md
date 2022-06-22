@@ -8,27 +8,36 @@ Nova ist der Desktop PC, welcher damals meinen kleinen Bruder gehört hat. Aufgr
 Nova soll unter FreeBSD mein Bereich zum Experimentieren sein. Hauptsächlich wird hier das besagte Betriebssystem zu einer nutzbaren und für meine Ansprüche zugeschnittene Alternative konfiguriert werden.
 
 
-## Software
+## Betriebssystem - FreeBSD
 
-### Betriebssystem: FreeBSD
+### Basic Setup
 
-#### Folgende Files müssen entsprechend configuriert werden
+Für grundlegende Funktionen und Systemadministration wird empfohlen, folgende Programme zu installieren und konfigurieren.
 
-**/etc/rc.conf**
+
+#### /etc/rc.conf
+
 - kld_list="radeonkms"
+- allscreens_kbdflags="-b quiet.off"
+- lightdm_enable="YES"
 - dconf_enable="YES"
 - dbus_enable="YES"
 - hald_enable="YES"
 
-**/etc/sysctl.conf**
+
+#### /etc/sysctl.conf
+
 - vfs.usermount=1
 - kern.ipc.shm.allow_removed=1
 - kern.sched.preempt_thresh=224
 - hw.syscond.bell=0
 
-**/boot/loader.conf**
+
+#### /boot/loader.conf
+
 - amdtemp_load="YES"
 - tmpfs_load="YES"
+- autoboot_delay=3
 
 
 #### Change Shell to Bash

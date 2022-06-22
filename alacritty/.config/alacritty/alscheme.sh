@@ -22,9 +22,12 @@ declare -a options=(
 "dracula"
 "cyberpunk"
 "solarized-dark"
+"gruvbox"
+"DoomOne"
+"base 16"
 )
 
-choice=$(printf '%s\n' "${options[@]}" | dmenu -l 15 -p Schemes:)
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 15 -p 'Schemes:')
 
 case $choice in
 	'nord-dark')
@@ -55,4 +58,10 @@ case $choice in
 		sed -i '/^colors:/c\colors: *cyberpunk' $config ;;
 	'solarized-dark')
 		sed -i '/^colors:/c\colors: *solarized-dark' $config ;;
+	'gruvbox')
+		sed -i '/^colors:/c\colors: *gruvbox' $config ;;
+	'DoomOne')
+		sed -i '/^colors:/c\colors: *DoomOne' $config ;;
+	'base 16')
+		sed -i '/^colors:/c\colors: *base16' $config ;;
 esac
