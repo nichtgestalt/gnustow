@@ -45,6 +45,31 @@ Für grundlegende Funktionen und Systemadministration wird empfohlen, folgende P
 sudo chsh -s /usr/local/bin/bash <username>
 
 
+## Betriebssystem - Void Linux
+
+### Picom Pijulius
+
+- meson
+- base-devel
+- libev-devel
+- libX11-devel
+- xcb-util-renderutil-devel
+- xcb-util-image-devel
+- libXext-devel
+- pixman-devel
+- uthash
+- libconfig-devel
+- pcre-devel
+- libglvnd-devel
+- dbus-devel
+
+
+### Suckless
+
+- libXinerama-devel
+- libXft-devel
+
+
 ## Hardware
 
 Folgende Resourcen stehen Nova zur Verfügung:

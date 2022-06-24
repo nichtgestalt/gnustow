@@ -35,7 +35,7 @@ set statusline+=\ %c:%l/%L
 set statusline+=\ [%p%%]
 
 " Colorscheme Settings
-colorscheme doom-one
+colorscheme google-dark
 "colorscheme NeoSolarized
 set background=dark
 let g:doom_one_terminal_colors = v:true
