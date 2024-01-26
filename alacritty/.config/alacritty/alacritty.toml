@@ -1,0 +1,45 @@
+import = ["~/.config/alacritty/themes/onedark.toml",]
+
+[window]
+padding = { x = 10, y = 10 }
+opacity = 0.98
+title = "Alacritty"
+dynamic_title = true
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 750
+vi_mode_style = { shape = "Beam", blinking = "Off" }
+unfocused_hollow = false
+
+[terminal]
+osc52 = "CopyPaste"
+
+[mouse]
+hide_when_typing = false
+bindings = [
+{ mouse = "Middle", mods = "Control", action = "Paste" },
+]

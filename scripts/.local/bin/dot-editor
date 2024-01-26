@@ -1,0 +1,33 @@
+#!/bin/bash
+# _ __   __ _ 
+#| '_ \ / _` |	Github
+#| | | | (_| |	https://github.com/nichtgestalt/
+#|_| |_|\__, |
+#       |___/ 
+
+declare -a options=(
+"BSPWM"
+"Keyboard Shortcuts"
+"Picom"
+"Neovim"
+"Bash"
+"Alacritty"
+"Polybar"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 7 -p 'Configs')
+
+case $choice in
+	'BSPWM')
+		alacritty -e nvim ~/.config/bspwm/bspwmrc ;;
+	'Keybord Shortcuts')
+		alacritty -e nvim ~/.config/sxhkd/prototype-sxhkdrc ;;
+	'Picom')
+		alacritty -e nvim ~/.config/picom/picom.conf ;;
+	'Neovim')
+		alacritty -e nvim ~/.config/nvim/init.lua ;;
+	'Bash')
+		alacritty -e nvim ~/.bashrc ;;
+	'Alacritty')
+		alacritty -e nvim ~/.config/alacritty/alacritty.yml ;;
+esac

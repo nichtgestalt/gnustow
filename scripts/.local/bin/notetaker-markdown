@@ -1,0 +1,11 @@
+#!/bin/bash
+
+noteFilename="$HOME/Notizblock/.src/wochenplan-$(date +%V-%Y).md"
+
+if [ ! -f $noteFilename ]; then
+	echo -e "# Notizen für die $(date +%V.) Kalenderwoche\n" > $noteFilename
+fi
+
+nvim -c "norm Go"\
+     -c "norm zz"\
+     $noteFilename

@@ -1,0 +1,39 @@
+{
+   "layer": "top",
+   "margin-top": 8,
+   "margin-left": 10,
+   "margin-right": 10,
+
+   "modules-left": ["river/tags"],
+   "modules-center": ["clock"],
+   "modules-right": ["cpu", "pulseaudio", "memory"],
+    
+   "river/tags": {
+      "num-tags": 5
+      }
+   },
+
+   "pulseaudio": {
+      "format": "[VOL: {volume}%]",
+	"format-muted": "X",
+   },
+    
+   "cpu": {
+      "interval": 2,
+	"format": "[CPU: {}%]",
+   },
+
+   "memory": {
+      "interval": 3,
+	"format": "[RAM: {used}Gb]",
+   },
+
+   "battery": {
+      "format": "{capacity}% {icon}",
+      "format-icons": ["", "", "", "", ""]
+   },
+    
+   "clock": {
+      "format": "{:%e. %b %H:%M}"
+   }
+}

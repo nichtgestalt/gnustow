@@ -1,0 +1,23 @@
+#/bin/bash
+
+# to do: define underline, blinking, bold, italic and other colors
+
+# dark colors
+dblack='\033[0;30m'
+dred='\033[0;31m'
+dgreen='\033[0;32m'
+dorange='\033[0;33m'
+dblue='\033[0;34m'
+dpurple='\033[0;35m'
+dcyan='\033[0;36m'
+dwhite='\033[0;37m'
+
+# light colors
+lblack='\033[1;30m'
+lred='\033[1;31m'
+lgreen='\033[1;32m'
+lorange='\033[1;33m'
+lblue='\033[1;34m'
+lpurple='\033[1;35m'
+lcyan='\033[1;36m'
+lwhite='\033[1;37m'

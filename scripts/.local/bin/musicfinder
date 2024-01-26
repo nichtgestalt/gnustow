@@ -1,0 +1,5 @@
+#!/bin/sh
+
+musicdir=~/Nextcloud/Musik/Playlist
+
+ls $musicdir | rofi -dmenu -l 15 -p "Playlist" | xargs -I {} mpv $musicdir/{} 

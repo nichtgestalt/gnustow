@@ -1,0 +1,12 @@
+#/bin/bash
+
+Ip=192.168.2.162
+
+ping $Ip -c 1 >/dev/null && echo " on" || echo "off"
+
+#while :
+#do
+#	ping $Ip -c 1 >/dev/null && echo "on" || echo "off"
+#	sleep 5
+#done
+

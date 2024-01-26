@@ -1,0 +1,24 @@
+#!/bin/bash
+# _ __   __ _ 
+#| '_ \ / _` |	Github
+#| | | | (_| |	https://github.com/nichtgestalt/
+#|_| |_|\__, |
+#       |___/ 
+
+declare -a options=(
+"Cancel"
+"Log out"
+"Reboot"
+"Shutdown"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -p 'Session')
+
+case $choice in
+	'Log out')
+		pkill river ;;
+	'Reboot')
+		loginctl reboot ;;
+	'Shutdown')
+		loginctl poweroff ;;
+esac

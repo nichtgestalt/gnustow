@@ -1,0 +1,75 @@
+* {
+	/* font-family: JetBrainsMono */
+	font-family: Hack Nerd Font; 
+	font-size: 11pt;
+   font-weight: 500;
+	color: #fcfcfc;
+   min-height: 23px;
+	padding: 0px;
+   border-radius: 0;
+   border-width: 0;
+   border-color: #212627;
+}
+
+/* main waybar window */
+window#waybar {
+	background: #232627;
+   /*margin: -0.5px;*/
+}
+
+/* worspaces */
+#workspaces button.active {
+	background: #1b668f;
+   min-width: 15px;
+   border-radius: 0px;
+}
+
+#workspaces button.persistent {
+   color: #555;
+   min-width: 15px;
+}
+
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: none;
+	background: none;
+	transition: none;
+	border-color: transparent;
+}
+
+#tags button {
+	min-width: 20px;
+	border-radius: 0px;
+}
+
+#tags button.occupied {
+	min-width: 20px;
+	border-radius: 0px;
+}
+
+#tags button.focused {
+	min-width: 20px;
+	border-radius: 0px;
+	background: #1d99f3;
+	color: #232627;
+}
+
+#memory {
+	color: #16a085;
+}
+
+#pulseaudio {
+	color: #3daee9;
+}
+
+#cpu {
+	color: #fdbc4b;
+}
+
+/* settings for all listed modules */
+#pulseaudio,
+#cpu,
+#memory {
+	min-width: 120px;
+}
+

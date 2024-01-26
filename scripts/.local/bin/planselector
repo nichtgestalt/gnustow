@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ls -r ~/Notizblock/Tagesplanung*.pdf | head -n1| xargs zathura

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+nxcld=192.168.2.130
+
+ping $nxcld -c 1 >/dev/null && echo " on" || echo "off"
