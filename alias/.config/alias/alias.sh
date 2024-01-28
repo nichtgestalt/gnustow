@@ -9,7 +9,8 @@ alias bac='nvim $HOME/.bashrc'
 alias vic='cd ~/.config/nvim/ && $Editor $HOME/.config/nvim/init.lua'
 alias ali='vim $HOME/.config/alias/alias.sh' 
 alias grep='grep --color'
-alias term='$Editor $HOME/.config/alacritty/alacritty.toml'
+alias term='$Editor $HOME/.config/foot/foot.ini'
+#alias term='$Editor $HOME/.config/alacritty/alacritty.toml'
 alias marathon='marathon.sh'
 alias fontreset='fc-cache -f -v'
 
@@ -29,7 +30,7 @@ alias bssearch='xbps-query -Rs'
 alias bsremove='sudo xbps-remove -R'
 
 # Directories
-alias spts='cd $HOME/.local/share/scripts && ls'
+alias spts='cd $HOME/.local/bin && ls'
 alias wiki='cd $HOME/media/office/onyx/ && ls'
 alias dl='cd $HOME/dl'
 alias data='cd $HOME/media/office/data && ls'

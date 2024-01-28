@@ -1,15 +1,13 @@
 # Y A M B A R
-
+import: ~/.config/yambar/test.yml
 hack: &hack Hack Nerd Font:pixelsize=16
-time: &time Hack Nerd Font:pixelsize=14
+time: &time Hack Nerd Font:pixelsize=15
 bg_default: &bg_default {stack: [{background: {color: 1b668fff}}, ]}
 bar:
   height: 24
   location: top
   font: *hack
   spacing: 2
-  margin: 0
-  left-margin: 0
   layer: bottom
   foreground: fcfcfcff
   background: 232627ff
@@ -65,3 +63,28 @@ bar:
         content:
           - string: {text: "{date}", font: *time, right-margin: 5}
           - string: {text: "{time}", font: *time}
+
+  right:
+    - cpu:
+        poll-interval: 5000
+        content:
+          map:
+            conditions:
+              id < 0:
+                - string: {text: "[  {cpu}%]", foreground: ed1515ff, margin: 5}
+    - pipewire:
+        content:
+          map:
+            conditions:
+              type == "sink":
+                - string: {text: "[󰕾 {cubic_volume}%]", foreground: 3daee9ff , margin: 5}
+    - battery:
+        name: BAT0
+        poll-interval: 180000
+        content:
+          - string: {text: "[󰁹 {capacity}%]", foreground: 1cdc9aff, margin: 5}
+    - backlight:
+        name: intel_backlight
+        content: 
+          - string: {text: "[󰌵 {percent}%]", foreground: fdbc4bff, margin: 5}
+

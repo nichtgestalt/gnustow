@@ -5,20 +5,12 @@
 # \__,_|\__,_|_| |_|___/\__|_|  \___|
 #                        ~by nichtgestalt                                    
 
-[urgency_normal]
-    background = "#232627"
-    foreground = "#fcfcfc"
-    timeout = 10
-    # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
-
 [global]
     rackground = "#232627"
     foreground = "#fcfcfc"
-    timeout = 10
+    timeout = 8
     frame_color = "#aaaaaa"
     font = Hack 11
-    #font = monospace 11
     ### Display ###
     monitor = 0
     follow = none
@@ -27,7 +19,7 @@
     height = 300
     #origin = top-center
     origin = top-right
-    offset = 20x25
+    offset = 10x11
     scale = 0
     notification_limit = 0
     ### Progress bar ###
@@ -171,9 +163,6 @@
 
     ### Misc/Advanced ###
 
-    # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
-
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
 
@@ -250,8 +239,13 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
-
+[urgency_normal]
+    background = "#232627"
+    foreground = "#fcfcfc"
+    timeout = 8
+    font = Hack 11
+    # Icon for notifications with normal urgency, uncomment to enable
+    #default_icon = /path/to/icon
 
 [urgency_critical]
     background = "#900000"

@@ -29,7 +29,6 @@ bind '"\C-a": "tagesplanung\r"'
 #bind '"\C-g": "cd ~/media/office/onyx/ && nvim \"+Telescope find_files\"\r"'
 bind '"\C-g": "$Editor ~/office/notes/notes.md\r"'
 #bind '"\C-i": "nvim ~/media/office/data/ideas.rec\r"'
-
 # add paths
 PATH=$PATH:~/.config/neovide/target/release/
 PATH=$PATH:~/.cargo/bin/
