@@ -4,4 +4,6 @@ return {
    'preservim/vim-pencil',
    'theRealCarneiro/hyprland-vim-syntax',
    'zaid/vim-rec',
+   'nvim-treesitter/nvim-treesitter',
+   'jghauser/follow-md-links.nvim',
 }

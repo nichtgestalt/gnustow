@@ -13,7 +13,7 @@ dunst &
 foot --server &
 
 # set wallpaper
-swaybg -i ~/bilder/wallpaper/professional/Appleseptember.png &
+swaybg -i ~/media/bilder/wallpaper/professional/Appleseptember.png &
 
 # set keyboard to de neo
 riverctl keyboard-layout -variant neo de

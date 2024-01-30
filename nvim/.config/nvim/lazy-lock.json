@@ -1,6 +1,7 @@
 {
   "NeoSolarized.nvim": { "branch": "master", "commit": "687c780ff11253b474f9a777482648f8f4c39185" },
   "colorbuddy.nvim": { "branch": "master", "commit": "cdb5b0654d3cafe61d2a845e15b2b4b0e78e752a" },
+  "follow-md-links.nvim": { "branch": "main", "commit": "349c22ad5dea0d1bda0eb812efb35fabcd1a1c6c" },
   "hyprland-vim-syntax": { "branch": "main", "commit": "71760fe0cad972070657b0528f48456f7e0027b2" },
   "indent-blankline.nvim": { "branch": "master", "commit": "12e92044d313c54c438bd786d11684c88f6f78cd" },
   "lazy.nvim": { "branch": "main", "commit": "28126922c9b54e35a192ac415788f202c3944c9f" },
@@ -9,6 +10,7 @@
   "neosolarized.nvim": { "branch": "main", "commit": "f04cb6517933ced4b9701048aad5865968a58218" },
   "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
   "nui.nvim": { "branch": "main", "commit": "35da9ca1de0fc4dda96c2e214d93d363c145f418" },
+  "nvim-treesitter": { "branch": "master", "commit": "5f950cdcb82d2cf74e6b30338897b3a4897f52b3" },
   "nvim-web-devicons": { "branch": "master", "commit": "140edfcf25093e8b321d13e154cbce89ee868ca0" },
   "one-dark": { "branch": "master", "commit": "dc3bad0121298f89b50aaff8599d1946e07eb4c2" },
   "onedark.nvim": { "branch": "master", "commit": "dc3bad0121298f89b50aaff8599d1946e07eb4c2" },

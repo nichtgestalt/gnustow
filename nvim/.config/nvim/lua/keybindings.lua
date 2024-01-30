@@ -16,3 +16,4 @@ map('n', '<leader>ke', ':e ~/.config/hypr/keybindings.conf<CR>',     {noremap = 
 map('n', '<leader>sh', ':e ~/.bashrc<CR>',                           {noremap = true, silent = false})   -- bashrc
 map('n', '<leader>bar', ':e ~/.config/waybar/config<CR>',            {noremap = true, silent = false})   -- waybar config
 map('n', '<leader>css', ':e ~/.config/waybar/style.css<CR>',         {noremap = true, silent = false})   -- waybar css
+map('n', '<leader>bs,', ':e #<cr>',                                  {silent = true})                    -- follow links in .md
