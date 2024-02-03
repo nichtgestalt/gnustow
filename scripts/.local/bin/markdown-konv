@@ -1,0 +1,10 @@
+#!/bin/bash
+
+file=$1
+file2=$(echo "${file^}")
+of=$(basename $file2 .md).pdf
+echo $of
+
+# nicht getestet
+groff -k -ms $file -T pdf > $of
+pandoc $file -t ms -o $of

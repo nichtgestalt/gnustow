@@ -8,7 +8,7 @@
 
 # autostart
 pipewire &
-sleep 1 && yambar &
+sleep 1 && whybar &
 dunst &
 foot --server &
 
@@ -33,7 +33,13 @@ riverctl map normal Super X close
 # reload waybar
 riverctl map normal Super+Shift B spawn whybar
 
-# exit river
+# write tagesplaner
+riverctl map normal Super A spawn footclient -e tagesplaner
+
+# read tagesplaner
+riverctl map normal Super+Shift A spawn planselector
+
+# launch powermenu
 riverctl map normal Super F4 spawn powermenu
 #riverctl map normal Super+Shift E exit
 
@@ -51,7 +57,10 @@ riverctl map normal Super T send-layout-cmd rivertile "main-ratio +0.05"
 
 # volume keys
 riverctl map normal Super Up spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+riverctl map normal Super F8 spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
 riverctl map normal Super Down spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+riverctl map normal Super F7 spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+riverctl map normal Super F6 spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
 # toggle float
 riverctl map normal Super V toggle-float
@@ -70,6 +79,8 @@ riverctl set-repeat 40 300
 
 # make all views with an app-id that starts with "float" and title "foo" start floating.
 riverctl rule-add -app-id 'float*' -title 'foo' float
+riverctl float-filter-add app-id 'swayimg'
+riverctl float-filter-add app-id 'vlc'
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
@@ -153,6 +164,7 @@ do
 
 done
 
+#sleep 5 whybar
 # send the focused view to the next/previous output
 #riverctl map normal Super+Shift Period send-to-output next
 #riverctl map normal Super+Shift Comma send-to-output previous

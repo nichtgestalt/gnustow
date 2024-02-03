@@ -13,6 +13,7 @@ alias term='$Editor $HOME/.config/foot/foot.ini'
 #alias term='$Editor $HOME/.config/alacritty/alacritty.toml'
 alias marathon='marathon.sh'
 alias fontreset='fc-cache -f -v'
+alias simg='swayimg'
 
 alias wm='$Editor $HOME/.config/river/init'
 alias bar='$Editor $HOME/.config/yambar/config.yml'
@@ -34,8 +35,8 @@ alias spts='cd $HOME/.local/bin && ls'
 alias wiki='cd $HOME/media/office/onyx/ && ls'
 alias dl='cd $HOME/dl'
 alias data='cd $HOME/media/office/data && ls'
-alias media='cd $HOME/media/ && ls'
-alias critty='cd $HOME/.config/alacritty/ && ls'
+alias critty='cd $HOME/.config/alacritty/themes && ls'
+alias onyx='cd $HOME/media/office/onyx && ls'
 
 # NixOS
 alias nixwielos='sudo nixos-rebuild switch'

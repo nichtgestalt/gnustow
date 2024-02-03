@@ -60,18 +60,24 @@ bar:
                     #deco: {underline: {size: 3, color: ea6962ff}}
   center:
     - clock:
+        time-format: "%H:%M"
+        date-format: "%e.%b"
         content:
-          - string: {text: "{date}", font: *time, right-margin: 5}
-          - string: {text: "{time}", font: *time}
+          - string: {text: "{date}", font: *time, margin: 5}
+          - string: {text: "{time}", font: *time, margin: 5}
 
   right:
+    - mem:
+        poll-interval: 2500
+        content:
+          - string: {text: "[  {percent_used}%]", foreground: 11d116ff, margin: 5}
     - cpu:
         poll-interval: 5000
         content:
           map:
             conditions:
               id < 0:
-                - string: {text: "[  {cpu}%]", foreground: ed1515ff, margin: 5}
+                - string: {text: "[  {cpu}%]", foreground: f67400ff, margin: 5}
     - pipewire:
         content:
           map:

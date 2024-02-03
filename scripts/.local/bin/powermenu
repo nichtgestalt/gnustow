@@ -6,10 +6,11 @@
 #       |___/ 
 
 declare -a options=(
-"Cancel"
-"Log out"
-"Reboot"
+"Reload"
 "Shutdown"
+"Reboot"
+"Log out"
+"Cancel"
 )
 
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -p 'Session')
@@ -21,4 +22,6 @@ case $choice in
 		loginctl reboot ;;
 	'Shutdown')
 		loginctl poweroff ;;
+   'Reload')
+      ~/.config/river/init ;;
 esac

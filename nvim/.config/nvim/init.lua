@@ -32,8 +32,13 @@ require("neovide")
 -- recutils
 vim.api.nvim_set_var('recutils_no_folding', '1')
 
--- autocomand
+-- autocomands
 vim.api.nvim_create_autocmd({"BufEnter"}, {
   pattern = {"*.md", "*.ms", "*.rec"},
   command = ":SoftPencil",
+})
+-- -- -- --
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+   pattern = {"tagesplanung-*.ms"},
+   command = "!buildnote %:p",
 })

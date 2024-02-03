@@ -1,12 +1,12 @@
 #!/bin/bash
 
-noteFilename="$HOME/Notizblock/.src/tagesplanung-$(date +%Y-%m-%d).ms"
+noteFilename="$HOME/media/office/notes/.src/tagesplanung-$(date +%Y-%m-%d).ms"
 
 if [ ! -f $noteFilename ]; then
 	echo -e ".TL\n\
 Tagesplanung\n\
 .AU\n\
-$(date '+%e. %b')\n\
+$(date '+%e. %B')\n\
 .SH\n\
 Agenda\n\
 .IP \(bu\n\

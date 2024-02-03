@@ -1,11 +1,7 @@
 #!/bin/bash
 
-noteFilename="$HOME/Notizblock/.src/wochenplan-$(date +%V-%Y).md"
+file=$(basename $1)
+of=$(basename ${file^} .md).pdf
+echo $of
 
-if [ ! -f $noteFilename ]; then
-	echo -e "# Notizen für die $(date +%V.) Kalenderwoche\n" > $noteFilename
-fi
-
-nvim -c "norm Go"\
-     -c "norm zz"\
-     $noteFilename
+pandoc $1 -t ms -o $HOME/media/office/pdf/$of
