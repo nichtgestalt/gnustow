@@ -40,5 +40,5 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 -- -- -- --
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
    pattern = {"tagesplanung-*.ms"},
-   command = "!buildnote %:p",
+   command = "!konv %:p",
 })

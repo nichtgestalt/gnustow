@@ -13,7 +13,7 @@ dunst &
 foot --server &
 
 # set wallpaper
-swaybg -i ~/media/bilder/wallpaper/professional/Appleseptember.png &
+swaybg -i ~/.config/swayimg/wallpaper &
 
 # set keyboard to de neo
 riverctl keyboard-layout -variant neo de
@@ -34,7 +34,10 @@ riverctl map normal Super X close
 riverctl map normal Super+Shift B spawn whybar
 
 # write tagesplaner
-riverctl map normal Super A spawn footclient -e tagesplaner
+riverctl map normal Super A spawn "footclient -e tagesplaner"
+
+# wallpaper selection
+riverctl map normal Super+Shift V spawn "swayimg ~/media/bilder/wallpaper/*"
 
 # read tagesplaner
 riverctl map normal Super+Shift A spawn planselector
@@ -165,6 +168,7 @@ do
 done
 
 #sleep 5 whybar
+
 # send the focused view to the next/previous output
 #riverctl map normal Super+Shift Period send-to-output next
 #riverctl map normal Super+Shift Comma send-to-output previous

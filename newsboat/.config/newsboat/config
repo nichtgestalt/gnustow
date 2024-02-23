@@ -1,0 +1,40 @@
+# general settings
+auto-reload yes
+reload-time 30
+max-items 500
+reload-threads 11
+
+#browser "firefox --no-remote -P default --class newsboat %u >/dev/null 2>&1 &"
+browser firefox
+
+color listnormal white default
+color listfocus black cyan 
+color listnormal_unread color15 default
+color listfocus_unread black cyan bold
+color info black green bold
+color article white default
+
+highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
+highlight article "(^Link:.*|^Date:.*)" default default
+highlight article "https?://[^ ]+" green default
+
+highlight article "^(Title):.*$" default default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+highlight article ":.*\\(link\\)$" cyan default
+highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(embedded flash\\)$" magenta default
+
+highlight articlelist "(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [0-9]+" white default
+highlight articlelist "\\|[^\\|]+\\|" red default
+highlight articlelist "\\(YouTube\\)" magenta default
+highlight articlelist "\\(PeerTube\\)" magenta default
+highlight articlelist "\\|r/" red default
+highlight feedlist "\\(YouTube\\)" magenta default
+highlight feedlist "\\(PeerTube\\)" magenta default
+highlight feedlist " r/" red default
+highlight feedlist "\\([0-9]+/[0-9]+\\)" yellow default bold
+
+highlight all "---.*---" yellow default bold
+highlight feedlist "^.*\\(0/0\\)" default default invis

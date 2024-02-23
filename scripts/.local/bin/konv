@@ -1,9 +1,11 @@
 #!/bin/bash
 
-file=$1
-file2=$(echo "${file^}")
-of=$(basename $file2 .ms).pdf
+# script for compiling my groff notes into pdf
+
+# set file name
+file=$(basename $1)
+of=$(basename ${file^} .ms).pdf
 echo $of
 
-# nicht getestet
-groff -k -ms $file -T pdf > $of
+# compile
+groff -k -ms $1 -T pdf > ~/media/office/notes/$of

@@ -1,0 +1,44 @@
+## Use auto-indentation
+set autoindent
+
+# mouse support
+set mouse
+
+# constantly display the cursor position in the status bar.
+set constantshow
+
+# use cut to end of line with ^K by default
+set cutfromcursor
+
+# set the line length for wrapping text and justifying paragraphs.
+set fill -8
+
+# do not use line below the title bar, leaving it entirely blank
+set emptyline
+
+# do extended regular expression searches by default 
+set regexp
+
+# continue lines within the screen
+set softwrap
+
+# use this tab size instead of the default; it must be greater than 0
+set tabsize 3
+
+# line numbers
+set linenumbers
+set numbercolor italic,grey
+
+# interface colors
+set titlecolor bold,blue
+set statuscolor white
+set keycolor bold,red
+set functioncolor italic,cyan
+
+#set minibar
+#set nohelp
+
+# markdown syntax
+# color [bold,][italic,]fgcolor,bgcolor "regex"
+syntax "markdown" "\.(md|MD)$"
+color cyan "#*"

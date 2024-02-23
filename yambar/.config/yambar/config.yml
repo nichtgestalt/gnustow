@@ -7,7 +7,6 @@ bar:
   height: 24
   location: top
   font: *hack
-  spacing: 2
   layer: bottom
   foreground: fcfcfcff
   background: 232627ff
@@ -84,13 +83,13 @@ bar:
             conditions:
               type == "sink":
                 - string: {text: "[󰕾 {cubic_volume}%]", foreground: 3daee9ff , margin: 5}
-    - battery:
-        name: BAT0
-        poll-interval: 180000
-        content:
-          - string: {text: "[󰁹 {capacity}%]", foreground: 1cdc9aff, margin: 5}
-    - backlight:
-        name: intel_backlight
-        content: 
-          - string: {text: "[󰌵 {percent}%]", foreground: fdbc4bff, margin: 5}
+    #- battery:
+        #name: BAT0
+        #poll-interval: 180000
+        #content:
+          #- string: {text: "[󰁹 {capacity}%]", foreground: 1cdc9aff, margin: 5}
+    #- backlight:
+        #name: intel_backlight
+        #content: 
+          #- string: {text: "[󰌵 {percent}%]", foreground: fdbc4bff, margin: 5}
 

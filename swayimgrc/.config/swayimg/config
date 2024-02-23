@@ -8,9 +8,9 @@ transparency = grid
 # Window position (parent or absolute coordinates, e.g. 100,200)
 position = parent
 # Window size (parent, image, or absolute size, e.g. 800,600)
-size = parent
+size = 1400,900
 # Window background mode/color (none/RGB, e.g. #112233)
-background = none
+background = #1e2127
 # Run slideshow at startup (yes/no)
 slideshow = no
 # Slideshow image display time (seconds)
@@ -27,8 +27,8 @@ recursive = no
 all = yes
 
 [font]
-name = monospace
-size = 14
+name = hack
+size = 12
 color = #cccccc
 shadow = #000000
 
@@ -36,7 +36,7 @@ shadow = #000000
 # Mode on startup (off/brief/full)
 mode = full
 # Display scheme for the "full" mode: position = content
-full.topleft = name,format,filesize,imagesize,exif
+full.topleft = path,format,imagesize
 full.topright = index
 full.bottomleft = scale,frame
 full.bottomright = status
@@ -51,22 +51,15 @@ brief.bottomright = status
 # Use the `xkbcli` tool to get key name: `xkbcli interactive-wayland`
 [keys]
 F1 = help
-Home = first_file
-End = last_file
-Prior = prev_file
-Next = next_file
-Space = next_file
-Shift+d = prev_dir
-d = next_dir
-Shift+o = prev_frame
-o = next_frame
-Shift+s = slideshow
-s = animation
-f = fullscreen
-Left = step_left 10
-Right = step_right 10
-Up = step_up 10
-Down = step_down 10
+u = first_file
+o = last_file
+i = prev_file
+e = next_file
+l = prev_dir
+a = next_dir
+Space = slideshow
+Escape = exit
+q = exit
 Equal = zoom +10
 Plus = zoom +10
 Minus = zoom -10
@@ -76,16 +69,20 @@ z = zoom fit
 Shift+z = zoom fill
 0 = zoom real
 BackSpace = zoom optimal
+s = animation
+f = fullscreen
+b = exec cp % ~/.config/swayimg/wallpaper && notify-send "Wallpaper set" && swaybg -i ~/.config/swayimg/wallpaper &
 bracketleft = rotate_left
 bracketright = rotate_right
 m = flip_vertical
 Shift+m = flip_horizontal
-a = antialiasing
-r = reload
-i = info
-e = exec echo "Image: %"
-Escape = exit
-q = exit
+#a = antialiasing
+Shift+r = reload
+Shift+i = info
+Left = step_left 10
+Right = step_right 10
+Up = step_up 10
+Down = step_down 10
 
 # Mouse / touchpad configuration, same format as in [keys]
 [mouse]
