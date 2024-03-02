@@ -33,6 +33,9 @@ riverctl map normal Super X close
 # reload waybar
 riverctl map normal Super+Shift B spawn whybar
 
+# launch browser
+riverctl map normal Super+Shift I spawn firefox
+
 # write tagesplaner
 riverctl map normal Super A spawn "footclient -e tagesplaner"
 
@@ -73,7 +76,7 @@ riverctl map normal Super F toggle-fullscreen
 
 # set background and borders
 riverctl background-color 0x2e3440
-riverctl border-color-focused 0x93a1a1
+riverctl border-color-focused 0xbcd7dd
 riverctl border-color-unfocused 0x586e75
 riverctl border-width 1
 

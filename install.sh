@@ -2,7 +2,7 @@
 
 username=ghost
 
-sudo xbps-install -u xbps && sudo xbps-install -Syu && sudo xbps-install -S git bash-completion stow river yambar xorg seatd elogind xorg foot rofi polkit mesa-dri dunst swaybg swayimg vlc nerd-fonts pipewire neovim neofetch htop fzf lf socklog-void qemu libvirt virt-manager firefox nextcloud-client qt5-quickcontrols2 qt5-graphicaleffects qt5-svg wget terminus-font groff groff-doc libgroff zathura zathura-pdf-poppler ghostscript pandoc flatpak
+sudo xbps-install -u xbps && sudo xbps-install -Syu && sudo xbps-install -S git bash-completion stow river yambar xorg seatd elogind xorg foot rofi polkit mesa-dri dunst swaybg swayimg vlc nerd-fonts pipewire neovim neofetch htop fzf lf socklog-void qemu libvirt virt-manager firefox nextcloud-client qt5-quickcontrols2 qt5-graphicaleffects qt5-svg wget terminus-font groff groff-doc libgroff zathura zathura-pdf-poppler ghostscript pandoc flatpak wayclip hyprpicker
 
 sudo ln -s /etc/sv/dbus /var/service
 sudo ln -s /etc/sv/nanoklogd /var/service

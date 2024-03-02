@@ -1,0 +1,6 @@
+#!/bin/sh
+
+picked=$(hyprpicker -n -f$1)
+
+echo $picked | waycopy
+notify-send "$picked copied"

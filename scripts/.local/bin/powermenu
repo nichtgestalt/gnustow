@@ -8,9 +8,9 @@
 declare -a options=(
 "Reload"
 "Shutdown"
+"Client"
 "Reboot"
 "Log out"
-"Cancel"
 )
 
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -p 'Session')
@@ -24,4 +24,6 @@ case $choice in
 		loginctl poweroff ;;
    'Reload')
       ~/.config/river/init ;;
+   'Client')
+      pkill foot && foot --server ;;
 esac

@@ -6,4 +6,5 @@ return {
    "tjdevries/colorbuddy.nvim",
    "svrana/neosolarized.nvim",
    "Tsuzat/NeoSolarized.nvim",
+   "folke/tokyonight.nvim",
 }

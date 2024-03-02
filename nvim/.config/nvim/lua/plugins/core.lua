@@ -6,4 +6,5 @@ return {
    'zaid/vim-rec',
    'nvim-treesitter/nvim-treesitter',
    'jghauser/follow-md-links.nvim',
+   'rktjmp/lush.nvim',
 }

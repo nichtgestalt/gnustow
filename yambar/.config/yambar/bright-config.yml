@@ -1,40 +1,18 @@
-#▓██   ██▓ ▄▄▄       ███▄ ▄███▓ ▄▄▄▄    ▄▄▄       ██▀███  
-# ▒██  ██▒▒████▄    ▓██▒▀█▀ ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
-#  ▒██ ██░▒██  ▀█▄  ▓██    ▓██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
-#  ░ ▐██▓░░██▄▄▄▄██ ▒██    ▒██ ▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
-#  ░ ██▒▓░ ▓█   ▓██▒▒██▒   ░██▒░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
-#   ██▒▒▒  ▒▒   ▓▒█░░ ▒░   ░  ░░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
-# ▓██ ░▒░   ▒   ▒▒ ░░  ░      ░▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
-# ▒ ▒ ░░    ░   ▒   ░      ░    ░    ░   ░   ▒     ░░   ░ 
-# ░ ░           ░  ░       ░    ░ by nichtgestalt   ░   ░     
-# ░ ░                                ░                    
-
-
+# Y A M B A R
+import: ~/.config/yambar/test.yml
 hack: &hack Hack Nerd Font:pixelsize=16
-bg: &bg bcd7ddff
-fg: &fg 1f1f1fff
-hl: &hl 4dbdeeff
+time: &time Hack Nerd Font:pixelsize=15
+bg_default: &bg_default {stack: [{background: {color: 4dbdeeff}}, ]}
 bar:
   height: 24
   location: top
   font: *hack
   layer: bottom
-  foreground: *fg
-  background: *bg
+  foreground: 1f1f1fff
+    #background: d2eaf0ff
+  background: bcd7ddff
 
   left:
-    - label:
-        content: 
-          string: 
-              font: Hack Nerd Font bold:pixelsize=16
-              text: " "
-              margin: 10
-              on-click:
-                left: sh -c "rofi -show drun"
-                right: sh -c "powermenu"
-                middle: sh -c "footclient -e nvim ~/.config/yambar/colors.rasi"
-                wheel-up: sh -c "picker hex"
-                wheel-down: sh -c "picker hsl"
     - river:
         anchors:
           - base: &river_base
@@ -64,14 +42,14 @@ bar:
               state == focused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: *hl }}
+                  deco: *bg_default
               state == visible && ~occupied:
                 map:
                   <<: *river_base
               state == visible && occupied:
                 map:
                   <<: *river_base
-                  deco: {background: {color: *hl }}
+                  deco: *bg_default
               state == unfocused:
                 map:
                   <<: *river_base
@@ -85,8 +63,8 @@ bar:
         time-format: "%H:%M"
         date-format: "%e.%b"
         content:
-          - string: {text: "{date}", font: *hack, margin: 5}
-          - string: {text: "{time}", font: *hack, margin: 5}
+          - string: {text: "{date}", font: *time, margin: 5}
+          - string: {text: "{time}", font: *time, margin: 5}
 
   right:
     - pipewire:
@@ -94,10 +72,7 @@ bar:
           map:
             conditions:
               type == "sink":
-                string: 
-                    text: "[󰕾 {cubic_volume}%]" 
-                    foreground: 1f1f1fff  
-                    margin: 10
+                - string: {text: "[󰕾 {cubic_volume}%]", foreground: 1f1f1fff , margin: 10}
 
     - cpu:
         poll-interval: 5000
@@ -105,17 +80,11 @@ bar:
           map:
             conditions:
               id < 0:
-                string: 
-                    text: "[  {cpu}%]" 
-                    foreground: 1f1f1fff 
-                    margin: 10
+                - string: {text: "[  {cpu}%]", foreground: 1f1f1fff, margin: 10}
     - mem:
         poll-interval: 2500
         content:
-          string: 
-              text: "[  {percent_used}%]" 
-              foreground: 1f1f1fff 
-              margin: 10
+          - string: {text: "[  {percent_used}%]", foreground: 1f1f1fff, margin: 10}
     #- battery:
         #name: BAT0
         #poll-interval: 180000

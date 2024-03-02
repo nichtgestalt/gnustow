@@ -19,10 +19,10 @@ alias river='dbus-run-session river'
 alias wm='$EDITOR $HOME/.config/river/init'
 alias bar='$EDITOR $HOME/.config/yambar/config.yml'
 alias wbar='cd $HOME/.config/waybar && ls'
+alias rasi='$EDITOR $HOME/.config/rofi/config.rasi'
 alias keys='$EDITOR $HOME/.config/hypr/keybind.conf'
 #alias pic='$EDITOR $HOME/.config/picom/picom.conf'
 #alias bard='$EDITOR $HOME/.config/polybar/config-dwmlike.ini'
-#alias rasi='$EDITOR $HOME/.config/rofi/config.rasi'
 
 # void
 alias poweroff='loginctl poweroff'
