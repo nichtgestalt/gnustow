@@ -8,7 +8,7 @@
 
 # autostart
 pipewire &
-sleep 1 && whybar &
+sleep 1 && whybar --reload &
 dunst &
 foot --server &
 
@@ -30,20 +30,31 @@ riverctl map normal Super+Shift Return zoom
 # close the focused view
 riverctl map normal Super X close
 
-# reload waybar
-riverctl map normal Super+Shift B spawn whybar
+# reload and toggle waybar
+riverctl map normal Super+Shift B spawn "whybar --reload"
+riverctl map normal Super F2 spawn "whybar --toggle"
+
+# pdf-picker
+riverctl map normal Super H spawn pdf-picker
+
+# emoji-picker
+riverctl map normal Super M spawn emoji-picker
+
+# onyx
+riverctl map normal Super F spawn "footclient -e onyx"
 
 # launch browser
 riverctl map normal Super+Shift I spawn firefox
+riverctl map normal Super+Alt+Shift I spawn firefox --private-window
 
 # write tagesplaner
 riverctl map normal Super A spawn "footclient -e tagesplaner"
 
-# wallpaper selection
-riverctl map normal Super+Shift V spawn "swayimg ~/media/bilder/wallpaper/*"
-
 # read tagesplaner
 riverctl map normal Super+Shift A spawn planselector
+
+# wallpaper selection
+riverctl map normal Super+Shift V spawn "swayimg ~/media/bilder/wallpaper/*"
 
 # launch powermenu
 riverctl map normal Super F4 spawn powermenu
@@ -72,7 +83,7 @@ riverctl map normal Super F6 spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 riverctl map normal Super V toggle-float
 
 # toggle fullscreen
-riverctl map normal Super F toggle-fullscreen
+riverctl map normal Super L toggle-fullscreen
 
 # set background and borders
 riverctl background-color 0x2e3440
@@ -87,6 +98,7 @@ riverctl set-repeat 40 300
 riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl float-filter-add app-id 'swayimg'
 riverctl float-filter-add app-id 'vlc'
+riverctl float-filter-add app-id 'mpv'
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
@@ -169,8 +181,6 @@ do
    riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
 done
-
-#sleep 5 whybar
 
 # send the focused view to the next/previous output
 #riverctl map normal Super+Shift Period send-to-output next

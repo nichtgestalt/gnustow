@@ -1,0 +1,6 @@
+#!/bin/sh
+
+filedir=~/media/office/pdf/
+viewer=zathura
+
+ls --sort=time $filedir | rofi -dmenu -l 10 -p "Select Pdf" | xargs -I {} $viewer $filedir{}

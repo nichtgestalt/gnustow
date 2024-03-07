@@ -24,6 +24,7 @@ require("lazy").setup("plugins")
 -- set transparency
 vim.cmd[[let g:transparent_enabled = v:true]]
 
+-- restore cursor location
 -- import files
 require("keybindings")
 require("colorscheme")

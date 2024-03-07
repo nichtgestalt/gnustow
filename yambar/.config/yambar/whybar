@@ -1,4 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-pkill yambar
-yambar &
+#pkill yambar
+#yambar 
+
+#pgrep yambar && pkill yambar || yambar
+
+case $1 in
+   '--toggle')
+      pgrep yambar && pkill yambar || yambar & ;;
+   '--reload')
+      pkill yambar && yambar || yambar & ;;
+esac

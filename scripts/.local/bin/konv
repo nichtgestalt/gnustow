@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# script for compiling my groff notes into pdf
+bsn=$(basename $1 .md)
 
-# set file name
-file=$(basename $1)
-of=$(basename ${file^} .ms).pdf
-echo $of
-
-# compile
-groff -k -ms $1 -T pdf > ~/media/office/notes/$of
+groff -k -ms $1 -T pdf > ~/media/office/pdf/${bsn^}.pdf && echo "compiled successfully"

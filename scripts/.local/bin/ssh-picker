@@ -1,0 +1,8 @@
+#!/bin/sh
+
+terminal="footclient"
+
+# get list of maschines
+hostname=$(awk '/Host\s/{print $2}' ~/.ssh/config | rofi -dmenu)
+
+$terminal -e ssh $hostname 

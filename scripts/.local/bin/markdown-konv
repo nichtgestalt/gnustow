@@ -1,10 +1,5 @@
 #!/bin/bash
 
-file=$1
-file2=$(echo "${file^}")
-of=$(basename $file2 .md).pdf
-echo $of
+bsn=$(basename $1 .md)
 
-# nicht getestet
-#groff -k -ms $file -T pdf > $of
-pandoc $file -t ms -o $of
+pandoc $1 -t ms -o ~/media/office/pdf/${bsn^}.pdf && echo "compiled successfully"

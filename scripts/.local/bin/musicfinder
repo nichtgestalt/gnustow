@@ -1,5 +1,5 @@
 #!/bin/sh
 
-musicdir=~/Nextcloud/Musik/Playlist
+musicdir=~/media/music/
 
-ls $musicdir | rofi -dmenu -l 15 -p "Playlist" | xargs -I {} mpv $musicdir/{} 
+ls $musicdir | rofi -dmenu -l 15 -p "Playlist" | xargs -I {} mpvpaper HDMI-A-1 -o --script=~/.config/mpv/scripts/mpris.so $musicdir/{} 

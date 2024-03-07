@@ -1,6 +1,0 @@
-#/bin/bash
-
-# custom fetch script
-source ~/.local/share/scripts/colorechovars
-
-echo -e "${dred}-> $TERM"

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-file=$(basename $1)
-of=$(basename ${file^} .md).pdf
-echo $of
-
-pandoc $1 -t ms -o $HOME/media/office/pdf/$of

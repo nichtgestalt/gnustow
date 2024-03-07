@@ -5,8 +5,9 @@ vim.cmd("set softtabstop=3")
 vim.cmd("set shiftwidth=3")
 vim.cmd("set nohlsearch")
 vim.cmd("set termguicolors")
+vim.cmd("set splitbelow splitright")
+vim.cmd("set paste")
 
-vim.cmd("set termguicolors")
 
 vim.wo.relativenumber = true
 vim.wo.number = true

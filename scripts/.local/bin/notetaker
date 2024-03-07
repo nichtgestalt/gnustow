@@ -1,0 +1,9 @@
+#!/bin/sh
+
+dbfile="$HOME/media/office/csv/ideas.csv"
+
+datum=$(date '+%j%Y')
+read -p "Name der Idee: " title
+read -p "Inhalt der Idee: " inh
+
+echo "$datum,$title,$inh, " >> $dbfile
