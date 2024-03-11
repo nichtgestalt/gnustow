@@ -38,7 +38,8 @@ alias wlp='cd $HOME/media/bilder/wallpaper/ && ls'
 
 # office
 alias nt='notetaker'
-alias fnt='column -t -s"|" $HOME/media/office/data/ideas.csv'
+alias fnt='column -t -s"," $HOME/media/office/csv/ideas.csv'
+alias vnt='$EDITOR $HOME/media/office/csv/ideas.csv'
 
 # NixOS
 #alias nixwielos='sudo nixos-rebuild switch'

@@ -56,9 +56,14 @@ riverctl map normal Super+Shift A spawn planselector
 # wallpaper selection
 riverctl map normal Super+Shift V spawn "swayimg ~/media/bilder/wallpaper/*"
 
+# add thumbnails with ffmpeg
+riverctl map normal Super J spawn "imgpicker"
+
+# play some music
+riverctl map normal Super Q spawn "musicfinder"
+
 # launch powermenu
 riverctl map normal Super F4 spawn powermenu
-#riverctl map normal Super+Shift E exit
 
 # scroll through focused window
 riverctl map normal Super R focus-view next
@@ -71,6 +76,10 @@ riverctl map normal Super+Shift G swap previous
 # decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super N send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super T send-layout-cmd rivertile "main-ratio +0.05"
+
+# censor beep
+#riverctl map normal Super F9 spawn "mpv ~/media/music/censor-beep.mp3"
+#riverctl map -release normal Super F9 spawn "pkill mpv"
 
 # volume keys
 riverctl map normal Super Up spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
@@ -99,6 +108,7 @@ riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl float-filter-add app-id 'swayimg'
 riverctl float-filter-add app-id 'vlc'
 riverctl float-filter-add app-id 'mpv'
+riverctl float-filter-add app-id 'gimp'
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd

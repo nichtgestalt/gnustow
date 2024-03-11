@@ -2,7 +2,7 @@
 
 dbfile="$HOME/media/office/csv/ideas.csv"
 
-datum=$(date '+%j%Y')
+datum=$(date '+%j%g')
 read -p "Name der Idee: " title
 read -p "Inhalt der Idee: " inh
 
