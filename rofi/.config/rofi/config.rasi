@@ -3,4 +3,4 @@ configuration {
    me-select-entry:  "";
    me-accept-entry:  "MousePrimary";
 }
-@theme "~/.config/rofi/bright.rasi"
+@theme "~/.config/rofi/breeze.rasi"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+imgdir=$HOME/media/bilder/cover-art/
+
+ls $imgdir | rofi -dmenu -p "Cover art" -l 8 | xargs -I {} wtype $imgdir{}

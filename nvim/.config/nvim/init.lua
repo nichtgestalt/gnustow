@@ -30,6 +30,7 @@ require("keybindings")
 require("colorscheme")
 require("neovide")
 require("tokyo-night")
+--require("vscode")
 
 -- recutils
 vim.api.nvim_set_var('recutils_no_folding', '1')

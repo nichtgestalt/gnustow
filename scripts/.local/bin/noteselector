@@ -1,5 +1,0 @@
-#!/bin/sh
-
-Reader=okular
-#Reader=zathura
-ls -r ~/Notizblock/Wochenplan-*.pdf | head -n1 | xargs $Reader

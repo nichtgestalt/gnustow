@@ -1,7 +1,7 @@
 * {
 	/* font-family: JetBrainsMono */
 	font-family: Hack Nerd Font; 
-	font-size: 11pt;
+	font-size: 14pt;
    font-weight: 500;
 	color: #fcfcfc;
    min-height: 23px;
@@ -38,19 +38,19 @@ window#waybar {
 }
 
 #tags button {
-	min-width: 20px;
+	min-width: 30px;
 	border-radius: 0px;
 }
 
 #tags button.occupied {
-	min-width: 20px;
+	min-width: 30px;
 	border-radius: 0px;
 }
 
 #tags button.focused {
-	min-width: 20px;
+	min-width: 30px;
 	border-radius: 0px;
-	background: #1d99f3;
+	background: #614a73;
 	color: #232627;
 }
 
@@ -70,6 +70,6 @@ window#waybar {
 #pulseaudio,
 #cpu,
 #memory {
-	min-width: 120px;
+	min-width: 60px;
 }
 

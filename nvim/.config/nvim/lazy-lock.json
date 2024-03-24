@@ -1,5 +1,6 @@
 {
   "NeoSolarized.nvim": { "branch": "master", "commit": "687c780ff11253b474f9a777482648f8f4c39185" },
+  "breezy": { "branch": "master", "commit": "453167dc346f39e51141df4fe7b17272f4833c2b" },
   "colorbuddy.nvim": { "branch": "master", "commit": "cdb5b0654d3cafe61d2a845e15b2b4b0e78e752a" },
   "follow-md-links.nvim": { "branch": "main", "commit": "349c22ad5dea0d1bda0eb812efb35fabcd1a1c6c" },
   "hyprland-vim-syntax": { "branch": "main", "commit": "71760fe0cad972070657b0528f48456f7e0027b2" },
@@ -23,5 +24,6 @@
   "vim-css-color": { "branch": "master", "commit": "faa65935660a4596414fe21d57e2110faeb9e869" },
   "vim-pencil": { "branch": "master", "commit": "6d70438a8886eaf933c38a7a43a61adb0a7815ed" },
   "vim-rec": { "branch": "master", "commit": "fea812c2d68bb989df74950342231c7ed3355bb7" },
+  "vscode.nvim": { "branch": "main", "commit": "ea9ff6da3756ab229bcb59aad1ea7749eb15b065" },
   "zen-mode.nvim": { "branch": "main", "commit": "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" }
 }

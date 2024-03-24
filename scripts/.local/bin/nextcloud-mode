@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 nxcld=192.168.2.130
 

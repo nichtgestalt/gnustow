@@ -7,4 +7,6 @@ return {
    "svrana/neosolarized.nvim",
    "Tsuzat/NeoSolarized.nvim",
    "folke/tokyonight.nvim",
+   "Mofiqul/vscode.nvim",
+	"fneu/breezy",
 }

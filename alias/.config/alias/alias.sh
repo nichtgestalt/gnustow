@@ -41,5 +41,7 @@ alias nt='notetaker'
 alias fnt='column -t -s"," $HOME/media/office/csv/ideas.csv'
 alias vnt='$EDITOR $HOME/media/office/csv/ideas.csv'
 
+# others
+alias dmtest='sddm-greeter-qt6 --test-mode'
 # NixOS
 #alias nixwielos='sudo nixos-rebuild switch'

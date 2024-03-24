@@ -1,3 +1,5 @@
 #!/bin/sh
 
-ls --color=never ~/.config/alacritty/themes | rofi -dmenu -p themes -l 5 | xargs -I {} footclient -e nvim ~/.config/alacritty/themes/{}
+Terminal=alacritty
+
+ls --color=never ~/.config/alacritty/themes | rofi -dmenu -p Colors -l 5 | xargs -I {} $Terminal -e nvim ~/.config/alacritty/themes/{}

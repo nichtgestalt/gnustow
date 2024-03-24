@@ -1,13 +1,10 @@
 #!/bin/sh
 
-#pkill yambar
-#yambar 
-
-#pgrep yambar && pkill yambar || yambar
+bar=yambar
 
 case $1 in
    '--toggle')
-      pgrep yambar && pkill yambar || yambar & ;;
+      pgrep $bar && pkill yambar || yambar & ;;
    '--reload')
-      pkill yambar && yambar || yambar & ;;
+      pkill $bar && yambar || yambar & ;;
 esac

@@ -10,7 +10,7 @@
     foreground = "#fcfcfc"
     timeout = 8
     frame_color = "#aaaaaa"
-    font = Hack 11
+    font = Hack 13
     ### Display ###
     monitor = 0
     follow = none

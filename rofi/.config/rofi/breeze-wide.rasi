@@ -55,7 +55,7 @@ window {
     background-color: @background;
     border:           1;
     padding:          5;
-    width:            400;
+    width:            1400;
     border-radius:    0;
 	 anchor:				 north;
 	 location:			 north;

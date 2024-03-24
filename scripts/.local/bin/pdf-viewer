@@ -1,0 +1,6 @@
+#!/bin/sh
+
+reader=zathura
+pdfdir=~/media/office/pdf/
+
+$reader $pdfdir$(ls -t $pdfdir | head -n1)

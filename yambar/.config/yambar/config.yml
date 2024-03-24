@@ -9,8 +9,8 @@
 # ░ ░           ░  ░       ░    ░ by nichtgestalt   ░   ░     
 # ░ ░                                ░                    
 
-
-hack: &hack Hack Nerd Font:pixelsize=16
+# fonts
+hack: &hack HackNerdFont:pixelsize=16
 inconsolata: &inconsolata InconsolataNerdFont:pixelsize=16
 iosevka: &iosevka IosevkaNerdFont:pixelsize=16
 jetbrains: &jetbrains JetBrainsMonoNerdFont:pixelsize=16
@@ -19,11 +19,13 @@ sauce: &sauce SauseCodeProNerdFont:pixelsize=16
 space: &space SpaceMonoNerdFont:pixelsize=16
 shure: &shure ShureTechMonoNerdFont:pixelsize=16
 roboto: &roboto RobotoMonoNerdFont:pixelsize=16
+cantarell: &cantarell Cantarell:pixelsize=17
 
-bg: &bg bcd7ddff
-fg: &fg 1f1f1fff
-hl: &hl 4dbdeeff
-mrg: &mrg 10
+# colors
+bg: &bg 232627ff   # background
+fg: &fg eff0f1ff   # foreground
+hl: &hl 614a73ff   # highlight
+mrg: &mrg 10       # margin
 bar:
   height: 24
   location: top
@@ -39,6 +41,7 @@ bar:
           string: 
               text: " "
               margin: 10
+              foreground: *fg
               on-click:
                 left: sh -c "pkill rofi || rofi -show drun"
                 right: sh -c "pkill rofi || powermenu"
@@ -108,6 +111,7 @@ bar:
           string: 
             text: "{date}" 
             margin: 5
+            font: *hack
             on-click:
               left: 
               right: 
@@ -120,6 +124,7 @@ bar:
           string:
             text: "{time}"
             margin: 5
+            font: *hack
             on-click:
               left: 
               right: 
@@ -135,7 +140,7 @@ bar:
               type == "sink":
                 string: 
                     text: "[󰕾 {cubic_volume}%]" 
-                    foreground: *fg
+                    foreground: 3daee9ff
                     margin: *mrg
                     on-click:
                       wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
@@ -148,14 +153,14 @@ bar:
               id < 0:
                 string: 
                     text: "[  {cpu}%]" 
-                    foreground: *fg
+                    foreground: fdbc4bff
                     margin: *mrg
     - mem:
         poll-interval: 2500
         content:
           string: 
               text: "[  {percent_used}%]" 
-              foreground: *fg
+              foreground: 1cdc9aff
               margin: *mrg
     #- battery:
         #name: BAT0

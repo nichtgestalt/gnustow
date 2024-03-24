@@ -5,4 +5,4 @@ chosen=$(cat ~/.local/bin/emoji | rofi -dmenu -p "Pick Emoji" -l 10 | awk '{prin
 # exit if none is chosen
 [ -z "$chosen" ] && exit
 
-echo $chosen | waycopy && notify-send "'$chosen' copied to clipboard"
+echo $chosen | waycopy && notify-send "$chosen copied to clipboard"

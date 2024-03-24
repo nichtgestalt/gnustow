@@ -1,39 +1,42 @@
 {
-   "layer": "top",
-   "margin-top": 8,
-   "margin-left": 10,
-   "margin-right": 10,
+  "layer": "top",
+  "output": ["eDP-1"],
+  "position": "top",
+  
+  "modules-left": ["sway/workspaces","sway/mode"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/music","network","battery"],
 
-   "modules-left": ["river/tags"],
-   "modules-center": ["clock"],
-   "modules-right": ["cpu", "pulseaudio", "memory"],
-    
-   "river/tags": {
-      "num-tags": 5
-      }
-   },
+  "sway/mode": {
+    "format": "\U000f1a08"
+  },
 
-   "pulseaudio": {
-      "format": "[VOL: {volume}%]",
-	"format-muted": "X",
-   },
-    
-   "cpu": {
-      "interval": 2,
-	"format": "[CPU: {}%]",
-   },
+  "clock": {
+    "format": "{:%a %d/%m %I:%M}",
+    "interval": 60
+  },
 
-   "memory": {
-      "interval": 3,
-	"format": "[RAM: {used}Gb]",
-   },
+  "custom/music": {
+    "tooltip": false,
+    "format": "{}",
+    "interval": "once",
+    "signal": 1
+  },
 
-   "battery": {
-      "format": "{capacity}% {icon}",
-      "format-icons": ["", "", "", "", ""]
-   },
-    
-   "clock": {
-      "format": "{:%e. %b %H:%M}"
-   }
+  "network": {
+    "interface": "wlp170s0",
+    "format-icons": ["\U000f091f","\U000f0922","\U000f0925","\U000f0928"],
+    "format": "Disconnected \U000f092d", 
+    "format-wifi": "{essid}  {icon}",
+    "format-disconnected": "Disconnected \U000f092d",
+
+    "tooltip": false,
+    "max-length": 50
+  },
+
+  "battery": {
+    "format": "{icon} {capacity}",
+    "format-icons": ["\U000f007a","\U000f007b","\U000f007c","\U000f007d","\U000f007e","\U000f007f","\U000f0080","\U000f0081","\U000f0082","\U000f0079"],
+    "tooltip": false
+  }
 }
