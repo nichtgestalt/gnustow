@@ -1,6 +1,6 @@
 #!/bin/sh
 
-picked=$(hyprpicker -n -f$1)
+picked=$(hyprpicker -n -f$1) # gibt Fehlermeldung (8. April)
 
-echo $picked | waycopy
+echo $picked | wl-copy -n
 notify-send "$picked copied"

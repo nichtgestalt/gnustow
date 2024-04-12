@@ -1,173 +1,182 @@
-/**
- * ROFI Color theme
- * User: Qball
- * Copyright: Dave Davenport
- */
-
 * {
-    white:                       #eff0f1;
-    white-dim:                   #63686d;
-    gray:                        #7f8c8d;
-    black:                       #232627;
-    black-bright:                #31363b;
-    red:                         #c0392b;
-    red-darker:                  #783228;
-    blue:                        #3daee9;
-    blue-darker:                 #1b668f;
-    violet:                      #9b59b6;
-    violet-darker:               #614a73;
-    yellow:                      #fdcb4b;
-    yellow-darker:               #b65619;
-    cyan:                        #16a985;
-    cyan-darker:                 #186c60;
-    green:                       #1cdc9a;
-    green-darker:                #17a262;
-    foreground:                  @gray;
-    selected-normal-foreground:  @white;
-    normal-foreground:           @foreground;
-    background:                  @black;
-    alternate-normal-background: @black; 
-    selected-normal-background:  @violet-darker;
-    separatorcolor:              @selected-normal-background;
-    border-color:                @white;
+   black:                       #232627;
+   black-bright:                #7f8c8d;
+   black-darker:                #31363b;
+
+   white:                       #eff0f1;
+   white-bright:                #ffffff;
+   white-darker:                #63686d;
     
-    selected-urgent-foreground:  rgba ( 51, 51, 51, 100 % );
-    urgent-foreground:           rgba ( 255, 153, 153, 100 % );
-    alternate-urgent-background: rgba ( 255, 255, 255, 7 % );
-    active-foreground:           rgba ( 170, 170, 17, 100 % );
-    lightbg:                     rgba ( 238, 232, 213, 100 % );
-    selected-active-foreground:  #ffffff;
-    alternate-active-background: #ff6c6b;
-    alternate-normal-foreground: @foreground;
-    normal-background:           rgba ( 0, 0, 0, 0 % );
-    lightfg:                     rgba ( 88, 104, 117, 100 % );
-    spacing:                     2;
-    urgent-background:           rgba ( 0, 0, 0, 0 % );
-    selected-urgent-background:  rgba ( 255, 153, 153, 100 % );
-    alternate-urgent-foreground: @urgent-foreground;
-    background-color:            rgba ( 0, 0, 0, 0 % );
-    alternate-active-foreground: @active-foreground;
-    active-background:           rgba ( 0, 0, 0, 0 % );
-    selected-active-background:  rgba ( 170, 170, 17, 100 % );
-    separator-style:             "none";
+   red:                         #ed1515;
+	red-bright:                  #c0392b;
+   red-darker:                  #783228;
+    
+	green:                       #11d116;
+	green-bright:                #1cdc9a;
+   green-darker:                #17a262;
+    
+	yellow:					        #f67400;
+   yellow-bright:               #fdcb4b;
+   yellow-darker:               #b65619;
+
+   blue:                        #1d99f3;
+	blue-bright:                 #3daee9;
+   blue-darker:                 #1b668f;
+
+	violet:                      #9b59b6;
+	violet-bright:		           #8e44ad;
+   violet-darker:               #614a73;
+
+   cyan:				              #1abc9c;
+	cyan-bright:                 #16a985;
+   cyan-darker:                 #186c60;
+
+   foreground:                  @black-bright;
+   selected-normal-foreground:  @white-bright;
+   normal-foreground:           @foreground;
+   background:                  @black;
+   alternate-normal-background: @black; 
+   selected-normal-background:  @violet-darker;
+   separatorcolor:              @selected-normal-background;
+   border-color:                @white;
+
+   selected-urgent-foreground:  rgba ( 51, 51, 51, 100 % );
+   urgent-foreground:           rgba ( 255, 153, 153, 100 % );
+   alternate-urgent-background: rgba ( 255, 255, 255, 7 % );
+   active-foreground:           rgba ( 170, 170, 17, 100 % );
+   lightbg:                     rgba ( 238, 232, 213, 100 % );
+   selected-active-foreground:  #ffffff;
+   alternate-active-background: #ff6c6b;
+   alternate-normal-foreground: @foreground;
+   normal-background:           rgba ( 0, 0, 0, 0 % );
+   lightfg:                     rgba ( 88, 104, 117, 100 % );
+   spacing:                     2;
+   urgent-background:           rgba ( 0, 0, 0, 0 % );
+   selected-urgent-background:  rgba ( 255, 153, 153, 100 % );
+   alternate-urgent-foreground: @urgent-foreground;
+   background-color:            rgba ( 0, 0, 0, 0 % );
+   alternate-active-foreground: @active-foreground;
+   active-background:           rgba ( 0, 0, 0, 0 % );
+   selected-active-background:  rgba ( 170, 170, 17, 100 % );
+   separator-style:             "none";
 }
 window {
-    background-color: @background;
-    border:           1;
-    padding:          5;
-    width:            400;
-    border-radius:    0;
-	 anchor:				 north;
-	 location:			 north;
-    margin:				 300px 0px 0px 0px;
+   background-color: @background;
+   border:           1;
+   padding:          5;
+   width:            400;
+   border-radius:    0;
+	anchor:				 north;
+	location:			 north;
+   margin:				 300px 0px 0px 0px;
 }
 listview {
-    lines:   8;
+   lines:   8;
 }
 configuration {
-    font:        "Hack Mono Nerd Font 13";
+   font:        "Hack Mono Nerd Font 13";
 }
 mainbox {
-    border:  0;
-    padding: 0;
+   border:  0;
+   padding: 0;
 }
 message {
-    border:       1px dash 0px 0px ;
-    border-color: @separatorcolor;
-    padding:      1px ;
+   border:       1px dash 0px 0px ;
+   border-color: @separatorcolor;
+   padding:      1px ;
 }
 textbox {
-    text-color: @foreground;
+   text-color: @foreground;
 }
 listview {
-    fixed-height: 0;
-    border:       2px dash 0px 0px ;
-    border-color: @separatorcolor;
-    spacing:      2px ;
-    scrollbar:    false;
-    padding:      8px 8px 8px 8px;
+   fixed-height: 0;
+   border:       2px dash 0px 0px ;
+   border-color: @separatorcolor;
+   spacing:      2px ;
+   scrollbar:    false;
+   padding:      8px 8px 8px 8px;
 }
 element {
-    border:  0;
-    padding: 1px ;
+   border:  0;
+   padding: 1px ;
 }
 element-text {
-    background-color: inherit;
-    text-color:       inherit;
+   background-color: inherit;
+   text-color:       inherit;
 }
 element.normal.normal {
-    background-color: @normal-background;
-    text-color:       @normal-foreground;
+   background-color: @normal-background;
+   text-color:       @normal-foreground;
 }
 element.normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
+   background-color: @urgent-background;
+   text-color:       @urgent-foreground;
 }
 element.normal.active {
-    background-color: @active-background;
-    text-color:       @active-foreground;
+   background-color: @active-background;
+   text-color:       @active-foreground;
 }
 element.selected.normal {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+   background-color: @selected-normal-background;
+   text-color:       @selected-normal-foreground;
 }
 element.selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @selected-urgent-foreground;
+   background-color: @selected-urgent-background;
+   text-color:       @selected-urgent-foreground;
 }
 element.selected.active {
-    background-color: @selected-active-background;
-    text-color:       @selected-active-foreground;
+   background-color: @selected-active-background;
+   text-color:       @selected-active-foreground;
 }
 element.alternate.normal {
-    background-color: @alternate-normal-background;
-    text-color:       @alternate-normal-foreground;
+   background-color: @alternate-normal-background;
+   text-color:       @alternate-normal-foreground;
 }
 element.alternate.urgent {
-    background-color: @alternate-urgent-background;
-    text-color:       @alternate-urgent-foreground;
+   background-color: @alternate-urgent-background;
+   text-color:       @alternate-urgent-foreground;
 }
 element.alternate.active {
-    background-color: @alternate-active-background;
-    text-color:       @alternate-active-foreground;
+   background-color: @alternate-active-background;
+   text-color:       @alternate-active-foreground;
 }
 scrollbar {
-    width:        4px ;
-    border:       0;
-    handle-width: 8px ;
-    padding:      0;
+   width:        4px ;
+   border:       0;
+   handle-width: 8px ;
+   padding:      0;
 }
 mode-switcher {
-    border:       2px dash 0px 0px ;
-    border-color: @separatorcolor;
+   border:       2px dash 0px 0px ;
+   border-color: @separatorcolor;
 }
 button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+   background-color: @selected-normal-background;
+   text-color:       @selected-normal-foreground;
 }
 inputbar {
-    spacing:    0;
-    text-color: @normal-foreground;
-    padding:    1px ;
+   spacing:    0;
+   text-color: @normal-foreground;
+   padding:    1px ;
 }
 case-indicator {
-    spacing:    0;
-    text-color: @normal-foreground;
+   spacing:    0;
+   text-color: @normal-foreground;
 }
 entry {
-    spacing:    0;
-    text-color: @normal-foreground;
+   spacing:    0;
+   text-color: @normal-foreground;
 }
 prompt {
-    spacing:    0;
-    text-color: @white;
+   spacing:    0;
+   text-color: @white;
 }
 inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+   children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 textbox-prompt-colon {
-    expand:     false;
-    str:        ":";
-    margin:     0px 0.3em 0em 0em ;
-    text-color: @normal-foreground;
+   expand:     false;
+   str:        ":";
+   margin:     0px 0.3em 0em 0em ;
+   text-color: @normal-foreground;
 }

@@ -1,8 +1,15 @@
 #!/bin/sh
 
-chosen=$(cat ~/.local/bin/emoji | rofi -dmenu -p "Pick Emoji" -l 10 | awk '{print $1}' )
+nerdfile=~/.local/bin/nerd-chars.csv
+emofile=~/.local/bin/emoji
 
-# exit if none is chosen
-[ -z "$chosen" ] && exit
-
-echo $chosen | waycopy && notify-send "$chosen copied to clipboard"
+case $1 in
+	'--emoji')
+		chosen=$(cat $emofile | rofi -dmenu -p "Pick Emoji" -l 10 | awk '{print $1}') &&
+		#[ -z "$chosen" ] && exit && # exit if none is chosen
+		echo $chosen | wl-copy -n && notify-send "$chosen in clipboard" ;;
+	'--nerd-font')
+		chosen=$(cat $nerdfile | rofi -dmenu -p "Pick Nerd Glyph" -l 10 | awk -F"," '{print $1}') &&
+		#[ -z "$chosen" ] && exit && # exit if none is chosen
+		echo $chosen | wl-copy -n && notify-send "$chosen  copied to clipboard" ;;
+esac

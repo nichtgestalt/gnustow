@@ -12,7 +12,7 @@ sleep 1 && whybar --reload &
 dunst &
 
 # set background
-swaybg -i ~/.config/swayimg/wallpaper &
+swaybg -m fill -i ~/.config/swayimg/wallpaper &
 #riverctl background-color 0x7f8c8d
 
 # set keyboard to de neo
@@ -45,8 +45,8 @@ riverctl map normal Super+Shift V spawn "swayimg ~/media/bilder/wallpaper/*"
 riverctl map normal Super L toggle-fullscreen
 
 # theme picker
-riverctl map normal Super U spawn "themepicker"
-riverctl map normal Super+Shift U spawn "alcolor"
+riverctl map normal Super U spawn 'alcolor --open'
+riverctl map normal Super+Shift U spawn 'alcolor --set'
 
 # write and read tagesplaner
 riverctl map normal Super A spawn "$Terminal -e tagesplaner"
@@ -55,9 +55,6 @@ riverctl map normal Super+Shift A spawn "planselector"
 # launch browser
 riverctl map normal Super I spawn "firefox"
 riverctl map normal Control+Shift I spawn "firefox --private-window"
-
-# pdf-picker
-riverctl map normal Super H spawn "pdf-picker"
 
 # open neovim
 riverctl map normal Control G spawn "$Terminal -e nvim"
@@ -70,9 +67,11 @@ riverctl map normal Super Q spawn "pkill mpv || musicfinder"
 
 # view newest pdf
 riverctl map normal Super S spawn "pdf-viewer"
+riverctl map normal Super+Shift S spawn "pdf-picker"
 
 # emoji-picker
-riverctl map normal Super M spawn "emoji-picker"
+riverctl map normal Super M spawn "emoji-picker --emoji"
+riverctl map normal Super+Shift M spawn "emoji-picker --nerd-font"
 
 # imgpicker
 riverctl map normal Super J spawn "imgpicker"
@@ -158,7 +157,7 @@ riverctl map normal Super+Alt+Shift G resize vertical -100
 riverctl map normal Super+Alt+Shift T resize horizontal 100
 
 # set borders
-riverctl border-color-focused 0x8e44ad
+riverctl border-color-focused 0x7f8c8d
 riverctl border-color-unfocused 0x282c34
 riverctl border-width 1
 
@@ -208,6 +207,10 @@ do
    riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
 done
+
+# launch xremap
+pkill xremap
+ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml || notify-send "Xremap" "xremap nicht installiert"
 
 # censor beep
 #riverctl map normal Super F9 spawn "mpv ~/media/music/censor-beep.mp3"

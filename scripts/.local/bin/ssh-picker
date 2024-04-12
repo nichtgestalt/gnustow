@@ -1,6 +1,6 @@
 #!/bin/sh
 
-terminal="footclient"
+terminal="alacritty"
 
 # get list of maschines
 hostname=$(awk '/Host\s/{print $2}' ~/.ssh/config | rofi -dmenu)

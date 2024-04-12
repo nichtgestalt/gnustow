@@ -1,0 +1,71 @@
+#!/bin/bash
+
+configdir=$HOME/.config/gnustow
+#edit=nvim
+term='alacritty -e nvim'
+
+declare -a options=(
+"alacritty"
+"alias"
+"bash"
+"bspwm"
+"dunst"
+"foot"
+"hyprland"
+"kitty"
+#"mpv"
+"nano"
+"newsboat"
+"neovim"
+"polybar"
+"river"
+"rofi"
+"scripts"
+"swayimg"
+"sxhkd"
+"waybar"
+"xremap"
+"yambar"
+"zathura"
+"zsh"
+#"picom"
+)
+
+choice=$(printf '%s\n' ${options[@]} | rofi -dmenu -i -p 'edit config')
+
+case $choice in
+	'alacritty')
+		$term $configdir/$choice/.config/$choice/alacritty.toml ;;
+	'alias')
+		$term $configdir/$choice/.config/$choice/alias.sh ;;
+	'bash')
+		$term $configdir/$choice/.bashrc ;;
+	'bspwm')
+		$term $configdir/$choice/.config/$choice/bspwmrc ;;
+	'dunst')
+		$term $configdir/$choice/.config/$choice/dunstrc ;;
+	'foot')
+		$term $configdir/$choice/.config/$choice/foot.ini ;;
+	'hyprland')
+		$term $configdir/$choice/.config/$choice/$choice.conf ;;
+	'kitty')
+		$term $configdir/$choice/.config/$choice/$choice.conf ;;
+	'nano')
+		$term $configdir/$choice/.config/$choice/nanorc ;;
+	'newsboat')
+		$term $configdir/$choice/.config/$choice/config ;;
+	'neovim')
+		# use fzf for choosing the needed file
+		$term $configdir/nvim/.config/nvim/init.lua ;;
+	'polybar')
+		$term $configdir/$choice/.config/$choice/config.ini ;;
+	'river')
+		$term $configdir/$choice/.config/$choice/init ;;
+	'rofi')
+		# use fzf for choosing the needed file
+		$term $configdir/$choice/.config/$choice/breeze.rasi ;;
+	#'scripts')
+		# use fzf for choosing the needed file
+		#sdir=$(
+		alacritty -e "ls ~/.local/bin/ | fzf | xargs -I {} nvim ~/.local/bin/{}" ;;
+esac

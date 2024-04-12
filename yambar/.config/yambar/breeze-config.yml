@@ -1,32 +1,69 @@
-# Y A M B A R
-import: ~/.config/yambar/test.yml
-hack: &hack Hack Nerd Font:pixelsize=16
-time: &time Hack Nerd Font:pixelsize=15
-bg_default: &bg_default {stack: [{background: {color: 1b668fff}}, ]}
+#▓██   ██▓ ▄▄▄       ███▄ ▄███▓ ▄▄▄▄    ▄▄▄       ██▀███  
+# ▒██  ██▒▒████▄    ▓██▒▀█▀ ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
+#  ▒██ ██░▒██  ▀█▄  ▓██    ▓██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
+#  ░ ▐██▓░░██▄▄▄▄██ ▒██    ▒██ ▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
+#  ░ ██▒▓░ ▓█   ▓██▒▒██▒   ░██▒░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
+#   ██▒▒▒  ▒▒   ▓▒█░░ ▒░   ░  ░░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+# ▓██ ░▒░   ▒   ▒▒ ░░  ░      ░▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
+# ▒ ▒ ░░    ░   ▒   ░      ░    ░    ░   ░   ▒     ░░   ░ 
+# ░ ░           ░  ░       ░    ░ by nichtgestalt   ░   ░     
+# ░ ░                                ░                    
+
+# fonts
+hack: &hack HackNerdFont:pixelsize=16
+inconsolata: &inconsolata InconsolataNerdFont:pixelsize=16
+iosevka: &iosevka IosevkaNerdFont:pixelsize=16
+jetbrains: &jetbrains JetBrainsMonoNerdFont:pixelsize=16
+fira: &fira FiraCodeNerdFont:pixelsize=16
+sauce: &sauce SauseCodeProNerdFont:pixelsize=16
+space: &space SpaceMonoNerdFont:pixelsize=16
+shure: &shure ShureTechMonoNerdFont:pixelsize=16
+roboto: &roboto RobotoMonoNerdFont:pixelsize=16
+cantarell: &cantarell Cantarell:pixelsize=17
+
+# colors
+bg: &bg 232627ff   # background
+fg: &fg eff0f1ff   # foreground
+hl: &hl 614a73ff   # highlight
+mrg: &mrg 10       # margin
 bar:
   height: 24
   location: top
   font: *hack
   layer: bottom
-  foreground: fcfcfcff
-  background: 232627ff
+  foreground: *fg
+  background: *bg
 
+####
   left:
+    - label:
+        content: 
+          string: 
+              text: " "
+              margin: 10
+              foreground: *fg
+              on-click:
+                left: sh -c "pkill rofi || rofi -show drun"
+                right: sh -c "pkill rofi || powermenu"
+                middle: sh -c "footclient -e nvim ~/.config/yambar/colors.rasi"
+                wheel-up: sh -c "picker hex"
+                wheel-down: sh -c "picker hsl"
     - river:
         anchors:
           - base: &river_base
               left-margin: 8
               right-margin: 9 
-              default: {string: {text: , font: *hack}}
+              default: {string: {text:  }}
               conditions:
-                id == 1: {string: {text: 1, font: *hack}}  
-                id == 2: {string: {text: 2, font: *hack}}  
-                id == 3: {string: {text: 3, font: *hack}}  
-                id == 4: {string: {text: 4, font: *hack}}  
-                id == 5: {string: {text: 5, font: *hack}}  
-                id == 10: {string: {text: "scratchpad", font: *hack}}  
-                id == 11: {string: {text: "work", font: *hack}}  
-
+                id == 1: {string: {text: 1 }}  
+                id == 2: {string: {text: 2 }}  
+                id == 3: {string: {text: 3 }}  
+                id == 4: {string: {text: 4 }}  
+                id == 5: {string: {text: 5 }}  
+                id == 6: {string: {text: 6 }}  
+                id == 7: {string: {text: 7 }}  
+                id == 8: {string: {text: 8 }}  
+                id == 9: {string: {text: 9 }}  
         content:
           map:
             on-click: 
@@ -37,18 +74,18 @@ bar:
               state == urgent:
                 map:
                   <<: *river_base
-                  deco: {background: {color: D08770ff}}
+                  deco: {background: {color: *hl }}
               state == focused:
                 map:
                   <<: *river_base
-                  deco: *bg_default
+                  deco: {background: {color: *hl }}
               state == visible && ~occupied:
                 map:
                   <<: *river_base
               state == visible && occupied:
                 map:
                   <<: *river_base
-                  deco: *bg_default
+                  deco: {background: {color: *hl }}
               state == unfocused:
                 map:
                   <<: *river_base
@@ -57,33 +94,74 @@ bar:
                 map:
                   <<: *river_base
                     #deco: {underline: {size: 3, color: ea6962ff}}
+    #- foreign-toplevel:
+        #content:
+          #map:
+            #conditions:
+              #~activated: {empty: {}}
+              #activated:
+              #string: 
+                #text: "{app-id}"
+                #margin: 15
+####
   center:
     - clock:
-        time-format: "%H:%M"
         date-format: "%e.%b"
         content:
-          - string: {text: "{date}", font: *time, margin: 5}
-          - string: {text: "{time}", font: *time, margin: 5}
-
+          string: 
+            text: "{date}" 
+            margin: 5
+            font: *hack
+            on-click:
+              left: 
+              right: 
+              middle: 
+              wheel-up:
+              wheel-down:
+    - clock:
+        time-format: "%H:%M"
+        content:
+          string:
+            text: "{time}"
+            margin: 5
+            font: *hack
+            on-click:
+              left: 
+              right: 
+              middle: 
+              wheel-up:
+              wheel-down:
+####
   right:
     - pipewire:
         content:
           map:
             conditions:
               type == "sink":
-                - string: {text: "[󰕾 {cubic_volume}%]", foreground: 3daee9ff , margin: 10}
-
+                string: 
+                    text: "[󰕾 {cubic_volume}%]" 
+                    foreground: 3daee9ff
+                    margin: *mrg
+                    on-click:
+                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
     - cpu:
         poll-interval: 5000
         content:
           map:
             conditions:
               id < 0:
-                - string: {text: "[  {cpu}%]", foreground: f67400ff, margin: 10}
+                string: 
+                    text: "[  {cpu}%]" 
+                    foreground: fdbc4bff
+                    margin: *mrg
     - mem:
         poll-interval: 2500
         content:
-          - string: {text: "[  {percent_used}%]", foreground: 11d116ff, margin: 10}
+          string: 
+              text: "[  {percent_used}%]" 
+              foreground: 1cdc9aff
+              margin: *mrg
     #- battery:
         #name: BAT0
         #poll-interval: 180000

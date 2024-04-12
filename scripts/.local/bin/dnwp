@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mpvpaper -o "--script=~/.config/mpv/scripts/mpris.so --loop-file=inf" '*' $1
+#sleep 9
+notify-send "$(playerctl -p mpv metadata artist)" "$(playerctl -p mpv metadata title)"

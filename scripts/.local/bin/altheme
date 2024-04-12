@@ -1,0 +1,7 @@
+#!/bin/sh
+
+config=~/.config/alacritty/alacritty.toml
+
+themename=$(grep -wo "[a-zA-Z0-9_.-]*.toml" $config | xargs -I {} basename --suffix=.toml {})
+
+echo $themename

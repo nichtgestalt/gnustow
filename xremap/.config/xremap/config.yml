@@ -1,0 +1,20 @@
+# config file for xremap
+
+modmap:
+  - name: main remaps
+    remap:
+      CapsLock:
+        held: CapsLock
+        alone: backspace
+
+# map leftalt + space to delete
+keymap:
+  - name: normal mode
+    remap:
+      leftshift-space: backspace
+    mode: normal
+
+## run xremap without sudo so you can start it from your compositor
+# sudo gpasswd -a YOUR_USER input
+# mkdir /etc/udev/rules.d/
+# echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules

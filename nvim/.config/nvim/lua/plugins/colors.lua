@@ -9,4 +9,6 @@ return {
    "folke/tokyonight.nvim",
    "Mofiqul/vscode.nvim",
 	"fneu/breezy",
+	"neanias/everforest-nvim",
+   "Mofiqul/adwaita.nvim",
 }

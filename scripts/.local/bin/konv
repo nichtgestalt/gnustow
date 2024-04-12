@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# compile groff into pdf
+
 bsn=$(basename $1 .md)
 
 groff -k -ms $1 -T pdf > ~/media/office/pdf/${bsn^}.pdf && echo "compiled successfully"

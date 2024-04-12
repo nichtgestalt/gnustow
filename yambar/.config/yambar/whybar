@@ -4,7 +4,7 @@ bar=yambar
 
 case $1 in
    '--toggle')
-      pgrep $bar && pkill yambar || yambar & ;;
+      pgrep $bar && pkill $bar || $bar & ;;
    '--reload')
-      pkill $bar && yambar || yambar & ;;
+      pkill $bar && $bar || $bar & ;;
 esac

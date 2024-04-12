@@ -1,19 +1,11 @@
 #!/bin/bash
 
-noteFilename="$HOME/media/office/notes/.src/tagesplanung-$(date +%Y-%m-%d).ms"
+noteFilename="$HOME/media/office/onyx/$(date '+%B').md"
 
 if [ ! -f $noteFilename ]; then
-	echo -e ".TL\n\
-Tagesplanung\n\
-.AU\n\
-$(date '+%e. %B')\n\
-.SH\n\
-Agenda\n\
-.IP \(bu\n\
-Morgenroutine
-.IP \(bu\n\
-Stimmung: /10\n\
-.IP \(bu"> $noteFilename
+	echo -e "# $(date '+%B')\n\
+\n\
+## $(date '+%e. %B')\n"> $noteFilename
 fi
 
 nvim -c "norm Go"\

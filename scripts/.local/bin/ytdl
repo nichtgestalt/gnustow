@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case $1 in
+	'-m')
+yt-dlp -x --audio-format mp3 \
+--audio-quality 0 \
+--embed-thumbnail -o \
+"%(title)s%(ext)s" \
+-P $HOME/media/music/ $2 ;;
+	'-v')
+yt-dlp --embed-thumbnail \
+-S res,ext:mp4:m4a \
+--recode mp4 \
+-o "%(title)s%(ext)s" \
+-P $HOME/media/video/ $2 ;;
+esac

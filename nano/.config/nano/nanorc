@@ -42,3 +42,6 @@ set functioncolor italic,cyan
 # color [bold,][italic,]fgcolor,bgcolor "regex"
 syntax "markdown" "\.(md|MD)$"
 color cyan "#*"
+color red "^-"
+color red "^\*"
+color red "^\+"

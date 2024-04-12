@@ -25,7 +25,7 @@ cantarell: &cantarell Cantarell:pixelsize=17
 bg: &bg 232627ff   # background
 fg: &fg eff0f1ff   # foreground
 hl: &hl 614a73ff   # highlight
-mrg: &mrg 10       # margin
+mrg: &mrg 8       # margin
 bar:
   height: 24
   location: top
@@ -51,25 +51,27 @@ bar:
     - river:
         anchors:
           - base: &river_base
-              left-margin: 8
-              right-margin: 9 
-              default: {string: {text:  }}
+              left-margin: 5
+              right-margin: 5 
+              default: {string: {text:  }}
+              font: HackNerdFont:pixelsize=12
               conditions:
-                id == 1: {string: {text: 1 }}  
-                id == 2: {string: {text: 2 }}  
-                id == 3: {string: {text: 3 }}  
-                id == 4: {string: {text: 4 }}  
-                id == 5: {string: {text: 5 }}  
-                id == 6: {string: {text: 6 }}  
-                id == 7: {string: {text: 7 }}  
-                id == 8: {string: {text: 8 }}  
-                id == 9: {string: {text: 9 }}  
+                id == 1: {string: {text:  }}  
+                id == 2: {string: {text:  }}  
+                id == 3: {string: {text:  }}  
+                id == 4: {string: {text:  }}  
+                id == 5: {string: {text:  }}  
+                id == 6: {string: {text:  }}  
+                id == 7: {string: {text:  }}  
+                id == 8: {string: {text:  }}  
+                id == 9: {string: {text: '*' }}  
         content:
           map:
             on-click: 
               left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
               right: sh -c "riverctl toggle-focused-tags $((1 << ({id} -1)))"
               middle: sh -c "riverctl toggle-view-tags $((1 << ({id} -1)))"
+            right-margin: 6
             conditions:
               state == urgent:
                 map:
@@ -78,7 +80,18 @@ bar:
               state == focused:
                 map:
                   <<: *river_base
-                  deco: {background: {color: *hl }}
+                  #deco: {background: {color: *hl }}
+                  conditions:
+                    #id == 1: {string: {text:  , foreground: *hl}}  
+                    id == 1: {string: {text:  }}  
+                    id == 2: {string: {text:  }}  
+                    id == 3: {string: {text:  }}  
+                    id == 4: {string: {text:  }}  
+                    id == 5: {string: {text:  }}  
+                    id == 6: {string: {text:  }}  
+                    id == 7: {string: {text:  }}  
+                    id == 8: {string: {text:  }}  
+                    id == 9: {string: {text: '*' }}  
               state == visible && ~occupied:
                 map:
                   <<: *river_base
@@ -93,7 +106,7 @@ bar:
               state == invisible && occupied:
                 map:
                   <<: *river_base
-                    #deco: {underline: {size: 3, color: ea6962ff}}
+                  #deco: {underline: {size: 3, color: ea6962ff}}
     #- foreign-toplevel:
         #content:
           #map:
@@ -103,14 +116,21 @@ bar:
               #string: 
                 #text: "{app-id}"
                 #margin: 15
+    #- script:
+    #    path: /home/ghost/.local/bin/yambar-string-wrapper
+    #    args: ["alcolor", "--print"]
+    #    content:
+    #      string:
+    #        text: "{stdout}"
 ####
-  center:
+  center:    
     - clock:
         date-format: "%e.%b"
         content:
           string: 
             text: "{date}" 
-            margin: 5
+            foreground: *fg 
+            margin: 0
             font: *hack
             on-click:
               left: 
@@ -123,7 +143,8 @@ bar:
         content:
           string:
             text: "{time}"
-            margin: 5
+            foreground: *fg 
+            margin: *mrg
             font: *hack
             on-click:
               left: 
@@ -131,6 +152,13 @@ bar:
               middle: 
               wheel-up:
               wheel-down:
+    #- script:
+    #    poll-interval: 1000
+    #    path: /home/ghost/.local/bin/alcolor
+    #    args: ["--yambar"]
+    #    content:
+    #      string:
+    #        text: "{theme}"
 ####
   right:
     - pipewire:
@@ -162,7 +190,7 @@ bar:
               text: "[  {percent_used}%]" 
               foreground: 1cdc9aff
               margin: *mrg
-    #- battery:
+            #- battery:
         #name: BAT0
         #poll-interval: 180000
         #content:
