@@ -67,5 +67,5 @@ case $choice in
 	#'scripts')
 		# use fzf for choosing the needed file
 		#sdir=$(
-		alacritty -e "ls ~/.local/bin/ | fzf | xargs -I {} nvim ~/.local/bin/{}" ;;
+		#alacritty -e "ls ~/.local/bin/ | fzf | xargs -I {} nvim ~/.local/bin/{}" ;;
 esac

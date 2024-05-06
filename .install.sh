@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-sudo xbps-install -u xbps && sudo xbps-install -Syu && sudo xbps-install -S git bash-completion stow river yambar xorg seatd elogind xorg foot rofi polkit mesa-dri dunst swaybg swayimg vlc nerd-fonts pipewire neovim neofetch htop fzf lf socklog-void qemu libvirt virt-manager firefox nextcloud-client qt5-quickcontrols2 qt5-graphicaleffects qt5-svg wget terminus-font groff groff-doc libgroff zathura zathura-pdf-poppler ghostscript pandoc flatpak wayclip hyprpicker sddm waypipe entr grim slurp swappy
+sudo xbps-install -u xbps && sudo xbps-install -Syu && sudo xbps-install -S git bash-completion stow river yambar xorg seatd elogind xorg foot rofi polkit mesa-dri dunst swaybg swayimg vlc nerd-fonts pipewire neovim neofetch htop fzf lf socklog-void qemu libvirt virt-manager firefox nextcloud-client qt5-quickcontrols2 qt5-graphicaleffects qt5-svg wget terminus-font groff groff-doc libgroff zathura zathura-pdf-poppler ghostscript pandoc flatpak wayclip hyprpicker sddm waypipe entr grim slurp swappy curl mesa-vaapi
 
 sudo ln -s /etc/sv/dbus /var/service
 sudo ln -s /etc/sv/nanoklogd /var/service
@@ -27,6 +27,9 @@ sudo usermod -aG libvirt $USER
 
 # enable flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# install vimv
+#curl https://raw.githubusercontent.com/thameera/vimv/master/vimv > ~/.local/bin/vimv && chmod +755 ~/.local/bin/vimv
 
 # sddm and theme
 mkdir -p $HOME/dl

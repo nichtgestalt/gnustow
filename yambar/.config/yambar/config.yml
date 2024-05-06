@@ -152,6 +152,11 @@ bar:
               middle: 
               wheel-up:
               wheel-down:
+    - mpd:
+        host: /run/mpd/socket
+        content:
+          string:
+            text: "{title}"
     #- script:
     #    poll-interval: 1000
     #    path: /home/ghost/.local/bin/alcolor

@@ -6,4 +6,4 @@ datum=$(date '+%j%g')
 read -p "Name der Idee: " title
 read -p "Inhalt der Idee: " inh
 
-echo "$datum,$title,$inh, " >> $dbfile
+echo "$datum;$title;$inh; " >> $dbfile

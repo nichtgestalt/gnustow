@@ -36,7 +36,7 @@
    normal-foreground:           @foreground;
    background:                  @black;
    alternate-normal-background: @black; 
-   selected-normal-background:  @violet-darker;
+   selected-normal-background:  @blue-darker;
    separatorcolor:              @selected-normal-background;
    border-color:                @white;
 

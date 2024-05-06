@@ -7,12 +7,10 @@ modmap:
         held: CapsLock
         alone: backspace
 
-# map leftalt + space to delete
 keymap:
   - name: normal mode
     remap:
-      leftshift-space: backspace
-    mode: normal
+      CapsLock-space: backspace
 
 ## run xremap without sudo so you can start it from your compositor
 # sudo gpasswd -a YOUR_USER input

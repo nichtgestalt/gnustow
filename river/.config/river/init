@@ -10,13 +10,15 @@
 pipewire &
 sleep 1 && whybar --reload &
 dunst &
+sleep 3 && notify-send "Aufgabe:" "Rofi directory formatieren!"
 
 # set background
 swaybg -m fill -i ~/.config/swayimg/wallpaper &
-#riverctl background-color 0x7f8c8d
+#riverctl background-color 0x4E5275
 
 # set keyboard to de neo
 riverctl keyboard-layout -variant neo de
+#riverctl keyboard-layout de
 
 # launch terminal
 Terminal=alacritty
@@ -39,7 +41,7 @@ riverctl map normal Super F2 spawn "whybar --toggle"
 riverctl map normal Super V toggle-float
 
 # wallpaper selection
-riverctl map normal Super+Shift V spawn "swayimg ~/media/bilder/wallpaper/*"
+riverctl map normal Super+Shift V spawn "swayimg -a swayimg ~/media/bilder/wallpaper/*"
 
 # toggle fullscreen
 riverctl map normal Super L toggle-fullscreen
@@ -63,7 +65,8 @@ riverctl map normal Control G spawn "$Terminal -e nvim"
 riverctl map normal Control F spawn "$Terminal -e onyx"
 
 # play some music
-riverctl map normal Super Q spawn "pkill mpv || musicfinder"
+riverctl map normal Super Q spawn "pkill mpv || musicfinder --music"
+riverctl map normal Super+Shift Q spawn "pkill mpv || musicfinder --livewallpaper"
 
 # view newest pdf
 riverctl map normal Super S spawn "pdf-viewer"
@@ -120,7 +123,7 @@ riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl float-filter-add app-id 'swayimg'
 riverctl float-filter-add app-id 'vlc'
 riverctl float-filter-add app-id 'mpv'
-riverctl float-filter-add app-id 'gimp'
+riverctl float-filter-add app-id 'Gimp'
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
@@ -128,7 +131,7 @@ riverctl rule-add -app-id "bar" csd
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
 
 # Super+Period and Super+Comma to focus the next/previous output
 riverctl map normal Super Period focus-output next
@@ -210,7 +213,7 @@ done
 
 # launch xremap
 pkill xremap
-ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml || notify-send "Xremap" "xremap nicht installiert"
+ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml 
 
 # censor beep
 #riverctl map normal Super F9 spawn "mpv ~/media/music/censor-beep.mp3"

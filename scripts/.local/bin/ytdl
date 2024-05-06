@@ -1,16 +1,34 @@
 #!/bin/sh
 
+# fancy welcoming screen :) 
+echo "\n\033[1;35m\
+  ██████   ██████  ██     ██ ███    ██ ██       ██████   █████  ██████  ███████ ██████\n\
+  ██   ██ ██    ██ ██     ██ ████   ██ ██      ██    ██ ██   ██ ██   ██ ██      ██   ██\n\
+  ██   ██ ██    ██ ██  █  ██ ██ ██  ██ ██      ██    ██ ███████ ██   ██ █████   ██████\n\
+  ██   ██ ██    ██ ██ ███ ██ ██  ██ ██ ██      ██    ██ ██   ██ ██   ██ ██      ██   ██\n\
+  ██████   ██████   ███ ███  ██   ████ ███████  ██████  ██   ██ ██████  ███████ ██   ██\n\
+\033[0m"
+
+# get filename whith the help of the media title
+exampleName=$(yt-dlp -q --print filename -o "%(channel)s - %(title)s" $2)
+echo $exampleName
+read -p 'Name der Datei: ' name
+newname=$(echo $name | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g')
+
 case $1 in
 	'-m')
 yt-dlp -x --audio-format mp3 \
 --audio-quality 0 \
---embed-thumbnail -o \
-"%(title)s%(ext)s" \
--P $HOME/media/music/ $2 ;;
+--embed-thumbnail \
+-o "$newname" \
+-P $HOME/media/music/ $2 && 
+echo "\n\033[1;35m*** Downloaded Succesfully ***\n" ;;
 	'-v')
+echo "download as $newname.mp4 ..."
 yt-dlp --embed-thumbnail \
 -S res,ext:mp4:m4a \
 --recode mp4 \
--o "%(title)s%(ext)s" \
--P $HOME/media/video/ $2 ;;
+-o "$newname" \
+-P $HOME/media/video/ $2 &&
+echo "\n\033[1;35m*** Downloaded Succesfully ***\n" ;;
 esac

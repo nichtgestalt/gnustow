@@ -3,11 +3,9 @@ alias f='figlet'
 alias v='$EDITOR'
 alias vi='$EDITOR'
 alias ls='ls --color=auto'
-alias bac='nvim $HOME/.bashrc'
-alias vic='cd ~/.config/nvim/ && $EDITOR $HOME/.config/nvim/init.lua'
+alias bac='$EDITOR $HOME/.bashrc'
+alias vic='cd ~/.config/nvim/ && ls'
 alias ali='vim $HOME/.config/alias/alias.sh' 
-alias vdl='ytdl -v'
-alias mdl='ytdl -m'
 alias grep='grep --color=auto'
 alias term='$EDITOR $HOME/.config/alacritty/alacritty.toml'
 alias simg='swayimg'
@@ -42,7 +40,7 @@ alias vid='cd $HOME/media/video/ && ls -1'
 
 # office
 alias nt='notetaker'
-alias fnt='column -t -s"," $HOME/media/office/csv/ideas.csv'
+alias fnt='column -t -s";" $HOME/media/office/csv/ideas.csv'
 alias vnt='$EDITOR $HOME/media/office/csv/ideas.csv'
 
 # others

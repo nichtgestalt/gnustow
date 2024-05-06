@@ -11,6 +11,7 @@ declare -a options=(
 "Client"
 "Reboot"
 "Log out"
+"Eject Disc"
 )
 
 choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -p 'Session')
