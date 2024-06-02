@@ -2,11 +2,10 @@
 
 # fancy welcoming screen :) 
 echo "\n\033[1;35m\
-  ██████   ██████  ██     ██ ███    ██ ██       ██████   █████  ██████  ███████ ██████\n\
-  ██   ██ ██    ██ ██     ██ ████   ██ ██      ██    ██ ██   ██ ██   ██ ██      ██   ██\n\
-  ██   ██ ██    ██ ██  █  ██ ██ ██  ██ ██      ██    ██ ███████ ██   ██ █████   ██████\n\
-  ██   ██ ██    ██ ██ ███ ██ ██  ██ ██ ██      ██    ██ ██   ██ ██   ██ ██      ██   ██\n\
-  ██████   ██████   ███ ███  ██   ████ ███████  ██████  ██   ██ ██████  ███████ ██   ██\n\
+┳┓       ┓     ┓\n\
+┃┃┏┓┓┏┏┏┓┃┏┓┏┓┏┫\n\
+┻┛┗┛┗┻┛┛┗┗┗┛┗┻┗┻  \
+
 \033[0m"
 
 # get filename whith the help of the media title
@@ -23,6 +22,7 @@ yt-dlp -x --audio-format mp3 \
 -o "$newname" \
 -P $HOME/media/music/ $2 && 
 echo "\n\033[1;35m*** Downloaded Succesfully ***\n" ;;
+
 	'-v')
 echo "download as $newname.mp4 ..."
 yt-dlp --embed-thumbnail \
@@ -30,5 +30,5 @@ yt-dlp --embed-thumbnail \
 --recode mp4 \
 -o "$newname" \
 -P $HOME/media/video/ $2 &&
-echo "\n\033[1;35m*** Downloaded Succesfully ***\n" ;;
+echo "\n\033[1;34m*** Downloaded Succesfully ***\n" ;;
 esac

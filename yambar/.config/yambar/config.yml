@@ -25,7 +25,10 @@ cantarell: &cantarell Cantarell:pixelsize=17
 bg: &bg 232627ff   # background
 fg: &fg eff0f1ff   # foreground
 hl: &hl 614a73ff   # highlight
-mrg: &mrg 8       # margin
+dim: &dim 7f8c8dff # dim foreground
+cyan: &cyan 16a085ff
+green: &green 1abc9cff
+mrg: &mrg 8
 bar:
   height: 24
   location: top
@@ -124,39 +127,13 @@ bar:
     #        text: "{stdout}"
 ####
   center:    
-    - clock:
-        date-format: "%e.%b"
-        content:
-          string: 
-            text: "{date}" 
-            foreground: *fg 
-            margin: 0
-            font: *hack
-            on-click:
-              left: 
-              right: 
-              middle: 
-              wheel-up:
-              wheel-down:
-    - clock:
-        time-format: "%H:%M"
-        content:
-          string:
-            text: "{time}"
-            foreground: *fg 
-            margin: *mrg
-            font: *hack
-            on-click:
-              left: 
-              right: 
-              middle: 
-              wheel-up:
-              wheel-down:
-    - mpd:
-        host: /run/mpd/socket
+    - script:
+        poll-interval: 2000
+        path: /home/ghost/.local/bin/mpbar
         content:
           string:
             text: "{title}"
+            foreground: *fg
     #- script:
     #    poll-interval: 1000
     #    path: /home/ghost/.local/bin/alcolor
@@ -171,10 +148,31 @@ bar:
           map:
             conditions:
               type == "sink":
-                string: 
-                    text: "[󰕾 {cubic_volume}%]" 
-                    foreground: 3daee9ff
-                    margin: *mrg
+                - string: 
+                    text: " [" 
+                    foreground: *dim
+                    margin: 0
+                    on-click:
+                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+                - string: 
+                    text: "󰕾 " 
+                    foreground: *green
+                    margin: 0
+                    on-click:
+                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+                - string: 
+                    text: "{cubic_volume}%" 
+                    foreground: *dim
+                    margin: 0
+                    on-click:
+                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+                - string: 
+                    text: "] " 
+                    foreground: *dim
+                    margin: 0
                     on-click:
                       wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
                       wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
@@ -184,18 +182,61 @@ bar:
           map:
             conditions:
               id < 0:
-                string: 
-                    text: "[  {cpu}%]" 
-                    foreground: fdbc4bff
-                    margin: *mrg
+                - string: 
+                    text: " [" 
+                    foreground: *dim
+                    margin: 0
+                - string: 
+                    text: " " 
+                    foreground: *green
+                    margin: 0
+                - string: 
+                    text: "{cpu}%" 
+                    foreground: *dim
+                    margin: 0
+                - string: 
+                    text: "] " 
+                    foreground: *dim
+                    margin: 0
     - mem:
         poll-interval: 2500
         content:
-          string: 
-              text: "[  {percent_used}%]" 
-              foreground: 1cdc9aff
-              margin: *mrg
-            #- battery:
+          - string: 
+              text: " [" 
+              foreground: *dim
+              margin: 0
+          - string: 
+              text: " " 
+              foreground: *cyan
+              margin: 0
+          - string: 
+              text: "{percent_used}%"
+              foreground: *dim
+              margin: 0
+          - string: 
+              text: "] "
+              foreground: *dim
+              margin: 0
+    - clock:
+        date-format: "%e.%b"
+        time-format: "%H:%M"
+        content:
+          - string: 
+              text: "{date} {time} " 
+              foreground: *dim
+              margin: 0
+              font: *hack
+              deco:
+                underline:
+                  size: 1
+                  color: *green
+              on-click:
+                left: 
+                right: 
+                middle: 
+                wheel-up:
+                wheel-down:
+    #- battery:
         #name: BAT0
         #poll-interval: 180000
         #content:
@@ -204,4 +245,3 @@ bar:
         #name: intel_backlight
         #content: 
           #- string: {text: "[󰌵 {percent}%]", foreground: fdbc4bff, margin: 5}
-

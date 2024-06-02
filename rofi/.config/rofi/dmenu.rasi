@@ -1,34 +1,26 @@
-/**
- * ROFI Color theme
- * User: Qball
- * Copyright: Dave Davenport
- */
+@import "~/.config/rofi/colors.rasi"
 
-* {
-    background-color:   #2d3142;
-    border-color:       White;
-    text-color:         #daeff2;
-    font:               "Hack 12";
-}
 window {
-   anchor:     north;
-   margin:     24px 26px 24px 26px;
-   location:   north;
-   width:      100%;
-   padding:    10px;
-   children:   [ horibox ];
+	background-color: @background;
+	border:				0;
+   padding:    		0px 0px 0px 0px;
+   width:      		100%;
+	border-radius: 	0;
+   anchor:     		north;
+   location:   		north;
+   margin:     		0px 0px 0px 0px;
+   children: 			[ horibox ];
 }
 horibox {
    orientation: horizontal;
    children:   [ prompt, entry, listview ];
 }
 prompt {
-   font:       "Hack bold 12";
-   text-color: #cae7ed;
-   padding: 0 0 10px 0;
+   text-color: @white;
+   padding: 	0px 0px 0px 0px;
 }
 listview {
-   layout:     vertical;
+   layout:     horizontal;
    spacing:    5px;
    lines:      7;
 }
@@ -38,14 +30,23 @@ entry {
    width:      10em;
 }
 element {
+	text-colors:		@black-bright;
+	background-color: @background;
    padding: 0px 2px;
 }
-element selected {
-   text-color:    #ffffff;
-   background-color:    #1c64d1;
+element.normal.normal {
+	background-color: @normal-background;
+	text-color:			@normal-foreground;
 }
-
+element.alternate.normal {
+	background-color: @normal-background;
+	text-color:			@normal-foreground;
+}
+element selected {
+   text-color:    		@selected-normal-foreground;
+   background-color:    @selected-normal-background;
+}
 element-text, element-icon {
-   background-color: inherit;
-   text-color: inherit;
+   text-color: 		 	inherit;
+   background-color:		inherit;
 }

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ls -r ~/media/office/notes/Tagesplanung*.pdf | head -n1 | xargs zathura

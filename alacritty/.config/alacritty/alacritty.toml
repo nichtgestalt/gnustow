@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/onedark.toml",]
+import = ["~/.config/alacritty/themes/breeze.toml",]
 
 [window]
 dimensions = { columns = 140, lines = 35 }

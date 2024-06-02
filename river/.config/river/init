@@ -10,7 +10,7 @@
 pipewire &
 sleep 1 && whybar --reload &
 dunst &
-sleep 3 && notify-send "Aufgabe:" "Rofi directory formatieren!"
+#sleep 3 && notify-send "Aufgabe:" "Übung in C: Durchschnitt errechnen"
 
 # set background
 swaybg -m fill -i ~/.config/swayimg/wallpaper &
@@ -51,15 +51,12 @@ riverctl map normal Super U spawn 'alcolor --open'
 riverctl map normal Super+Shift U spawn 'alcolor --set'
 
 # write and read tagesplaner
-riverctl map normal Super A spawn "$Terminal -e tagesplaner"
-riverctl map normal Super+Shift A spawn "planselector"
+riverctl map normal Super A spawn "$Terminal -e adeptus"
+riverctl map normal Super+Shift A spawn "$Terminal -e nvim ~/media/office/onyx/tagesthemen.md"
 
 # launch browser
 riverctl map normal Super I spawn "firefox"
 riverctl map normal Control+Shift I spawn "firefox --private-window"
-
-# open neovim
-riverctl map normal Control G spawn "$Terminal -e nvim"
 
 # onyx
 riverctl map normal Control F spawn "$Terminal -e onyx"
@@ -81,20 +78,28 @@ riverctl map normal Super J spawn "imgpicker"
 
 ## function keys
 # pipewire
-riverctl map normal Super Up spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-riverctl map normal Super Down spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
-riverctl map normal Super F8 spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-riverctl map normal Super F7 spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
-riverctl map normal Super F6 spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+riverctl map normal Super Up spawn 		'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
+riverctl map normal Super Down spawn 	'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+riverctl map normal Super F8 spawn		'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
+riverctl map normal Super F7 spawn		'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+riverctl map normal Super F6 spawn		'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+
 # control mpv
-riverctl map normal Control F8 spawn 'playerctl -p mpv volume 0.1+'
-riverctl map normal Control F7 spawn 'playerctl -p mpv volume 0.1-'
-riverctl map normal Control F6 spawn 'notify-send "Volume $(playerctl -p mpv volume)"'
-riverctl map normal Control F9 spawn        'playerctl -p mpv previous && notify-send "$(playerctl -p mpv metadata title)"'
-riverctl map normal Control F10 spawn       'playerctl -p mpv play-pause'
-riverctl map normal Control+Shift F10 spawn 'notify-send "Currently Playing:" "$(playerctl -p mpv metadata title)"'
-riverctl map normal Control F11 spawn       'playerctl -p mpv next && notify-send "Currently Playing:" "$(playerctl -p mpv metadata title)"'
-riverctl map normal Control F12 spawn       'pkill mpv'
+riverctl map normal Control F6 spawn 	'notify-send "Volume $(playerctl -p mpv volume)"'
+riverctl map normal Control F7 spawn 	'playerctl -p mpv volume 0.1-'
+riverctl map normal Control F8 spawn	'playerctl -p mpv volume 0.1+'
+
+riverctl map normal Control F9 spawn        	'playerctl -p mpv previous && notify-send "$(playerctl -p mpv metadata title)"'
+riverctl map normal Control+Shift F9 spawn	'playerctl -p mpv position 5-'
+riverctl map normal Control F10 spawn      	'playerctl -p mpv play-pause'
+riverctl map normal Control+Shift F10 spawn 	'notify-send "Currently Playing:" "$(playerctl -p mpv metadata title)"'
+
+riverctl map normal Control F11 spawn			'playerctl -p mpv next && notify-send "Currently Playing:" "$(playerctl -p mpv metadata title)"'
+riverctl map normal Control+Shift F9 spawn	'playerctl -p mpv position 5+'
+riverctl map normal Control F12 spawn       	'pkill mpv'
+
+# screenshots
+riverctl map normal Super F12 spawn 'wlscreenshot'
 
 # close rofi
 riverctl map normal Super F1 spawn 'pkill rofi'

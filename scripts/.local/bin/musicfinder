@@ -15,7 +15,7 @@ case $1 in
 		choice=$(awk -F"/" '{print $NF}' $playlist \
 | awk '{print NR-1 " " $0}' \
 | shuf \
-| rofi -dmenu -i -p "Playlist" -theme ~/.config/rofi/breeze-wide.rasi \
+| rofi -dmenu -i -p "Playlist:" -theme ~/.config/rofi/theme02.rasi \
 | awk '{print $1}')
 		# exit if none is chosen
 		[ -z $choice ] && exit
