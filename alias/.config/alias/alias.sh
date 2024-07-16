@@ -18,6 +18,7 @@ alias wbar='cd $HOME/.config/waybar && ls'
 alias rasi='$EDITOR $HOME/.config/rofi/config.rasi'
 alias keys='$EDITOR $HOME/.config/xremap/config.yml'
 alias on='onyx'
+alias ad='adeptus'
 #alias pic='$EDITOR $HOME/.config/picom/picom.conf'
 #alias bard='$EDITOR $HOME/.config/polybar/config-dwmlike.ini'
 
@@ -30,7 +31,7 @@ alias bsremove='sudo xbps-remove -R'
 
 # directories
 alias spts='cd $HOME/.local/bin && ls'
-alias wiki='cd $HOME/media/office/onyx/ && ls -1'
+alias wiki='cd $HOME/media/office/onyx/ && ls'
 alias dl='cd $HOME/dl'
 alias data='cd $HOME/media/office/data && ls -1'
 alias critty='cd $HOME/.config/alacritty/themes && ls -1'

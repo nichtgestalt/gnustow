@@ -5,5 +5,5 @@ editor=nvim
 
 ls -R $onyxdir \
 | awk -F "/" '{print $NF}' \
-| fzf -i --height=50 --border=bold --border-label=" O N Y X " --margin=2 --padding=3 --no-scrollbar --prompt="select file: " \
+| fzf -e -i --height=50 --border=bold --border-label=" O N Y X " --margin=2 --padding=3 --no-scrollbar --prompt="select file: " \
 | xargs -I {} $editor $onyxdir{}

@@ -26,8 +26,13 @@ case $1 in
 		$execute ;;
 
 	'--livewallpaper')
-		wpchoice=$(ls $dnwpdir | rofi -dmenu -i -p "Livewallpaper" -theme ~/.config/rofi/breeze-wide.rasi)
+		wpchoice=$(ls $dnwpdir | rofi -dmenu -i -p "Livewallpaper" -theme ~/.config/rofi/theme02.rasi)
 		# exit if none is chosen
 		[ -z $wpchoice ] && exit
 		mpvpaper -o "--script=~/.config/mpv/scripts/mpris.so" '*' $dnwpdir$wpchoice ;;
+	'--ambient')
+		ambchoice=$(ls $HOME/media/music/ambient | grep .*mp3 | shuf | rofi -dmenu -i -p "Ambient" -theme ~/.config/rofi/theme02.rasi)
+		# exit if none is chosen
+		[ -z $ambchoice ] && exit
+		mpvpaper -o "--script=~/.config/mpv/scripts/mpris.so" '*' $HOME/media/music/ambient/$ambchoice ;;
 esac

@@ -1,4 +1,5 @@
 require("onedark").load()
+--vim.cmd[[colorscheme default]]
 --vim.cmd[[colorscheme nord]]
 --vim.cmd[[colorscheme tokyonight]]
 --vim.cmd[[colorscheme breezy]]

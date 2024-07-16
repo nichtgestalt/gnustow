@@ -9,7 +9,7 @@ map('n', '<cr>', 'gf',                             {noremap = true, silent = fal
 map('n', '<bs>', ':bprevious<CR>',                 {noremap = true, silent = false})
 
 -- softpencil
-map('n', '<leader>s', ':SoftPencil<CR>',           {noremap = true, silent = false})
+map('n', '<leader>sp', ':SoftPencil<CR>',           {noremap = true, silent = false})
 
 -- zenmode
 map('n', '<leader>zm', ':ZenMode<CR>',             {noremap = true, silent = false})
@@ -29,6 +29,7 @@ map('n', '<leader>vi',  ':e ~/.config/nvim/init.lua<CR>',            {noremap = 
 map('n', '<leader>vk',  ':e ~/.config/nvim/lua/keybindings.lua<CR>', {noremap = true, silent = false})   -- nvim keybindings
 map('n', '<leader>wm',  ':e ~/.config/river/init<CR>',               {noremap = true, silent = false})   -- river
 map('n', '<leader>sh',  ':e ~/.bashrc<CR>',                          {noremap = true, silent = false})   -- bashrc
+map('n', '<leader>al',  ':e ~/.config/alias/alias.sh<CR>',               {noremap = true, silent = false})   -- river
 map('n', '<leader>bar', ':e ~/.config/yambar/config.yml<CR>',        {noremap = true, silent = false})   -- waybar config
 map('n', '<leader>ke',  ':e ~/.config/hypr/keybindings.conf<CR>',    {noremap = true, silent = false})   -- keybindings hypr
 map('n', '<leader>css', ':e ~/.config/waybar/style.css<CR>',         {noremap = true, silent = false})   -- waybar css

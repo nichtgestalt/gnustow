@@ -3,5 +3,5 @@
 yt-dlp -x --audio-format mp3 \
 --audio-quality 0 \
 --embed-thumbnail -o \
-"%(title)s%(ext)s" \
+"%(channel)s %(title)s" \
 -P $HOME/media/music/ $1

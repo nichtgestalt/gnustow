@@ -10,7 +10,6 @@
 pipewire &
 sleep 1 && whybar --reload &
 dunst &
-#sleep 3 && notify-send "Aufgabe:" "Übung in C: Durchschnitt errechnen"
 
 # set background
 swaybg -m fill -i ~/.config/swayimg/wallpaper &
@@ -64,6 +63,7 @@ riverctl map normal Control F spawn "$Terminal -e onyx"
 # play some music
 riverctl map normal Super Q spawn "pkill mpv || musicfinder --music"
 riverctl map normal Super+Shift Q spawn "pkill mpv || musicfinder --livewallpaper"
+riverctl map normal Super+Control+Shift Q spawn "pkill mpv || musicfinder --ambient"
 
 # view newest pdf
 riverctl map normal Super S spawn "pdf-viewer"
@@ -219,6 +219,9 @@ done
 # launch xremap
 pkill xremap
 ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml 
+
+# remind me
+sleep 7 && notify-send "Aufgabe:" "NAS mit Nova PC erstellen"
 
 # censor beep
 #riverctl map normal Super F9 spawn "mpv ~/media/music/censor-beep.mp3"

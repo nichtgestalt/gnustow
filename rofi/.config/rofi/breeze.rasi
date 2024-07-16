@@ -35,10 +35,11 @@
 
    foreground:                  @black-bright;
    selected-normal-foreground:  @white-bright;
+   selected-normal-foreground:  @white;
    background:                  @black;
    alternate-normal-background: @black; 
 
-   selected-normal-background:  @white-darker;
+   selected-normal-background:  @cyan-darker;
 
    separatorcolor:              @selected-normal-background;
    separator-style:             "none";

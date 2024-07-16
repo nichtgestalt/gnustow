@@ -5,7 +5,6 @@ return {
    "shaunsingh/nord.nvim",
    "Tsuzat/NeoSolarized.nvim",
    "folke/tokyonight.nvim",
-   "Mofiqul/vscode.nvim",
 	"fneu/breezy",
 	"neanias/everforest-nvim",
    "Mofiqul/adwaita.nvim",

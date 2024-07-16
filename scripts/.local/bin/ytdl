@@ -9,10 +9,10 @@ echo "\n\033[1;35m\
 \033[0m"
 
 # get filename whith the help of the media title
-exampleName=$(yt-dlp -q --print filename -o "%(channel)s - %(title)s" $2)
-echo $exampleName
-read -p 'Name der Datei: ' name
-newname=$(echo $name | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g')
+exampleName=$(yt-dlp -q --print filename -o "%(channel)s %(title)s" $2)
+#echo $exampleName
+#read -p 'Name der Datei: ' inputname
+newname=$(echo $exampleName | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g')
 
 case $1 in
 	'-m')

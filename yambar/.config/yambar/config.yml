@@ -26,8 +26,8 @@ bg: &bg 232627ff   # background
 fg: &fg eff0f1ff   # foreground
 hl: &hl 614a73ff   # highlight
 dim: &dim 7f8c8dff # dim foreground
-cyan: &cyan 16a085ff
-green: &green 1abc9cff
+#ac: &ac 16a085ff   # accent color
+ac: &ac 3daee9ff   # accent color
 mrg: &mrg 8
 bar:
   height: 24
@@ -42,13 +42,14 @@ bar:
     - label:
         content: 
           string: 
+              #text: "😀"
               text: " "
               margin: 10
-              foreground: *fg
+              foreground: *ac
               on-click:
                 left: sh -c "pkill rofi || rofi -show drun"
                 right: sh -c "pkill rofi || powermenu"
-                middle: sh -c "footclient -e nvim ~/.config/yambar/colors.rasi"
+                middle: sh -c "musicfinder --music"
                 wheel-up: sh -c "picker hex"
                 wheel-down: sh -c "picker hsl"
     - river:
@@ -58,6 +59,7 @@ bar:
               right-margin: 5 
               default: {string: {text:  }}
               font: HackNerdFont:pixelsize=12
+              foreground: *dim
               conditions:
                 id == 1: {string: {text:  }}  
                 id == 2: {string: {text:  }}  
@@ -125,15 +127,40 @@ bar:
     #    content:
     #      string:
     #        text: "{stdout}"
-####
+
   center:    
     - script:
-        poll-interval: 2000
+        poll-interval: 1000
         path: /home/ghost/.local/bin/mpbar
         content:
-          string:
-            text: "{title}"
-            foreground: *fg
+          - string:
+              # text: " 󰎇 {prefix} "
+              text: " {prefix} "
+              foreground: *ac
+              on-click:
+                left: 
+                right:  "playerctl -p mpv position 120-"
+                middle: 
+                wheel-up: "playerctl -p mpv position 5+" 
+                wheel-down: "playerctl -p mpv position 5-" 
+          - string:
+              text: "{title} {position}"
+              foreground: *dim
+              on-click:
+                left: "playerctl -p mpv play-pause"
+                right: "notify-send 'Playing:' '{title} {totallength}'"
+                middle: 
+                wheel-up: "playerctl -p mpv volume 0.1+"
+                wheel-down: "playerctl -p mpv volume 0.1-"
+          - string:
+              text: " {suffix} "
+              foreground: *ac
+              on-click:
+                left: 
+                right: "playerctl -p mpv position 120+"
+                middle: 
+                wheel-up: "playerctl -p mpv position 5+"
+                wheel-down: "playerctl -p mpv position 5-" 
     #- script:
     #    poll-interval: 1000
     #    path: /home/ghost/.local/bin/alcolor
@@ -157,7 +184,7 @@ bar:
                       wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
                 - string: 
                     text: "󰕾 " 
-                    foreground: *green
+                    foreground: *ac
                     margin: 0
                     on-click:
                       wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
@@ -188,7 +215,7 @@ bar:
                     margin: 0
                 - string: 
                     text: " " 
-                    foreground: *green
+                    foreground: *ac
                     margin: 0
                 - string: 
                     text: "{cpu}%" 
@@ -207,7 +234,7 @@ bar:
               margin: 0
           - string: 
               text: " " 
-              foreground: *cyan
+              foreground: *ac
               margin: 0
           - string: 
               text: "{percent_used}%"
@@ -228,8 +255,8 @@ bar:
               font: *hack
               deco:
                 underline:
-                  size: 1
-                  color: *green
+                  size: 0
+                  color: *ac
               on-click:
                 left: 
                 right: 

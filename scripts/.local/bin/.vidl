@@ -3,5 +3,5 @@
 yt-dlp --embed-thumbnail \
 -S res,ext:mp4:m4a \
 --recode mp4 \
--o "%(title)s%(ext)s" \
+-o "%(channel)s %(title)s%(ext)s" \
 -P $HOME/media/video/ $1

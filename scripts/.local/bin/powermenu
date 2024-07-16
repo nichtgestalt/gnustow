@@ -8,6 +8,7 @@
 declare -a options=(
 "Reload"
 "Shutdown"
+"Eject"
 "Client"
 "Reboot"
 "Log out"
@@ -21,6 +22,8 @@ case $choice in
 		pkill river ;;
 	'Reboot')
 		loginctl reboot ;;
+	'Eject')
+		eject -F ;;
 	'Shutdown')
 		loginctl poweroff ;;
    'Reload')
