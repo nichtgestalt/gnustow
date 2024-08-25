@@ -21,6 +21,9 @@ map('n', '<a-Space>', '', { silent = true })
 map('n', '<leader>md', ":!markdown-konv %:p<CR>",  {noremap = true, silent = true})
 map('n', '<leader>ms', ":!konv %:p<CR>",           {noremap = true, silent = true})
 
+-- test programs
+map('n', '<leader>go', ":!go run %<CR>",           {noremap = true, silent = true})
+
 -- edit files
 map('n', '<as-x>',      ':q<CR>',                                    {noremap = true, silent = false})   -- quit buffer
 map('n', '<leader>wo',  ':w ~/media/office/onyx/',                   {noremap = true, silent = false})   -- write new file to onyx

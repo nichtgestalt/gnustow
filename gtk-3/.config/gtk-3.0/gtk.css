@@ -1,9 +1,9 @@
 /* No (default) titlebar on wayland */
 headerbar.titlebar.default-decoration {
-  background: transparent;
+  background: transparent; 
   padding: 0;
-  margin: 0 0 -17px 0;
-  border: 0;
+  margin: 0 0 -27px 0;
+  border: 1;
   min-height: 0;
   font-size: 0;
   box-shadow: none;

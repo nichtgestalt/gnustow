@@ -29,6 +29,6 @@ yt-dlp --embed-thumbnail \
 -S res,ext:mp4:m4a \
 --recode mp4 \
 -o "$newname" \
--P $HOME/media/video/ $2 &&
+-P $HOME/media/video/tech-playlist $2 &&
 echo "\n\033[1;34m*** Downloaded Succesfully ***\n" ;;
 esac

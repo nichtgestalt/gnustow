@@ -39,7 +39,7 @@
    background:                  @black;
    alternate-normal-background: @black; 
 
-   selected-normal-background:  @cyan-darker;
+   selected-normal-background:  @blue-darker;
 
    separatorcolor:              @selected-normal-background;
    separator-style:             "none";

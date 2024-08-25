@@ -15,7 +15,7 @@
     monitor = 0
     follow = none
     ### Geometry ###
-    width = 230
+    width = 280
     height = 300
     #origin = top-center
     origin = top-right

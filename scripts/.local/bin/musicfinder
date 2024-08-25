@@ -7,7 +7,7 @@ dnwpdir=~/media/video/livewallpaper/
 
 # place all .mp3 files into playlist file, so mpv can read it
 #ls -d $musicdir | grep .mp3 > $playlist
-find $musicdir -name *.mp3 > $playlist
+find $musicdir -name *.mp3 -o -name *.flac > $playlist
 
 case $1 in
 	'--music')

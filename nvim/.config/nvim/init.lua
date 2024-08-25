@@ -21,27 +21,24 @@ require("lazy").setup("plugins")
 --  \_\ \/ \___|\___/ \_/ |_|_| |_| |_|   ~ by nichtgestalt
 
 
--- set transparency
-vim.cmd[[let g:transparent_enabled = v:true]]
-
--- restore cursor location
 -- import files
 require("keybindings")
 require("colorscheme")
-require("neovide")
-require("tokyo-night")
---require("vscode")
 
--- recutils
-vim.api.nvim_set_var('recutils_no_folding', '1')
+-- set italic comments
+vim.cmd('highlight Comment gui=italic')
+
+-- set transparency
+vim.cmd[[let g:transparent_enabled = v:true]]
+
+-- neovide
+if vim.g.neovide then
+	require("neovide")
+	vim.cmd[[let g:transparent_enabled = v:false]]
+end
 
 -- autocomands
 vim.api.nvim_create_autocmd({"BufEnter"}, {
-  pattern = {"*.md", "*.ms", "*.rec"},
-  command = ":SoftPencil",
-})
--- -- -- --
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-   pattern = {"tagesplanung-*.ms"},
-   command = "!konv %:p",
+	pattern = {"*.md", "*.ms", "*.rec"},
+	command = ":SoftPencil",
 })

@@ -14,6 +14,7 @@ dunst &
 # set background
 swaybg -m fill -i ~/.config/swayimg/wallpaper &
 #riverctl background-color 0x4E5275
+#riverctl background-color 0x008080 # windows teal
 
 # set keyboard to de neo
 riverctl keyboard-layout -variant neo de
@@ -107,6 +108,11 @@ riverctl map normal Super F1 spawn 'pkill rofi'
 # launch powermenu
 riverctl map normal Super F4 spawn powermenu
 
+# bookmarking
+riverctl map normal Super F5 spawn 'notify-send "F5: copy url to:" "Bookmarks:\tSuper+Shift\nVideo file:\t\tCtrl+Shift F5"'
+riverctl map normal Super+Shift F5 spawn 'sitemarker'
+riverctl map normal Control+Shift F5 spawn 'videomarker'
+
 ## window management
 # scroll through focused window
 riverctl map normal Super R focus-view next
@@ -123,7 +129,7 @@ riverctl map normal Super T send-layout-cmd rivertile "main-ratio +0.05"
 # set keyboard repeat rate
 riverctl set-repeat 40 300
 
-# make all views with an app-id that starts with "float" and title "foo" start floating.
+# make all views with an app-id that starts with "float" and title "foo" start floating - use the program 'lswt' to get app-id
 riverctl rule-add -app-id 'float*' -title 'foo' float
 riverctl float-filter-add app-id 'swayimg'
 riverctl float-filter-add app-id 'vlc'
@@ -133,14 +139,15 @@ riverctl float-filter-add app-id 'Gimp'
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
 
+# server side decorations
+riverctl rule-add -app-id Firefox ssd
+riverctl rule-add -app-id thunar ssd
+riverctl rule-add -app-id swayimg ssd
+
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
-
-# Super+Period and Super+Comma to focus the next/previous output
-riverctl map normal Super Period focus-output next
-riverctl map normal Super Comma focus-output previous
 
 # increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift N send-layout-cmd rivertile "main-count +1"
@@ -220,12 +227,13 @@ done
 pkill xremap
 ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml 
 
-# remind me
-sleep 7 && notify-send "Aufgabe:" "NAS mit Nova PC erstellen"
-
 # censor beep
 #riverctl map normal Super F9 spawn "mpv ~/media/music/censor-beep.mp3"
 #riverctl map -release normal Super F9 spawn "pkill mpv"
+
+# Super+Period and Super+Comma to focus the next/previous output
+#riverctl map normal Super Period focus-output next
+#riverctl map normal Super Comma focus-output previous
 
 # send the focused view to the next/previous output
 #riverctl map normal Super+Shift Period send-to-output next

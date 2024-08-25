@@ -58,7 +58,7 @@ bar:
               left-margin: 5
               right-margin: 5 
               default: {string: {text:  }}
-              font: HackNerdFont:pixelsize=12
+              font: HackNerdFont:pixelsize=11
               foreground: *dim
               conditions:
                 id == 1: {string: {text:  }}  
@@ -225,6 +225,24 @@ bar:
                     text: "] " 
                     foreground: *dim
                     margin: 0
+    - script:
+        poll-interval: 15000
+        path: /home/ghost/.local/bin/tempbar
+        args: []
+        content:
+          - string:
+              text: " ["
+              foreground: *dim
+          - string: 
+              text: " " 
+              foreground: *ac
+              margin: 0
+          - string:
+              text: "{temp}"
+              foreground: *dim
+          - string:
+              text: "] "
+              foreground: *dim
     - mem:
         poll-interval: 2500
         content:
