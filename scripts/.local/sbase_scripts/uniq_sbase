@@ -1,0 +1,5 @@
+#!/bin/sh
+
+uniq_func() {
+  awk '!seen[$0]++' "$1"
+}

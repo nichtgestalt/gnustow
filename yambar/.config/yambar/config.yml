@@ -9,7 +9,7 @@
 # ░ ░           ░  ░       ░    ░ by nichtgestalt   ░   ░     
 # ░ ░                                ░                    
 
-# fonts
+
 hack: &hack HackNerdFont:pixelsize=16
 inconsolata: &inconsolata InconsolataNerdFont:pixelsize=16
 iosevka: &iosevka IosevkaNerdFont:pixelsize=16
@@ -26,9 +26,9 @@ bg: &bg 232627ff   # background
 fg: &fg eff0f1ff   # foreground
 hl: &hl 614a73ff   # highlight
 dim: &dim 7f8c8dff # dim foreground
-#ac: &ac 16a085ff   # accent color
 ac: &ac 3daee9ff   # accent color
-mrg: &mrg 8
+#ac: &ac 16a085ff   # accent color
+mrg: &mrg 14
 bar:
   height: 24
   location: top
@@ -42,10 +42,10 @@ bar:
     - label:
         content: 
           string: 
-              #text: "😀"
-              text: " "
-              margin: 10
-              foreground: *ac
+              text: " "
+              font: hack HackNerdFont:pixelsize=25
+              margin: 20
+              foreground: fdbc4bff
               on-click:
                 left: sh -c "pkill rofi || rofi -show drun"
                 right: sh -c "pkill rofi || powermenu"
@@ -85,7 +85,6 @@ bar:
               state == focused:
                 map:
                   <<: *river_base
-                  #deco: {background: {color: *hl }}
                   conditions:
                     #id == 1: {string: {text:  , foreground: *hl}}  
                     id == 1: {string: {text:  }}  
@@ -111,30 +110,13 @@ bar:
               state == invisible && occupied:
                 map:
                   <<: *river_base
-                  #deco: {underline: {size: 3, color: ea6962ff}}
-    #- foreign-toplevel:
-        #content:
-          #map:
-            #conditions:
-              #~activated: {empty: {}}
-              #activated:
-              #string: 
-                #text: "{app-id}"
-                #margin: 15
-    #- script:
-    #    path: /home/ghost/.local/bin/yambar-string-wrapper
-    #    args: ["alcolor", "--print"]
-    #    content:
-    #      string:
-    #        text: "{stdout}"
-
+#### 
   center:    
     - script:
         poll-interval: 1000
         path: /home/ghost/.local/bin/mpbar
         content:
           - string:
-              # text: " 󰎇 {prefix} "
               text: " {prefix} "
               foreground: *ac
               on-click:
@@ -161,132 +143,52 @@ bar:
                 middle: 
                 wheel-up: "playerctl -p mpv position 5+"
                 wheel-down: "playerctl -p mpv position 5-" 
-    #- script:
-    #    poll-interval: 1000
-    #    path: /home/ghost/.local/bin/alcolor
-    #    args: ["--yambar"]
-    #    content:
-    #      string:
-    #        text: "{theme}"
 ####
   right:
+    - script:
+        poll-interval: 1000
+        path: /home/ghost/.local/bin/pombar
+        content:
+          - string:
+              text: "{prefix}"
+              foreground: *fg
+              left-margin: 0
+              on-click:
+                left: "countdown 1500"
+                right: sh -c "pkill countdown && rm /home/ghost/.local/cache/remaining_time.txt"
+          - string:
+              text: "{time}"
+              foreground: *dim
+              right-margin: *mrg
+
+    - label:
+        content: 
+          string: 
+              text: "󱅅"
+              font: *hack
+              margin: *mrg
+              foreground: *fg
+              on-click:
+                left: sh -c "pkill rofi || bar_wp_menu"
     - pipewire:
         content:
           map:
             conditions:
               type == "sink":
                 - string: 
-                    text: " [" 
-                    foreground: *dim
-                    margin: 0
+                    text: "󰕾" 
+                    foreground: *fg
+                    margin: *mrg
                     on-click:
-                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
-                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-                - string: 
-                    text: "󰕾 " 
-                    foreground: *ac
-                    margin: 0
-                    on-click:
-                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
-                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-                - string: 
-                    text: "{cubic_volume}%" 
-                    foreground: *dim
-                    margin: 0
-                    on-click:
-                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
-                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-                - string: 
-                    text: "] " 
-                    foreground: *dim
-                    margin: 0
-                    on-click:
-                      wheel-up: sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
-                      wheel-down:  sh -c "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
-    - cpu:
-        poll-interval: 5000
-        content:
-          map:
-            conditions:
-              id < 0:
-                - string: 
-                    text: " [" 
-                    foreground: *dim
-                    margin: 0
-                - string: 
-                    text: " " 
-                    foreground: *ac
-                    margin: 0
-                - string: 
-                    text: "{cpu}%" 
-                    foreground: *dim
-                    margin: 0
-                - string: 
-                    text: "] " 
-                    foreground: *dim
-                    margin: 0
-    - script:
-        poll-interval: 15000
-        path: /home/ghost/.local/bin/tempbar
-        args: []
-        content:
-          - string:
-              text: " ["
-              foreground: *dim
-          - string: 
-              text: " " 
-              foreground: *ac
-              margin: 0
-          - string:
-              text: "{temp}"
-              foreground: *dim
-          - string:
-              text: "] "
-              foreground: *dim
-    - mem:
-        poll-interval: 2500
-        content:
-          - string: 
-              text: " [" 
-              foreground: *dim
-              margin: 0
-          - string: 
-              text: " " 
-              foreground: *ac
-              margin: 0
-          - string: 
-              text: "{percent_used}%"
-              foreground: *dim
-              margin: 0
-          - string: 
-              text: "] "
-              foreground: *dim
-              margin: 0
+                      wheel-up: sh -c "$HOME/.local/bin/vol_wob --up-1"
+                      wheel-down:  sh -c "$HOME/.local/bin/vol_wob --down-1"
+                      left: sh -c 'notify-send "Volume" "$(cat $HOME/.cache/wob/vol.wob)"'
     - clock:
         date-format: "%e.%b"
         time-format: "%H:%M"
         content:
           - string: 
-              text: "{date} {time} " 
+              text: "{date} {time}" 
               foreground: *dim
-              margin: 0
+              margin: *mrg
               font: *hack
-              deco:
-                underline:
-                  size: 0
-                  color: *ac
-              on-click:
-                left: 
-                right: 
-                middle: 
-                wheel-up:
-                wheel-down:
-    #- battery:
-        #name: BAT0
-        #poll-interval: 180000
-        #content:
-          #- string: {text: "[󰁹 {capacity}%]", foreground: 1cdc9aff, margin: 5}
-    #- backlight:
-        #name: intel_backlight
-        #content: 
-          #- string: {text: "[󰌵 {percent}%]", foreground: fdbc4bff, margin: 5}

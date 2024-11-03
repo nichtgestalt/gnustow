@@ -1,0 +1,8 @@
+#!/bin/sh
+
+split_func() {
+  size=$1
+  file=$2
+  split_prefix=$3
+  csplit -b "$split_prefix"%02d "$file" "$size" "{*}"
+}

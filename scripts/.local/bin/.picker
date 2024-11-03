@@ -1,0 +1,8 @@
+#!/bin/sh
+
+## it seems hyprpicker is not supported outside of Hyprland
+
+picked=$(hyprpicker -n -f$1) # gibt Fehlermeldung (8. April)
+
+echo $picked | wl-copy -on
+notify-send "$picked copied"

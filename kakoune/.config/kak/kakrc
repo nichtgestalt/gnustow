@@ -1,0 +1,21 @@
+# line numbers
+add-highlighter global/ number-lines -relative
+
+colorscheme one-dark
+#declare-option str bg default
+
+map global insert <a-m> '1'
+map global insert <a-,> '2'
+map global insert <a-.> '3'
+map global insert <a-n> '4'
+map global insert <a-r> '5'
+map global insert <a-t> '6'
+map global insert <a-h> '7'
+map global insert <a-g> '8'
+map global insert <a-f> '9'
+
+# use wayland clipboard
+# to do: check, if wl-copy is installed
+hook global NormalKey y|d|c %{ nop %sh{
+  printf %s "$kak_main_reg_dquote" | wl-copy > /dev/null 2>&1 &
+}}

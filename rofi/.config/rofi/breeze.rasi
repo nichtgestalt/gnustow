@@ -43,7 +43,7 @@
 
    separatorcolor:              @selected-normal-background;
    separator-style:             "none";
-   border-color:                @white;
+   border-color:                @white-darker;
 
    spacing:                     2;
    background-color:            rgba ( 0, 0, 0, 0 % );

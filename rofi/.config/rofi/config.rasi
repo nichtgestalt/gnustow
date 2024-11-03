@@ -3,5 +3,6 @@ configuration {
    me-select-entry:  "";
    me-accept-entry:  "MousePrimary";
 	display-drun: "Run:";
+	//show-icons: true;
 }
 @theme "~/.config/rofi/theme01.rasi"

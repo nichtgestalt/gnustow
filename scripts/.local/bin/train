@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "\n\
+1. Satz \t10x $(expr $1 \* 70 / 100)kg\n\
+2. Satz \t12x $(expr $1 \* 75 / 100)kg\n\
+3. Satz \t10x $(expr $1 \* 80 / 100)kg\n\
+4. Satz \t 8x $(expr $1 \* 80 / 100)kg\n\
+5. Satz \t10x $(expr $1 \* 75 / 100)kg\n"

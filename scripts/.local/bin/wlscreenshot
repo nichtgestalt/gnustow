@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# notification if programms are missing
+command -v grim &> /dev/null || notify-send "grim" "is not installed"
+command -v slurp || notify-send "slurp" "is not installed"
+command -v swappy || notify-send "swappy" "is not installed"
+
+grim -g "$(slurp)" - | swappy -f -

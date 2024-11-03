@@ -10,7 +10,7 @@ bright_foreground = '#ffffff'
 
 # Normal colors
 [colors.normal]
-black =   '#232627'
+black =   '#31363b'
 red =     '#ed1515'
 green =   '#11d116'
 yellow =  '#f67400'

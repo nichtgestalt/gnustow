@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#picked=$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)
+
+case $1 in
+	'--verbose')
+		picked=$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)
+		echo $picked ;;
+	'--hex')
+		picked=$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | awk 'NR==2 {print $3}')
+		wl-copy -n $picked &&
+		notify-send "Copied" "$picked" &&
+		echo $picked ;;
+esac

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+status=$(playerctl -p mpv status 2>/dev/null)
+title=$(playerctl -p mpv metadata title | sed 's/_/ /g' | tr '[:upper:]' '[:lower:]')
+position=$(playerctl -p mpv metadata --format "{{ duration(position) }}")
+totallength=$(playerctl -p mpv metadata --format "{{ duration(mpris:length) }}")
+
+if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
+	echo "title|string|${title%.*}"
+	echo "position|string|$position"
+	echo "totallength|string|$totallength"
+	echo "prefix|string|["
+	echo "suffix|string|]"
+	echo ""
+elif [ "$status" != "Playing" ]; then
+	echo "title|string| "
+	echo "position|string| "
+	echo "prefix|string| "
+	echo "suffix|string| "
+	echo ""
+fi

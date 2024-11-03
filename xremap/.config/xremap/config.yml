@@ -7,10 +7,11 @@ modmap:
         held: CapsLock
         alone: backspace
 
-keymap:
-  - name: normal mode
-    remap:
-      CapsLock-space: backspace
+#keymap:
+#  - name: normal mode
+#    remap:
+#      rightmeta-m: "1"
+
 
 ## run xremap without sudo so you can start it from your compositor
 # sudo gpasswd -a YOUR_USER input

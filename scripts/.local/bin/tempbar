@@ -1,0 +1,6 @@
+#!/bin/bash
+
+temperatur=$(sensors | grep "CPU:.*C" | awk '{print $2}')
+
+echo "temp|string|$temperatur"
+echo ""

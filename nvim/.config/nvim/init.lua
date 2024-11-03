@@ -24,11 +24,10 @@ require("lazy").setup("plugins")
 -- import files
 require("keybindings")
 require("colorscheme")
-
--- set italic comments
-vim.cmd('highlight Comment gui=italic')
+require("custom_colors")
 
 -- set transparency
+-- vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 }) -- only with termgui colors enabled
 vim.cmd[[let g:transparent_enabled = v:true]]
 
 -- neovide

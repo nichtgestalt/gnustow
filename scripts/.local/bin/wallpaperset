@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# set where your wallpapers are stored
+wdir=$HOME/media/bilder/wallpaper
+
+# display all pictures in your set directory
+all() {
+	imv -d $wdir/*/*
+}
+
+# display directories
+category() {
+	choice=$(ls -1d $wdir/*/ | awk -F"/" '{print $(NF-1)}' | rofi -dmenu -p 'Wallpaper')
+	[ -z $choice ] && exit
+	dir=$HOME/media/bilder/wallpaper/$choice
+	imv $dir &
+}
+
+# actuall programm
+case $1 in
+	'--all')
+		all ;;
+	'--category')
+		category ;;
+esac

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+command -v curl || notify-send "Curl" "is not installed"
+curl wttr.in/

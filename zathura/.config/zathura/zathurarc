@@ -5,9 +5,35 @@
 #/___\__,_|\__|_| |_|\__,_|_|  \__,_|
 #              ~by nichtgestalt
 
+# import /path/to/file
+
+set adjust-open "best-fit"
+
+set recolor true
 set recolor-lightcolor		"#282c34"
 set recolor-darkcolor		"#ffffff"
-set recolor false
+set statusbar-fg			"#eff0f1"	
+set statusbar-bg			"#232627"
+set inputbar-fg		"#ffffff"
+set inputbar-bg		"#31363b"
+set notification-fg		"#232627"
+set notification-bg		"#7f8c8d"
+set highlight-color		"#3daee9"
+set highlight-active-color		"#31363b"
+set notification-error-fg		"#ffffff"
+set notification-error-bg		"#c0392b"
+set notification-warning-fg		"#232627"
+set notification-warning-bg		"#fdbc4b"
+
+set completion-highlight-fg "#ffffff"
+set completion-highlight-bg "#1b668f"
+set completion-bg "#232627"
+set completion-fg "#fcfcfc"
+
+set font "hack 10"
+
+set default-bg "#232627"
+set default-fg	"#ffffff"
 
 set selection-clipboard clipboard
 

@@ -1,0 +1,66 @@
+* {
+   black:                       #000000;
+   black-bright:                #303030;
+   black-darker:                #1e1e1e;
+
+   white:                       #fafafa;
+   white-bright:                #ffffff;
+   white-darker:                #f3f3f3;
+    
+   red:                         #c01c28;
+	red-bright:                  #e01b24;
+   red-darker:                  #c01c28;
+    
+	green:                       #2ec27e;
+	green-bright:                #57e389;
+   green-darker:                #26a267;
+    
+	yellow:					        #f8e45c;
+   yellow-bright:               #f9f06b;
+   yellow-darker:               #f5c211;
+
+   blue:                        #1c71d8;
+	blue-bright:                 #78aeed;
+   blue-darker:                 #1a5fb4;
+
+	violet:                      #c061cb;
+	violet-bright:		           #dc8add;
+   violet-darker:               #813d9c;
+
+   cyan:				              @blue;
+	cyan-bright:                 @blue-bright;
+   cyan-darker:                 @blue-darke;
+
+   foreground:                  @white-darker;
+   selected-normal-foreground:  @white-bright;
+   normal-foreground:           @foreground;
+   background:                  #373737;
+   alternate-normal-background: @background; 
+   selected-normal-background:  @blue-darker;
+   separatorcolor:              @selected-normal-background;
+   border-color:                @white;
+
+   selected-urgent-foreground:  rgba ( 51, 51, 51, 100 % );
+   urgent-foreground:           rgba ( 255, 153, 153, 100 % );
+   alternate-urgent-background: rgba ( 255, 255, 255, 7 % );
+   active-foreground:           rgba ( 170, 170, 17, 100 % );
+   lightbg:                     rgba ( 238, 232, 213, 100 % );
+   selected-active-foreground:  #ffffff;
+   alternate-active-background: #ff6c6b;
+   alternate-normal-foreground: @foreground;
+   normal-background:           rgba ( 0, 0, 0, 0 % );
+   lightfg:                     rgba ( 88, 104, 117, 100 % );
+   spacing:                     2;
+   urgent-background:           rgba ( 0, 0, 0, 0 % );
+   selected-urgent-background:  rgba ( 255, 153, 153, 100 % );
+   alternate-urgent-foreground: @urgent-foreground;
+   background-color:            rgba ( 0, 0, 0, 0 % );
+   alternate-active-foreground: @active-foreground;
+   active-background:           rgba ( 0, 0, 0, 0 % );
+   selected-active-background:  rgba ( 170, 170, 17, 100 % );
+   separator-style:             "none";
+	//font:                        "Cantarell 13";
+}
+configuration {
+	font: "Cantarell 13";
+}

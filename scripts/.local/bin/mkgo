@@ -1,0 +1,18 @@
+#!/bin/bash
+
+proname=$1
+
+cat <<EOM > $1.go
+package main
+
+import (
+	"fmt"
+)
+
+
+func main () {
+
+
+
+}
+EOM

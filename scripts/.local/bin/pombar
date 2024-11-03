@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# a small script for outputting a pomodoro timer in yambar
+
+temp_file=$HOME/.local/cache/remaining_time.txt
+
+if [ -f $temp_file ]; then
+	echo "time|string| $(cat $temp_file)"
+	echo "prefix|string|󰔟"
+	echo ""
+else
+	echo "time|string|"
+	echo "prefix|string|󰔟"
+	#echo "prefix|string|"
+	echo ""
+fi

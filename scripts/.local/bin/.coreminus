@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Script for decrease CPU cores
+
+
+# get number of active and manipulatable cores
+
+n=$(cat /sys/devices/system/cpu/cpu*/online | grep 1 | wc -l)
+
+# dencrease number of core
+
+echo 0 > /sys/devices/system/cpu/cpu$n/online

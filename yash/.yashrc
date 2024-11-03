@@ -1,0 +1,18 @@
+# yashrc
+
+# use sbase + ubase
+export PATH="$HOME/dl/sbase:$HOME/dl/ubase:$HOME/dl/awk:$PATH"
+
+uuu=$(pwd | sed 's/\/home\/ghost/~/')
+
+# prompt                     
+PS1='\[\e[37m\][ \[\e[95;1m\]${${${PWD:/~/\~}##*/}:-$PWD}\[\e[0m\]\[\e[37m\] ]\[\e[0m\] \$ '
+
+# aliases
+. $HOME/.config/alias/alias.sh
+alias awk='a.out'
+
+# keybinding
+bindkey --emacs '\^L' clear-and-redraw-all
+bindkey --vi-insert '\^L' clear-and-redraw-all
+bindkey --vi-command '\^L' clear-and-redraw-all

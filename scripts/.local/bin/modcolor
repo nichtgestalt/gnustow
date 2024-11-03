@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# script, das Hexadezimalzahlen für Farben so formatiert, wie es das jeweilige config file braucht
+# z. B. Weglassen des Hash-Symbols oder das Hinzufügen von Zeichen, die Transparenz definieren
+
+col=$(grep '#[0-9A-Fa-f]\{6\}' $HOME/.config/alacritty/themes/* | awk -F'/' '{print $NF}' | sed 's/.toml:/ /g' | rofi -dmenu | awk -F"\'" '{print $2}')
+
+color=${col:1} # prints without the first figure 
+
+#echo \#$color
+
+riverctl background-color 0x$color

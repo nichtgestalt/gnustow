@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# script for choosing a topic to learn
+
+editor=nvim
+onyxdir=$HOME/media/office/onyx
+
+choice=$(grep ^- $onyxdir/tagesthemen.md | shuf | cut -d' ' -f2- | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g' | fzf --layout=reverse )
+
+[ -z "$choice" ] && exit
+filename=$choice.md
+
+$editor $onyxdir/$filename

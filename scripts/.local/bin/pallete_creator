@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "File with hex color codes needed."
+  exit 1
+fi
+
+TOML_FILE="$1"
+targetdir=$HOME/.cache/colors.d/
+bsn=$(basename $TOML_FILE .toml)
+mkdir -p $targetdir
+
+colors=($(grep -o '#[A-Fa-f0-9]\{6\}' "$TOML_FILE"))
+
+if [ ${#colors[@]} -eq 0 ]; then
+  echo "File with hex color codes needed."
+  exit 1
+fi
+
+# first color as background
+background_color="${colors[0]}"
+colors=("${colors[@]:1}")
+
+# create montage_cmd and set backround color
+montage_cmd="montage -size 50x50"
+
+for color in "${colors[@]}"; do
+  montage_cmd+=" xc:$color"
+done
+
+montage_cmd+=" -geometry +2+2 -tile 8 -background '$background_color' $targetdir$bsn.png"
+
+# execute montage_cmd
+eval "$montage_cmd"

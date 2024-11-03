@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# script for easy copying links to a file
+# depends on a notification deamon, wtype and wl-clipboard
+
+# clear clipboard
+wl-copy -c
+
+# imitate keypress Ctrl + l to focus url in Firefox and copy
+wtype -M ctrl -P l # && notify-send "fokus in url bar"
+sleep 0.3
+wtype -M ctrl -P c # && notify-send "copied"
+sleep 0.2
+
+var=$(wl-paste -n)
+
+file=$HOME/.local/bin/videos.txt
+
+if grep -q "^$var$" "$file"; then
+	notify-send "Achtung!" "Videolink existiert bereits!"
+else
+	echo "$var" >> $file
+	notify-send "Hinzugefügt!" "Zu übrigen Videolinks."
+fi
+
+#wl-paste >> ~/example.txt && notify-send "check!"

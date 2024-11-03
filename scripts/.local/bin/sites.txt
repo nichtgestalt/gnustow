@@ -1,0 +1,9 @@
+https://codeberg.org/ifreund/waylock
+https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md
+https://github.com/kolunmi/sandbar
+https://github.com/stefur/flow
+https://man.sr.ht/~kennylevinsen/greetd/
+https://github.com/francma/wob?tab=readme-ov-file
+https://codeberg.org/ifreund/waylock
+https://github.com/nwg-piotr/nwg-drawer
+https://nwg-piotr.github.io/nwg-shell/

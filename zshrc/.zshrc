@@ -14,22 +14,12 @@ PROMPT='%F{8}{%f%F{2} %~ %f%F{8}}%f ﯑ '
 HISTFILE=~/.config/histfile
 HISTSIZE=10000
 SAVEHIST=10000
-Editor=nvim
 unsetopt beep
 bindkey -v
 zstyle :compinstall filename '/home/ghost/.zshrc'
 
 # Alias 
-alias bsinstall='sudo xbps-install -S'
-alias bssearch='xbps-query -Rs'
-alias wm='$Editor $HOME/.config/bspwm/bspwmrc'
-alias dem='cd $HOME/.config/dmenuvoid/ && $Editor config.def.h'
-alias keys='$Editor $HOME/.config/sxhkd/sxhkdrc'
-alias term='$Editor $HOME/.config/alacritty/alacritty.yml'
-alias bar='$Editor $HOME/.config/polybar/config'
-alias suck='sudo cp config.def.h config.h && sudo make clean install'
-alias zshrc='$Editor $HOME/.config/zsh/.zshrc'
-alias ls='lsd'
+source $HOME/.config/alias/alias.sh
 
 colorscript -e bars
 

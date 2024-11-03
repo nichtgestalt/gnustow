@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# work in progress
+
+declare -a options=(
+"Restore Wallpaper"
+"Random Wallpaper"
+"Pick Wallpaper"
+"Choose from Category"
+"Clipboard Color as background"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Wallpaper Settings:")
+#echo $choice
+
+case $choice in
+	'Restore Wallpaper')
+		pkill wbg
+		wbg $HOME/.config/imv/wallpaper & ;;
+	'Random Wallpaper')
+		pkill wbg
+		wbg $(ls $HOME/media/bilder/wallpaper/*/* | shuf | head -n1) & ;;
+	'Pick Wallpaper')
+		wallpaperset --all ;;
+	'Choose from Category')
+		wallpaperset --category ;;
+	'Clipboard Color as background')
+		riverctl background-color 0x$(wl-paste | tr -d '#') ;;
+esac
+
+# About wbg
+# minimal; needs only the path to the file
+# scale to fit; wallpaper on all monitors
+# for more advanced options use swaybg

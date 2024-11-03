@@ -8,4 +8,6 @@ return {
 	"neanias/everforest-nvim",
    "Mofiqul/adwaita.nvim",
 	"NTBBloodbath/doom-one.nvim",
+	"mhartington/oceanic-next",
+	"Mofiqul/vscode.nvim",
 }

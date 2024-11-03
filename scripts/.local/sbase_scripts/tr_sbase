@@ -1,0 +1,5 @@
+# all letters uppercase
+sed 's/.*/\U&/' ~/input.txt 
+
+# all letters lowercase
+sed 's/.*/\L&/' ~/input.txt 

@@ -1,0 +1,71 @@
+# Colors of 7tv website
+# colors with comment are original
+# 1 = good for foreground
+
+#1f1f1f  foreground
+#d2eaf0  background
+
+#778588  dim foreground
+#bcd7dd  header background
+#daeff2  accent color 1
+#cae7ed  accent color 2
+#bbe0e8  accent color 3
+
+#4dbdee  accent color
+#1c64d1  accent darker
+
+#6441a4  twitch color
+
+# grau
+#505a5b
+#535657
+
+#2d3142
+#2b2d42
+
+#323031 # dark bg
+#3d3b3c # dark bg alt
+
+# grün
+#387d7a
+#294936
+#2c5530 # 1
+#0ead69
+#16c172 # fg dark maybe
+#04f06a
+
+# gelb
+#ffed66
+#f7e733
+#fdca40 # fg dark
+#d17b0f
+#f96900
+
+# rot
+#823329
+#d64045
+
+# violet
+#de6c83
+#f06c9b
+#b98ea7
+#6457a6
+#4c2751
+
+#9b5de5
+#473198 # 1
+
+# cyan
+#177e89
+#21897e
+#548687
+#478978
+
+# blau
+#2d82b7
+#79addc # fg dark
+#2e5eaa
+#5386e4 
+#1e3888 # 1
+
+#2E4C8C # hat mit den übrigen Farben nichts zu tun... Ich fand die Schriftfarbe im Twitch chat sehr interessant!

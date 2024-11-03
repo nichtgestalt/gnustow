@@ -1,0 +1,36 @@
+#!/bin/sh
+
+musicdir=~/media/music/
+playlist=~/.local/share/playlist.m3u
+
+dnwpdir=~/media/video/livewallpaper/
+
+# place all .mp3 files into playlist file, so mpv can read it
+#ls -d $musicdir | grep .mp3 > $playlist
+find $musicdir -name *.mp3 -o -name *.flac > $playlist
+
+case $1 in
+	'--music')
+		choice=$(awk -F"/" '{print NR-1 " " $NF}' $playlist \
+| shuf \
+| rofi -dmenu -i -p "Playlist:" -theme ~/.config/rofi/theme02.rasi \
+| awk '{print $1}')
+		# exit if none is chosen
+		[ -z $choice ] && exit
+		# use mpvpaper to draw the thumbnail of the currently played song as a wallpaper
+		# to control it with playerctl you have to use https://github.com/hoyon/mpv-mpris
+		execute=$(mpvpaper '*' $playlist -o "--playlist-start=$choice --script=~/.config/mpv/scripts/mpris.so --shuffle")
+		#stopit=$(playerctl -p mpv stop)
+		$execute ;;
+
+	'--livewallpaper')
+		wpchoice=$(ls $dnwpdir | rofi -dmenu -i -p "Livewallpaper" -theme ~/.config/rofi/theme02.rasi)
+		# exit if none is chosen
+		[ -z $wpchoice ] && exit
+		mpvpaper -o "--script=~/.config/mpv/scripts/mpris.so" '*' $dnwpdir$wpchoice ;;
+	'--ambient')
+		ambchoice=$(ls $HOME/media/music/ambient | grep .*mp3 | shuf | rofi -dmenu -i -p "Ambient" -theme ~/.config/rofi/theme02.rasi)
+		# exit if none is chosen
+		[ -z $ambchoice ] && exit
+		mpvpaper -o "--script=~/.config/mpv/scripts/mpris.so" '*' $HOME/media/music/ambient/$ambchoice ;;
+esac

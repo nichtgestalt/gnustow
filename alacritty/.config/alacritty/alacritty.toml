@@ -1,4 +1,10 @@
-import = ["~/.config/alacritty/themes/gnome_terminal.toml",]
+[general]
+import = [
+	"~/.config/alacritty/themes/breeze.toml",
+]
+
+[env]
+TERM = "xterm-256color"
 
 [window]
 dimensions = { columns = 140, lines = 35 }

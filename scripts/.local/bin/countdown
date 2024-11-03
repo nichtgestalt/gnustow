@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# use wob to show remaining time? Or Dunst?
+
+# Countdown-Zeit in Sekunden (25 Minuten = 1500 Sekunden)
+#countdown=$((25 * 60))
+countdown=$1
+
+# Temporäre Datei für die verbleibende Zeit erstellen
+temp_file="$HOME/.local/cache/remaining_time.txt"
+
+# Countdown-Schleife
+while [ $countdown -gt 0 ]; do
+    # Berechne Minuten und Sekunden aus der verbleibenden Zeit
+    minutes=$((countdown / 60))
+    seconds=$((countdown % 60))
+
+    # Schreibe die verbleibende Zeit in die temporäre Datei
+    echo "$minutes:$seconds" > "$temp_file"
+    #echo "$minutes Minuten und $seconds Sekunden verbleiben" > "$temp_file"
+
+    # Zeige die verbleibende Zeit an (optional für die Ausgabe im Terminal)
+    printf "\rRemaining Time: %02d:%02d" $minutes $seconds
+
+    # Warte eine Sekunde
+    sleep 1
+
+    # Reduziere den Countdown um 1 Sekunde
+    countdown=$((countdown - 1))
+done
+
+# Lösche die temporäre Datei, wenn der Countdown abgeschlossen ist
+rm "$temp_file"
+
+echo -e "\nCountdown abgeschlossen!"
+notify-send "Countdown" "Abgeschlossen"  && ffplay ~/media/sounds/soft_watch_onetime_alarm_fx.mp3 -autoexit -nodisp

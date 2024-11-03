@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gphoto2 --stdout --set-config viewfinder=1 --capture-movie | ffmpeg -i - -vcodec copy -threads 1 -f v4l2 /dev/video0 
+
+# || notify-send "Cam" "Your camera is not connected!"

@@ -6,26 +6,31 @@
 # |_|  |_| \_/ \___|_| 
 #          ~by nichtgestalt
 
+#Terminal=alacritty
+#Browser=firefox-wayland
+
 # autostart
 pipewire &
-sleep 1 && whybar --reload &
 dunst &
 
 # set background
-swaybg -m fill -i ~/.config/swayimg/wallpaper &
-#riverctl background-color 0x4E5275
+wbg $HOME/.config/imv/wallpaper &
+#swaybg -m fill -i ~/.config/imv/wallpaper &
+#riverctl background-color 0x12488b
 #riverctl background-color 0x008080 # windows teal
 
 # set keyboard to de neo
 riverctl keyboard-layout -variant neo de
-#riverctl keyboard-layout de
+
+# set keyboard repeat rate
+riverctl set-repeat 40 300
 
 # launch terminal
-Terminal=alacritty
-riverctl map normal Super Return spawn $Terminal
+riverctl map normal Super Return spawn "$TERM"
+riverctl map normal Control+Shift Return spawn "$TERM -e yash -l"
 
 # application launcher
-riverctl map normal Super Space spawn "rofi -show drun"
+riverctl map normal Super Space spawn "pkill rofi || rofi -show drun"
 
 # bump the focused view to the top of the layout stack
 riverctl map normal Super+Shift Return zoom
@@ -37,52 +42,54 @@ riverctl map normal Super X close
 riverctl map normal Super+Shift B spawn "whybar --reload"
 riverctl map normal Super F2 spawn "whybar --toggle"
 
+# set mouse cursor
+riverctl xcursor-theme Adwaita
+
 # toggle float
 riverctl map normal Super V toggle-float
 
 # wallpaper selection
-riverctl map normal Super+Shift V spawn "swayimg -a swayimg ~/media/bilder/wallpaper/*"
+riverctl map normal Super+Shift V spawn 'wallpaperset --all'
+riverctl map normal Super+Alt V spawn 'wallpaperset --category'
 
 # toggle fullscreen
 riverctl map normal Super L toggle-fullscreen
 
 # theme picker
-riverctl map normal Super U spawn 'alcolor --open'
-riverctl map normal Super+Shift U spawn 'alcolor --set'
+riverctl map normal Super U spawn 'pkill rofi || alcolor --open'
+#riverctl map normal Super+Shift U spawn 'pkill rofi || alcolor --set'
+
+# colorpicker
+riverctl map normal Super P spawn 'colorpicker --hex'
 
 # write and read tagesplaner
-riverctl map normal Super A spawn "$Terminal -e adeptus"
-riverctl map normal Super+Shift A spawn "$Terminal -e nvim ~/media/office/onyx/tagesthemen.md"
+riverctl map normal Super A spawn '$TERM -e adeptus'
+riverctl map normal Super+Shift A spawn '$TERM -e nvim ~/media/office/onyx/tagesthemen.md'
 
 # launch browser
-riverctl map normal Super I spawn "firefox"
-riverctl map normal Control+Shift I spawn "firefox --private-window"
+riverctl map normal Super I spawn '$BROWSER'
+riverctl map normal Control+Shift I spawn 'firefox --private-window'
 
 # onyx
-riverctl map normal Control F spawn "$Terminal -e onyx"
+riverctl map normal Control F spawn '$TERM -e onyx'
 
-# play some music
-riverctl map normal Super Q spawn "pkill mpv || musicfinder --music"
-riverctl map normal Super+Shift Q spawn "pkill mpv || musicfinder --livewallpaper"
-riverctl map normal Super+Control+Shift Q spawn "pkill mpv || musicfinder --ambient"
+# musicfinder
+riverctl map normal Super Q spawn "pkill rofi || musicfinder --media-dir"
+riverctl map normal Super+Shift Q spawn "pkill rofi || musicfinder --live-wallpaper"
+riverctl map normal Super+Control Q spawn "pkill rofi || musicfinder --thumbnail"
 
-# view newest pdf
-riverctl map normal Super S spawn "pdf-viewer"
-riverctl map normal Super+Shift S spawn "pdf-picker"
+# color images
+riverctl map normal Super S spawn 'ls -t $HOME/.cache/colors.d/ | head -n1 | xargs -I {} swappy -f $HOME/.cache/colors.d/{}'
+riverctl map normal Super+Shift S spawn 'pkill rofi || ls -t $HOME/.cache/colors.d/ | rofi -dmenu -p "Select color images" | xargs -I {} swappy -f $HOME/.cache/colors.d/{}'
 
 # emoji-picker
-riverctl map normal Super M spawn "emoji-picker --emoji"
-riverctl map normal Super+Shift M spawn "emoji-picker --nerd-font"
-
-# imgpicker
-riverctl map normal Super J spawn "imgpicker"
+riverctl map normal Super M spawn 'pkill rofi || emoji-picker --emoji'
+riverctl map normal Super+Shift M spawn 'pkill rofi || emoji-picker --nerd-font'
 
 ## function keys
 # pipewire
-riverctl map normal Super Up spawn 		'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-riverctl map normal Super Down spawn 	'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
-riverctl map normal Super F8 spawn		'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'
-riverctl map normal Super F7 spawn		'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+riverctl map normal Super F8 spawn		'vol_wob --up-5'
+riverctl map normal Super F7 spawn		'vol_wob --down-5'
 riverctl map normal Super F6 spawn		'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 
 # control mpv
@@ -103,7 +110,7 @@ riverctl map normal Control F12 spawn       	'pkill mpv'
 riverctl map normal Super F12 spawn 'wlscreenshot'
 
 # close rofi
-riverctl map normal Super F1 spawn 'pkill rofi'
+#riverctl map normal Super F1 spawn 'pkill rofi'
 
 # launch powermenu
 riverctl map normal Super F4 spawn powermenu
@@ -126,12 +133,9 @@ riverctl map normal Super+Shift G swap previous
 riverctl map normal Super N send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super T send-layout-cmd rivertile "main-ratio +0.05"
 
-# set keyboard repeat rate
-riverctl set-repeat 40 300
-
-# make all views with an app-id that starts with "float" and title "foo" start floating - use the program 'lswt' to get app-id
+# floating by default - use lswt to get app-id
 riverctl rule-add -app-id 'float*' -title 'foo' float
-riverctl float-filter-add app-id 'swayimg'
+riverctl float-filter-add app-id 'imv'
 riverctl float-filter-add app-id 'vlc'
 riverctl float-filter-add app-id 'mpv'
 riverctl float-filter-add app-id 'Gimp'
@@ -142,16 +146,24 @@ riverctl rule-add -app-id "bar" csd
 # server side decorations
 riverctl rule-add -app-id Firefox ssd
 riverctl rule-add -app-id thunar ssd
-riverctl rule-add -app-id swayimg ssd
+riverctl rule-add -app-id imv ssd
+riverctl rule-add -app-id nwg-look ssd
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
+# rivertile -outer-padding 6 -view-padding 6 -main-ratio 0.5 -main-location top &
 
 # increment/decrement the main count of rivertile(1)
 riverctl map normal Super+Shift N send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Shift T send-layout-cmd rivertile "main-count -1"
+
+# change layout orientation
+#riverctl map normal Control+Shift G send-layout-cmd rivertile "main-location top"
+#riverctl map normal Control+Shift T send-layout-cmd rivertile "main-location right"
+#riverctl map normal Control+Shift R send-layout-cmd rivertile "main-location bottom"
+#riverctl map normal Control+Shift T send-layout-cmd rivertile "main-location left"
 
 # move views
 riverctl map normal Super+Alt G move up 50
@@ -223,9 +235,19 @@ do
 
 done
 
-# launch xremap
+# launch bar
+sleep 1 && whybar --reload &
+
+# launch xremapeae
 pkill xremap
-ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml 
+ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml &
+
+# wob for pipewire
+tail -f $HOME/.cache/wob/vol.wob | wob &
+
+# launch lavalauncher
+#pkill lavalauncher
+#lavalauncher &
 
 # censor beep
 #riverctl map normal Super F9 spawn "mpv ~/media/music/censor-beep.mp3"
@@ -238,12 +260,6 @@ ls ~/.cargo/bin/xremap && xremap ~/.config/xremap/config.yml
 # send the focused view to the next/previous output
 #riverctl map normal Super+Shift Period send-to-output next
 #riverctl map normal Super+Shift Comma send-to-output previous
-
-# change layout orientation
-#riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
-#riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-#riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-#riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
