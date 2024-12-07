@@ -160,7 +160,28 @@ bar:
               text: "{time}"
               foreground: *dim
               right-margin: *mrg
-
+    - label:
+        content: 
+          string: 
+              text: "󰊄"
+              font: *hack
+              margin: *mrg
+              foreground: *fg
+              on-click:
+                left: sh -c "fontpreview"
+                right:
+                middle:
+    - label:
+        content: 
+          string: 
+              text: ""
+              font: *hack
+              margin: *mrg
+              foreground: *fg
+              on-click:
+                left: sh -c "pkill rofi || musicfinder --thumbnail"
+                right: sh -c "pkill rofi || musicfinder --live-wallpaper"
+                middle: sh -c "pkill rofi || musicfinder --media-dir"
     - label:
         content: 
           string: 
@@ -169,7 +190,9 @@ bar:
               margin: *mrg
               foreground: *fg
               on-click:
-                left: sh -c "pkill rofi || bar_wp_menu"
+                left: wlscreenshot
+                right: sh -c "pkill rofi || bar_wp_menu"
+                middle: "colorpicker --hex"
     - pipewire:
         content:
           map:

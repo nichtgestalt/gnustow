@@ -10,8 +10,7 @@ declare -a options=(
 "Clipboard Color as background"
 )
 
-choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Wallpaper Settings:")
-#echo $choice
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -l 5 -p "Wallpaper Settings:")
 
 case $choice in
 	'Restore Wallpaper')

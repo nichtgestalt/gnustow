@@ -5,11 +5,11 @@ media_dir() {
 	[ -z $choice ] && exit
 	mdir=$HOME/media/music/$choice
 	pkill mpv
-	mpv --no-video --quiet --shuffle $mdir &
+	mpv --no-terminal --no-video --quiet --shuffle $mdir &
 }
 
 live_wallpaper() {
-		dnwp_choice=$(ls -1d $HOME/media/video/livewallpaper/* | awk -F"/" '{print $NF}' | rofi -dmenu -p 'Live Wallpaper')
+		dnwp_choice=$(ls -1d $HOME/media/video/livewallpaper/* | awk -F"/" '{print $NF}' | rofi -dmenu -p 'Live Wallpaper' -theme ~/.config/rofi/theme02.rasi)
 		[ -z $dnwp_choice ] && exit
 		dnwp_file=$HOME/media/video/livewallpaper/$dnwp_choice
 		pkill mpv

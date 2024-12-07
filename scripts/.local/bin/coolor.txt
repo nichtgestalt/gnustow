@@ -8,11 +8,11 @@ Design Ideen für mein Color Picker Script
 5. done! Senden des Hexcodes an System Clipboard
 6. done! Notification bei Erfolg
 
-7. Verwenden des Hexcodes für Wallpaper (opt.)
-7.1. Icon in bar -> Rofi	-> set wallpaper to clipboard color
-									-> set wp from all images in wp-dir
-									-> set random wp
-									-> set wp in swaybg directory
+7. done! Verwenden des Hexcodes für Wallpaper (opt.) (extra script)
+7.1. done! Icon in bar -> Rofi	-> set wallpaper to clipboard color
+											-> set wp from all images in wp-dir
+											-> set random wp
+											-> set wp in swaybg directory
 
 Hardening
 

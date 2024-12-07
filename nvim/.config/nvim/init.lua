@@ -36,8 +36,16 @@ if vim.g.neovide then
 	vim.cmd[[let g:transparent_enabled = v:false]]
 end
 
--- autocomands
+-- activate SoftPencil
 vim.api.nvim_create_autocmd({"BufEnter"}, {
 	pattern = {"*.md", "*.ms", "*.rec"},
 	command = ":SoftPencil",
 })
+
+-- activate ZenMode
+--vim.api.nvim_create_autocmd("VimEnter", {
+--    pattern = "*.md",
+--    callback = function()
+--        require("zen-mode").toggle()
+--    end,
+--})

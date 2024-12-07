@@ -71,7 +71,7 @@ riverctl map normal Super I spawn '$BROWSER'
 riverctl map normal Control+Shift I spawn 'firefox --private-window'
 
 # onyx
-riverctl map normal Control F spawn '$TERM -e onyx'
+#riverctl map normal Control F spawn '$TERM -e onyx'
 
 # musicfinder
 riverctl map normal Super Q spawn "pkill rofi || musicfinder --media-dir"
@@ -135,10 +135,11 @@ riverctl map normal Super T send-layout-cmd rivertile "main-ratio +0.05"
 
 # floating by default - use lswt to get app-id
 riverctl rule-add -app-id 'float*' -title 'foo' float
-riverctl float-filter-add app-id 'imv'
-riverctl float-filter-add app-id 'vlc'
-riverctl float-filter-add app-id 'mpv'
-riverctl float-filter-add app-id 'Gimp'
+riverctl rule-add -app-id 'vlc' float
+riverctl rule-add -app-id 'imv' float
+riverctl rule-add -app-id 'mpv' float
+riverctl rule-add -app-id 'Firefox' -title '"PayPal Checkout - Mozilla Firefox"' float
+riverctl rule-add -app-id 'thunar' -title '"Dateivorgangsfortschritt"' float
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
@@ -148,6 +149,7 @@ riverctl rule-add -app-id Firefox ssd
 riverctl rule-add -app-id thunar ssd
 riverctl rule-add -app-id imv ssd
 riverctl rule-add -app-id nwg-look ssd
+riverctl rule-add -app-id libreoffice-writer ssd
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.

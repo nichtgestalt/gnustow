@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # install packages
-sudo xbps-install -u xbps && sudo xbps-install -Syu && sudo xbps-install -S git bash-completion stow river yambar xorg seatd elogind rofi polkit mesa-dri dunst swaybg imv vlc nerd-fonts pipewire neovim neofetch htop fzf lf socklog-void qemu libvirt virt-manager firefox wget terminus-font groff groff-doc libgroff zathura zathura-pdf-poppler ghostscript pandoc flatpak wl-clipboard hyprpicker waypipe entr grim slurp swappy curl mesa-vaapi alacritty cargo go gvfs-cdaa abcde flac cdparanoia wtype lswt
+sudo xbps-install -u xbps && sudo xbps-install -Syu && sudo xbps-install -S git bash-completion stow river yambar xorg seatd elogind rofi polkit mesa-dri dunst swaybg imv vlc nerd-fonts pipewire neovim neofetch htop fzf lf socklog-void qemu libvirt virt-manager firefox wget terminus-font groff groff-doc libgroff zathura zathura-pdf-poppler ghostscript pandoc flatpak wl-clipboard hyprpicker waypipe entr grim slurp swappy curl mesa-vaapi alacritty cargo go gvfs-cdaa abcde flac cdparanoia wtype lswt cifs-utils bat
 
 cargo install xremap
 

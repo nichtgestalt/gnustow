@@ -14,6 +14,8 @@ map global insert <a-h> '7'
 map global insert <a-g> '8'
 map global insert <a-f> '9'
 
+map global normal KP_1 "1"
+
 # use wayland clipboard
 # to do: check, if wl-copy is installed
 hook global NormalKey y|d|c %{ nop %sh{

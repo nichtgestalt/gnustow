@@ -17,6 +17,7 @@ dynamic_title = true
 size = 14.0
 
 [font.normal]
+#family = "Luxi Mono"
 family = "Hack Nerd Font"
 style = "Regular"
 

@@ -38,8 +38,11 @@ alias critty='cd $HOME/.config/alacritty/themes && ls -1'
 alias wlp='cd $HOME/media/bilder/wallpaper/ && ls -1'
 alias music='cd $HOME/media/music/ && ls -1'
 alias vid='cd $HOME/media/video/ && ls -1'
+alias csv='cd $HOME/media/office/csv/ && ls -1'
+alias aww='cd $HOME/media/office/awk && ls -1'
 alias cc='cd $HOME/projects/exercise/ && ls -1'
 alias off='cd $HOME/media/office && ls -1'
+alias pt='cd $HOME/media/design/physiotherapy/ && ls -1'
 
 # office
 alias nt='notetaker'

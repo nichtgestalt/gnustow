@@ -3,10 +3,13 @@ return {
 	opts = {
    	window = {
 			backdrop = 1,
-			width = 110,
+			width = 100,
          options = {
          	number = false,
          	relativenumber = false,
+				ruler = false,
+				showcmd = false,
+				laststatus = 0,
          },
       },
 		plugins = {
@@ -17,3 +20,5 @@ return {
 		},
 	},
 }
+
+-- how about the twilight plugin from folke ?

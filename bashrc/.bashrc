@@ -69,3 +69,4 @@ ex ()
 #shopt -s cdspell
 
 #colorscript -e zwaves
+cat ~/reminder.txt
