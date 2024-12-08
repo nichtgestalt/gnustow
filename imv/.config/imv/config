@@ -36,7 +36,8 @@ s = scaling next
 <Shift+S> = upscaling next
 z = zoom actual
 b = exec cp $imv_current_file ~/.config/imv/wallpaper && notify-send "Wallpaper set" && swaybg -m fill -i ~/.config/imv/wallpaper &
-
+q = quit
+x = quit
 
 # Rotate Clockwise by 90 degrees
 <Ctrl+r> = rotate by 90

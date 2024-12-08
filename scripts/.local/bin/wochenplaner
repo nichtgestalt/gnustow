@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Überprüfen, ob ein Wochentag als Argument übergeben wurde
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <Wochentag>"
+    exit 1
+fi
+
+# Wochentag aus Argument übernehmen
+day="$1"
+file="${day}.csv"
+
+echo "Tagesplanung für ${day}"
+echo "Deine Punkte werden in '${file}' gespeichert. Drücke Enter, um das Planen zu beenden."
+
+# Variable zum Speichern der Punkte
+points=""
+
+# While-Schleife zur Eingabe der Punkte
+while true; do
+    printf "Neuer Punkt: "
+    read input
+
+    # Abbrechen, wenn keine Eingabe
+    if [ -z "$input" ]; then
+        # Speichern der Punkte in die Datei, falls sie existieren
+        if [ -n "$points" ]; then
+            echo "$points" > "$file"
+        fi
+        echo "Planung für ${day} abgeschlossen."
+        break
+    fi
+
+    # Punkt zur Liste hinzufügen, getrennt durch Kommata
+    if [ -z "$points" ]; then
+        points="$input"
+    else
+        points="${points},$input"
+    fi
+done
+

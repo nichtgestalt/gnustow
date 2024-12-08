@@ -5,6 +5,9 @@
 #|_| |_|\__, |
 #       |___/ 
 
+### änderung:
+### sed -i '/^family /c\family = "Luxi Mono"' $config
+
 config="$HOME/.config/alacritty/alacritty.yml"
 
 declare -a options=(

@@ -1,0 +1,71 @@
+#!/bin/sh
+
+THUMB_DIR="/tmp/lf_thumbs"
+mkdir -p "$THUMB_DIR"
+
+show_metadata() {
+	local file="$1"
+	echo "Meta data for:\t$(basename "$file")"
+
+	case "$(file --mime-type -Lb "$file")" in
+		audio/*|video/*)
+	   	# Metadaten für Audio- und Videodateien mit ffprobe
+	   	ffprobe -v error \
+	   		-show_entries format=filename,size,duration,bit_rate \
+	   		-of default=noprint_wrappers=1:nokey=1 "$file" 2>/dev/null | \
+	   	awk '
+			BEGIN {FS="\n"; OFS="\t"}
+                NR==1 {print "Dateiname", $0}
+                NR==2 {print "Größe\t", int($0 / 1024) " KB"}
+                NR==3 {printf "Dauer\t\t%.2f Sekunden\n", $0}
+                NR==4 {print "Bitrate\t", int($0 / 1000) " kbps"}'
+			;;
+		image/*)
+	   	# Metadaten für Bilder mit identify (ImageMagick)
+	   	identify -format "  Format: %[format]\n  Größe: %[width]x%[height]\n  Farbtiefe: %[depth]-bit\n" "$file" 2>/dev/null
+	   	;;
+		*)
+			# Allgemeine Metadaten für andere Dateitypen
+			file "$file"
+			;;
+	esac
+	#echo "### Ende der Metadaten ###"
+}
+
+# Dateityp ermitteln
+case "$(file --mime-type -Lb "$1")" in
+	image/*)
+		# Vorschau für Bilder (256x144) mit chafa
+		THUMB_PATH="$THUMB_DIR/$(basename "$1").png"
+		if [ ! -f "$THUMB_PATH" ]; then
+			convert "$1" -resize 256x144\! "$THUMB_PATH"
+		fi
+		chafa "$THUMB_PATH"
+		;;
+	video/*)
+		# Vorschau für Videos mit ffmpegthumbnailer und chafa
+		THUMB_PATH="$THUMB_DIR/$(basename "$1").png"
+		ffmpegthumbnailer -i "$1" -o "$THUMB_PATH" -t 100 -s 256 2>/dev/null
+		if [ -f "$THUMB_PATH" ]; then
+			chafa "$THUMB_PATH"
+		else
+			show_metadata "$1"
+		fi
+		;;
+	audio/mpeg)
+		# Vorschau für MP3 mit eingebettetem Thumbnail
+		THUMB_PATH="$THUMB_DIR/$(basename "$1").jpg"
+		if [ ! -f "$THUMB_PATH" ]; then
+			ffmpeg -i "$1" -an -vcodec png -vf "scale=256:144" "$THUMB_PATH" -y 2>/dev/null
+		fi
+		if [ -f "$THUMB_PATH" ]; then
+			chafa "$THUMB_PATH"
+		else
+			show_metadata "$1"
+		fi
+ 		;;
+	*)
+		# Fallback für andere Dateitypen
+		bat --color=always --theme="base16" "$1" 2>/dev/null || cat "$1"
+		;;
+esac

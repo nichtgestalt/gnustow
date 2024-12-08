@@ -1,0 +1,65 @@
+New Maschine
+
+Problem:
+- Kauf eines neuen Computers/Laptops
+- Einstellungen, Programme u. Betriebssystem allgemein soll auf neue maschiene übertragen werden
+- Ausnahme: Media (Bilder, Video, Musik, usw.)
+
+Konzept:
+
+* Gui (Zenity)
+* Nutzer soll auswählen können, welche Programme er auf das neue System übertragen will (antickern von Optionen)
+* Gui soll sowohl nice für Normies sein, als auch für Poweruser nützlich (config file?)
+
+
+
+Welche Files sollen übertragen werden?
+
+1. Antickern von vorgegebenen Optionen (auch SSH keys!!!)
+2. Manuelles Auswählen optional
+
+Name des neuen Nutzers
+
+- Ziel: Name des neuen Nutzers kann während des Setups frei gewählt werden
+
+Verbinden der Computer
+
+- Wlan (erste Wahl): 
+	1. Welche Vorraussetzungen sind hierfür notwendig?
+	2. Muss ich die void-install.iso Datei ändern, damit wlan per default aktiviert ist?
+	3. Muss ich eigenes install.iso generieren?
+	4. Kann ich dort die Anmeldedaten über Wlan speichern, damit sich die neue maschiene automatisch verbindet?
+- Ethernet Kabel
+
+1. Welche Vorraussetzungen sind hierfür notwendig?
+
+- Verbindung mit Netzwerk (Ad-hoc)
+- SSH (Firewall) ohne password (lege ich einen neuen ssh-key an? dieser wird nach erfolgreicher Übertragung gelöscht)
+- IP Adresse des neuen PC -> gesendet von neuem pc nach bootsequenz, wird beim Öffnen des Terminals ausgegeben (Fancy: Erstellen eines Wallpapers (image magick), das die IP Adresse abbildet)
+
+2. Muss ich die void-install.iso Datei ändern, damit wlan per default aktiviert ist? (ja)
+
+- Muss DE enthalten (Kde? Gnome? Xfce?)
+- Netzwerkverbindungen mit alter Maschine (Via Runit? oder Bereits vorhandenes File)
+
+Back up Plan: Verbindung via Ethernet Kabel
+
+Ich benötige:
+
+- Ein Script, womit ich die Installation von void linux automatisiere.
+- Eigenes Tarball, welches ich zuvor via Zenity script erstellt habe.
+
+Abfolge:
+
+- Custom Iso
+	Zenity für das Erstellen des Custom.iso ?!
+	- Beim Erstellen der Iso kann angetickert werden, welche DE ich nutzen will
+	- Ich ticker an, welchen USB stick ich nutzen will (Rootfs wird verborgen)
+	- Ich trage den Netzwerknamen ein oder ticker an, ob sich direkt mit der am verbunden werden soll
+- Boot neuer Maschine in Custom.iso
+- Alte Maschine(am):
+	1. Auswahl der zu übertragenen Daten
+	2. Erstellen eines Tarball
+	3. Ausführen des Installationsscriptes. Dieses bedient sich beim eben erstellten Tarball
+	4. (opt.) Diff für den Abgleich: Ob alles ordnungsgemäß übertragen wurde, wird über ein diff-cmd ermittelt.
+	5. Reboot der neuen Maschine

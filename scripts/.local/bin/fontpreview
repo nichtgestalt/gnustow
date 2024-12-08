@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Variablen
+FONT_DIR="/usr/share/fonts"
+TEMP_IMAGE="$HOME/.cache/fontpreview.png"
+
+# Schritt 1: Schriftarten durchsuchen
+FONTS=$(find "$FONT_DIR" -type f \( -name "*.ttf" -o -name "*.otf" \))
+
+# Schritt 2: Schriftauswahl über Rofi
+SELECTED_FONT=$(echo "$FONTS" | rofi -dmenu -i -theme ~/.config/rofi/theme02.rasi -p "Wähle eine Schriftart")
+
+# Überprüfen, ob eine Schriftart ausgewählt wurde
+if [ -z "$SELECTED_FONT" ]; then
+    echo "Keine Schriftart ausgewählt!"
+    exit 1
+fi
+
+# Schriftartname extrahieren
+FONT_NAME=$(basename "$SELECTED_FONT" | sed 's/\.[^.]*$//')
+
+# Schritt 3: Beispieltext definieren
+EXAMPLE_TEXT="Eleganz durch Einfachheit\nDo one thing and do it well\nAlphabet: $FONT_NAME"
+
+# Schritt 4: Bild mit ImageMagick erstellen
+convert -size 800x600 xc:white \
+    -font "$SELECTED_FONT" \
+    -pointsize 36 \
+    -gravity center \
+    -annotate +0+0 "$EXAMPLE_TEXT" \
+    "$TEMP_IMAGE"
+
+# Schritt 5: Bild in Swappy öffnen
+swappy -f "$TEMP_IMAGE"

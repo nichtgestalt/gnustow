@@ -1,0 +1,38 @@
+#!/bin/sh
+
+media_dir() {
+	choice=$(ls -1d $HOME/media/music/*/ | awk -F"/" '{print $(NF-1)}' | rofi -dmenu -p 'Music')
+	[ -z $choice ] && exit
+	mdir=$HOME/media/music/$choice
+	pkill mpv
+	mpv --no-terminal --no-video --quiet --shuffle $mdir &
+}
+
+live_wallpaper() {
+		dnwp_choice=$(ls -1d $HOME/media/video/livewallpaper/* | awk -F"/" '{print $NF}' | rofi -dmenu -p 'Live Wallpaper' -theme ~/.config/rofi/theme02.rasi)
+		[ -z $dnwp_choice ] && exit
+		dnwp_file=$HOME/media/video/livewallpaper/$dnwp_choice
+		pkill mpv
+		mpvpaper -o "--script=~/.config/mpv/scripts/mpris.so" '*' $dnwp_file &
+}
+
+thumbnail() {		
+	musicdir=$HOME/media/music/
+	playlist=$HOME/.local/share/playlist.m3u
+	find $musicdir -name *.mp3 -o -name *.flac > $playlist
+	tn_choice=$(awk -F"/" '{print NR-1 " " $NF}' $playlist | shuf | rofi -dmenu -p 'Thumbnail' -theme ~/.config/rofi/theme02.rasi | awk '{print $1}' )
+	[ -z $tn_choice ] && exit
+	pkill mpv
+	mpvpaper '*' $playlist -o "--playlist-start=$tn_choice --script=~/.config/mpv/scripts/mpris.so --shuffle"
+}
+
+case $1 in
+	'--media-dir')
+		media_dir ;;
+	'--live-wallpaper')
+		live_wallpaper ;;
+	'--thumbnail')
+		thumbnail ;;
+esac
+
+# version 0.2

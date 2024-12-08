@@ -20,11 +20,11 @@ require("lazy").setup("plugins")
 --  / /\  /  __/ (_) \ V /| | | | | | |
 --  \_\ \/ \___|\___/ \_/ |_|_| |_| |_|   ~ by nichtgestalt
 
-
 -- import files
 require("keybindings")
 require("colorscheme")
 require("custom_colors")
+require("snippets")
 
 -- set transparency
 -- vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 }) -- only with termgui colors enabled

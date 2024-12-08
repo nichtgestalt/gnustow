@@ -1,0 +1,6 @@
+= Camera Script =
+
+Icon in Bar
+> Rofi (dmenu style?)
+>> Spiegelreflex
+>> USB Webcam in mpv

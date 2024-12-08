@@ -1,0 +1,5 @@
+= List Usb Devices =
+
+- based on lsusb + bugswriter video
+- Piped into Rofi
+- Choosed device auf PC nutzbar
