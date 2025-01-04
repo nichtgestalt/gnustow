@@ -1,0 +1,87 @@
+#!/bin/sh
+
+# Verzeichnis mit den Dateien (aktuell das Arbeitsverzeichnis)
+dir="$HOME/media/office/data/"
+
+# Farben definieren
+gruen='\033[32m'
+orange='\033[33m'
+dunkelrot='\033[1;91m'
+hellschwarz='\033[90m'
+reset='\033[0m'
+
+# Regex für das Dateiformat TT.MM.JJJJ.txt
+regex='^[0-9]{2}\.[0-9]{2}\.[0-9]{4}\.txt$'
+
+# Temporäre Datei für die sortierte Liste
+tempfile=$(mktemp)
+
+# Dateien filtern und sortieren
+find "$dir" -maxdepth 1 -type f | while read -r file; do
+    filename=$(basename "$file")
+    
+    # Dateiname prüfen
+    if ! echo "$filename" | grep -Eq "$regex"; then
+        continue
+    fi
+
+    # Datum extrahieren und in JJJJ-MM-TT umwandeln
+    tag=$(echo "$filename" | cut -d. -f1)
+    monat=$(echo "$filename" | cut -d. -f2)
+    jahr=$(echo "$filename" | cut -d. -f3 | cut -d- -f1)
+
+    # Unix-Zeitstempel für die Sortierung berechnen
+    termin=$(date -d "$jahr-$monat-$tag" +%s 2>/dev/null || echo 0)
+    [ "$termin" -eq 0 ] && continue  # Ungültige Daten überspringen
+
+    # Dateipfad und Zeitstempel speichern
+    echo "$termin $file" >> "$tempfile"
+done
+
+# Aktuelles Datum und Wochenstart/-ende berechnen
+heute=$(date +%s)
+wochenstart=$(date -d "last sunday" +%s)
+wochenende=$(date -d "next sunday" +%s)
+
+# Ausgabe starten
+echo
+
+# Dateien nach Zeitstempel sortieren und verarbeiten
+sort -n "$tempfile" | while read -r termin file; do
+    # Datum extrahieren
+    filename=$(basename "$file")
+    datum="${filename%.txt}"
+
+    # Differenz in Tagen berechnen
+    diff=$(( (termin - heute) / 86400 ))
+
+    # Zeitdifferenz in Wochen und Tagen berechnen
+    wochen=$(( diff / 7 ))
+    tage=$(( diff % 7 ))
+
+    # Farbe je nach verbleibender Zeit auswählen
+    if [ "$termin" -ge "$wochenstart" ] && [ "$termin" -le "$wochenende" ]; then
+        farbe=$dunkelrot  # In dieser Woche
+    elif [ "$diff" -gt 14 ]; then
+        farbe=$gruen  # Mehr als 2 Wochen entfernt
+    elif [ "$diff" -ge 0 ]; then
+        farbe=$orange  # Innerhalb der nächsten 2 Wochen
+    else
+        farbe=$dunkelrot  # Bereits vergangen
+    fi
+
+    # Datum mit Farbe ausgeben
+    #printf "%b%s%b (%b%dw %dd%b)\n" "$farbe" "$datum" "$reset" "$hellschwarz" "$wochen" "$tage" "$reset"
+    printf "%b%s%b %b(%dw %dd)%b\n" "$farbe" "$datum" "$reset" "$hellschwarz" "$wochen" "$tage" "$reset"
+
+    # Aufgaben einrücken und in Originalreihenfolge ausgeben
+    while IFS= read -r aufgabe; do
+        printf "  %s\n" "$aufgabe"
+    done < "$file"
+
+    # Leerzeile hinzufügen
+    echo
+done
+
+# Temporäre Datei löschen
+rm -f "$tempfile"

@@ -9,7 +9,7 @@
 
 set adjust-open "best-fit"
 
-set recolor true
+set recolor false
 set recolor-lightcolor		"#282c34"
 set recolor-darkcolor		"#ffffff"
 set statusbar-fg			"#eff0f1"	

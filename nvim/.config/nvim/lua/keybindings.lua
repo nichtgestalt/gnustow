@@ -5,8 +5,8 @@ local map = vim.api.nvim_set_keymap
 map('n', '<leader>f', 'za',                        {noremap = true, silent = false})
 
 -- follow file paths
---map('n', '<cr>', 'gf',                             {noremap = true, silent = false})
---map('n', '<bs>', ':bprevious<CR>',                 {noremap = true, silent = false})
+map('n', '<cr>', 'gf',                             {noremap = true, silent = false})
+map('n', '<bs>', ':bprevious<CR>',                 {noremap = true, silent = false})
 
 -- softpencil
 map('n', '<leader>sp', ':SoftPencil<CR>',           {noremap = true, silent = false})

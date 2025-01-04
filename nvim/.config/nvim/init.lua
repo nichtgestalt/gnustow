@@ -24,7 +24,6 @@ require("lazy").setup("plugins")
 require("keybindings")
 require("colorscheme")
 require("custom_colors")
-require("snippets")
 
 -- set transparency
 -- vim.api.nvim_set_hl(0, "ZenBg", { ctermbg = 0 }) -- only with termgui colors enabled

@@ -1,6 +1,6 @@
 [general]
 import = [
-	"~/.config/alacritty/themes/breeze.toml",
+"~/.config/alacritty/themes/onedark.toml"
 ]
 
 [env]
@@ -14,10 +14,9 @@ title = "Alacritty"
 dynamic_title = true
 
 [font]
-size = 14.0
+size = 15.0
 
 [font.normal]
-#family = "Luxi Mono"
 family = "Hack Nerd Font"
 style = "Regular"
 
@@ -49,5 +48,10 @@ osc52 = "CopyPaste"
 [mouse]
 hide_when_typing = true
 bindings = [
-{ mouse = "Middle", mods = "Control", action = "Paste" },
+	{ mouse = "Middle", 		mods = "Control", 		action = "Paste" 		},
+]
+
+[keyboard]
+bindings = [
+	{ key = "S",				mods = "Alt",				command = "alfont"	},
 ]

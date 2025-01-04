@@ -1,0 +1,74 @@
+Roadmap
+
+- Designen und Schreiben von Anamnesebögen (Gelenke)
+  - Funktionstests
+  - Bewegungsmessungen
+  - Umfangsmessungen
+  + Dokument sollen dem PT so viel Schreibarbeit wie möglich abnehmen
+- Erstellen der png Files
+- Allgemeine Anamnesebögen
+- Erste Befundseite; falls gegeben können hier die pers. Daten bereits beim Erstellen eingefügt werden
+- Letzte Befundseite (Auswertung)
++ Schreiben der Anatomie Datenbanken
+
+Kommandos und Scriptideen
+
+Zur Eingabe von Texten in Therapieberichten:
+$	zenity --text-info --editable --title="<Titel>"
+
+Vorgang für das Erstellen eines Anamnesebogens
+- Für jedes Gelenk existiert ein Anamnesebogen
+- Aufbau des jeweiligen Anamnesebogens klären
+- Kommando so wie folgt aussehen:
+	$	anamnese --genum --coxae --lumbalis
+- Dies erstellt ein pdf mit folgenden Seiten
+	+ Persönliche Daten des Patienten
+	+ Allgemeine Anamnese
+	+ Befund Kniegelenk
+	+ Befund Hüftgelenk
+	+ Befund Lendenwirbelsäule
+	+ Zusammenfassung/Auswertung
+* Welche Probleme sind zu lösen?
+	+ Seitenzahl (Zusammenstellen durch 'cat' command?)
+
+Terminal Version (Konzepte)
+- TUI oder ncurses ?
+- Neovim als Interface? (es wird eine Art config file erstellt mit einfacher Syntax, in dem angetickert wird, welche Seiten benötigt werden)
+
+Premium Version
+- Gui mit Zenity
+- Antickern von Befundbögen, welche benötigt werden
+- Schreiben von Therapieberichten, Protokollierung in Textfeldern
+
+
+
+File structure & naming
+
+! Beachte: Anonymisierung via Pseudonym
+! Auf Zielrechner gibt es keine konkrete persönliche Daten
+! Externes Medium mit UUID wird benötigt, um reibungslosen Workflow zu gewährleisten
+
+.src/
+- beinhaltet Quellcode für Groff
+
+Persönliche Patientendaten - csv
+- UUID Name Vorname Geburtsdatum(tt.mm.jjjj) Straße Haußnummer PLZ Ort Telefon Email
+- field seperator: space
+
+Behandlungsprotokolle - (json)
+therapiebericht_ttmmjjjj.pdf
+anamnese_ttmmjjjj.pdf
+exercise_ttmmjjjj.pdf
+
+
+Anatomie Archive
+Ziele:
+  Schnelles Durchsuchen nach relevanten Informationen
+  (z.B. "Welche Muskeln führen Bewegungen im Kniegelenk aus?")
+  
+  Veranschaulichen von anatomischen Strukturen
+
+  Ferner:
+    Lernen von json, Python, Scripting
+    Präsentation (via Send?)
+  

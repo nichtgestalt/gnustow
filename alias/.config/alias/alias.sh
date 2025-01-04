@@ -42,13 +42,14 @@ alias csv='cd $HOME/media/office/csv/ && ls -1'
 alias aww='cd $HOME/media/office/awk && ls -1'
 alias cc='cd $HOME/projects/exercise/ && ls -1'
 alias off='cd $HOME/media/office && ls -1'
-alias pt='cd $HOME/media/design/physiotherapy/ && ls -1'
+alias pt='cd $HOME/physiotherapy/ && ls -1'
 
 # office
 alias nt='notetaker'
 alias fnt='column -t -s";" $HOME/media/office/csv/ideas.csv'
 alias vnt='$EDITOR $HOME/media/office/csv/ideas.csv'
 alias harmful='column -t -s"," $HOME/media/office/csv/harmful.csv'
+alias timr='echo && cal && terminplaner'
 
 # others
 alias dmtest='sddm-greeter-qt6 --test-mode'

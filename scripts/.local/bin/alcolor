@@ -11,7 +11,7 @@ Terminal=alacritty
 
 case $1 in
 	'--set')
-		ls $themdir | shuf | rofi -dmenu -l 10 -p 'Alacritty colors' | xargs -I {} sed -i '/^import/c\import = ["~/.config/alacritty/themes/{}",]' $config ;;
+		ls $themdir | shuf | rofi -dmenu -l 10 -p 'Alacritty colors' | xargs -I {} sed -i '/^"~/c\"~/.config/alacritty/themes/{}"' $config ;;
 	'--print')
 		themename=$(grep -wo "[a-zA-Z0-9_.-]*.toml" $config | xargs -I {} basename --suffix=.toml {}) &&
 		echo $themename ;;

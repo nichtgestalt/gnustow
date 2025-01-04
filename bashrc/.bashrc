@@ -3,7 +3,7 @@
 # | '_ \ / _` / __| '_ \| '__/ __|
 # | |_) | (_| \__ \ | | | | | (__ 
 # |_.__/ \__,_|___/_| |_|_|  \___|
-
+ 
 
 # import files
 source ~/.config/alias/alias.sh
@@ -69,4 +69,5 @@ ex ()
 #shopt -s cdspell
 
 #colorscript -e zwaves
-cat ~/reminder.txt
+
+#cat ~/reminder.txt

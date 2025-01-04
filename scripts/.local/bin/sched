@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# prompt for entering date
+printf "Enter date (DD.MM.YYYY): "
+read -r datum
+
+# set directory name
+file="$HOME/media/office/data/${datum}.txt"
+
+# create file if it does not exists
+[ -f "$file" ] || touch "$file"
+
+# loop for tasks
+while :; do
+    printf "Enter tasks: "
+    read -r todo
+
+    # cancelation condition
+    [ -z "$todo" ] && break
+
+    # print it to file
+    echo "- $todo" >> "$file"
+    echo "$todo added."
+done
+
+echo "Tasks are stored into ${file}."
